@@ -45,10 +45,22 @@
 ## Technologies Used
 
 ### Languages
+- [HTML](https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/HTML_basics)
+- [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)
+- [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+- [Python](https://www.python.org/)
+- [Jinja](https://jinja.palletsprojects.com/en/3.1.x/)
 
 ### Libraries + Frameworks
+- [Flask](https://flask.palletsprojects.com/en/2.1.x/)
+- [Bootstrap](https://getbootstrap.com/)
+- [jQuery](https://jquery.com/)
+- [MongoDB](https://www.mongodb.com/)
 
 ### Design
+- [Figma](https://www.figma.com/)
+- [Font Awesome](https://fontawesome.com/)
+- [Google Fonts](https://fonts.google.com/)
 
 ## Testing
 
