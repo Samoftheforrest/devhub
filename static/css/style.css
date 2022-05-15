@@ -1,0 +1,36 @@
+/* import fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Source+Sans+Pro&display=swap');
+
+/* variables */
+:root {
+    --brand-colour: #3CB35A;
+    --dark-colour: #03012C;
+    --mid-colour: #635E79;
+    --light-colour: #FFFFFF;
+}
+
+/* CSS reset */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* general styles */
+body {
+    font-family: 'Source Sans Pro';
+    font-size: 62.5%;
+}
+
+/* title font */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat';
+}
+
+h1 {
+    font-weight: 700;
+}
+
+h2, h3, h4, h5, h6 {
+    font-weight: 600;
+}
