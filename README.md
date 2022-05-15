@@ -1,5 +1,10 @@
 # DevHub
 
+**User credentials**
+To use the website, you may either create your own account, or use the following test user credentials:
+- Username:
+- Password:
+
 ## Goals For This Project
 
 ## Table of Contents
@@ -51,6 +56,8 @@ I used a pairing of two [Google Fonts](https://fonts.google.com/) - [Montserrat]
 ### Existing Features
 
 ### Features to be Implemented
+- Upvoting/Downvoting:
+- 
 
 ## Technologies Used
 
