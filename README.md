@@ -32,6 +32,7 @@ The colours used were:
 - `#FFFFFF`: This colour is used as the primary background colour, and text colour on dark backgrounds.
 
 #### Fonts
+I used a pairing of two [Google Fonts](https://fonts.google.com/) - [Montserrat](https://fonts.google.com/specimen/Montserrat?query=montserrat) for titles and [Source Sans Pro](https://fonts.google.com/specimen/Source+Sans+Pro?query=source+sans+pro) for regular text - based on the recommendation of [this article on Coral Nodes](https://www.coralnodes.com/best-google-font-combinations/).
 
 #### Accessibility
 
