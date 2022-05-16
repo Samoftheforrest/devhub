@@ -44,10 +44,34 @@ I used a pairing of two [Google Fonts](https://fonts.google.com/) - [Montserrat]
 ### Wireframes
 
 #### Desktop
+- [Home Screen](docs/wireframes/homepage-desktop.png)
+- [Project Page](docs/wireframes/individual-project-desktop.png)
+- [Add/Edit Project](docs/wireframes/add-edit-project-desktop.png)
+- [Profile Page](docs/wireframes/profile-page-desktop.png)
+- [Edit Profile](docs/wireframes/edit-profile.desktop.png)
+- [Login/Register](docs/wireframes/login-register-desktop.png)
+- [Contact Page](docs/wireframes/contact-page-desktop.png)
+- [Base Template](docs/wireframes/base-template.png)
 
 #### Tablet
+- [Home Screen](docs/wireframes/homepage-tablet.png)
+- [Project Page](docs/wireframes/individual-project-tablet.png)
+- [Add/Edit Project](docs/wireframes/add-edit-project-tablet.png)
+- [Profile Page](docs/wireframes/profile-page-tablet.png)
+- [Edit Profile](docs/wireframes/edit-profile.tablet.png)
+- [Login/Register](docs/wireframes/login-register-tablet.png)
+- [Contact Page](docs/wireframes/contact-page-tablet.png)
+- [Menu](docs/wireframes/menu-tablet.png)
 
 #### Mobile
+- [Home Screen](docs/wireframes/homepage-mobile.png)
+- [Project Page](docs/wireframes/individual-project-mobile.png)
+- [Add/Edit Project](docs/wireframes/add-edit-project-mobile.png)
+- [Profile Page](docs/wireframes/profile-page-mobile.png)
+- [Edit Profile](docs/wireframes/edit-profile.mobile.png)
+- [Login/Register](docs/wireframes/login-register-mobile.png)
+- [Contact Page](docs/wireframes/contact-page-mobile.png)
+- [Menu](docs/wireframes/menu-mobile.png)
 
 ### UX/UI Flowchart
 
