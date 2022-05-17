@@ -44,9 +44,13 @@ ol, ul {
 }
 
 /* general styles */
+html {
+    font-size: 62.5%;
+}
+
 body {
     font-family: 'Source Sans Pro';
-    font-size: 62.5%;
+    font-size: 1.6rem;
 }
 
 /* title font */
@@ -57,10 +61,31 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 {
     font-weight: 700;
+    font-size: 5rem;
 }
 
 h2, h3, h4, h5, h6 {
     font-weight: 600;
+}
+
+/* page titles */
+.page-title {
+    margin: 1.5rem 0 5rem 0;
+    position: relative;
+    display: inline-block;
+}
+
+.page-title::before {
+    content: '';
+    display: inline-block;
+    height: 3rem;
+    width: 95%;
+    background: var(--brand-colour);
+    position: absolute;
+    bottom: 2px;
+    left: 1.8rem;
+    z-index: -1;
+    opacity: 0.75;
 }
 
 /* nav */
@@ -80,9 +105,8 @@ h2, h3, h4, h5, h6 {
 }
 
 #sidebar ul li {
-    margin-bottom: 10px;
+    margin-bottom: 1rem;
     text-align: center;
-    padding: 25px;
     border-bottom: 2px solid var(--mid-colour);
 }
 
@@ -95,8 +119,15 @@ h2, h3, h4, h5, h6 {
 
 #sidebar ul a {
     color: var(--light-colour);
-    font-size: 1.6rem;
+    font-size: 2.5rem;
+    padding: 2.5rem;
     text-decoration: none;
+    font-weight: 700;
+    display: inline-block;
+}
+
+#sidebar ul .active {
+    background: var(--brand-colour);
 }
 
 #sidebar .main-logo {
@@ -111,11 +142,13 @@ h2, h3, h4, h5, h6 {
 }
 
 #sidebar ul i {
-    font-size: 2rem;
+    font-size: 2.5rem;
 }
 
 .tooltip {
-    margin-left: 10px !important;
+    margin-left: .4rem !important;
+    font-size: 1.6rem;
+    opacity: 1 !important;
 }
 
 .tooltip > .tooltip-inner {
