@@ -10,10 +10,37 @@
 }
 
 /* CSS reset */
-* {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+
+body {
+	line-height: 1;
+}
+
+ol, ul {
+	list-style: none;
 }
 
 /* general styles */
@@ -25,6 +52,7 @@ body {
 /* title font */
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Montserrat';
+    text-transform: uppercase;
 }
 
 h1 {
@@ -33,4 +61,59 @@ h1 {
 
 h2, h3, h4, h5, h6 {
     font-weight: 600;
+}
+
+/* nav */
+#sidebar {
+    background: var(--dark-colour);
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+}
+
+#sidebar ul {
+    list-style: none;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+#sidebar ul li {
+    margin-bottom: 10px;
+    text-align: center;
+    padding: 25px;
+    border-bottom: 2px solid var(--mid-colour);
+}
+
+#sidebar ul li:last-child {
+    margin-top: auto;
+    border-bottom: none;
+    border-top: 2px solid var(--mid-colour);
+    margin-bottom: 0;
+}
+
+#sidebar ul a {
+    color: var(--light-colour);
+    font-size: 1.6rem;
+    text-decoration: none;
+}
+
+#sidebar .main-logo {
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+#sidebar .main-logo span {
+    display: block;
+    position: relative;
+    text-align: left;
+}
+
+#sidebar ul i {
+    font-size: 2rem;
+}
+
+.tooltip > .tooltip-inner {
+    background: var(--brand-colour);
 }

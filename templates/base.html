@@ -23,9 +23,36 @@
         <!-- flash messages -->
     </section>
 
-    <main class="container">
-        {% block content %}
-        {% endblock %}
+
+    <main class="wrapper">
+
+        <!-- sidebar -->
+        <nav id="sidebar">
+            <ul>
+                <li>
+                    <a href="#" class="main-logo">
+                        <span>Dev</span>
+                        <span>Hub</span>
+                    </a>
+                </li>
+                <li><a href="#" aria-label="Add new project" data-bs-toggle="tooltip" title="Add a new project"><i class="fa-solid fa-plus"></i></a></li>
+                <li><a href="#" aria-label="contact" data-bs-toggle="tooltip" title="Contact"><i class="fa-solid fa-envelope"></i></a></li>
+                <li><a href="#" aria-label="login or register" data-bs-toggle="tooltip" title="Login/Register"><i class="fa-solid fa-arrow-right-to-bracket"></i></a></li>
+                <li><a href="#" aria-label="Go to your profile" data-bs-toggle="tooltip" title="Your Profile">S</a></li>
+            </ul>
+        </nav>
+
+        <!-- page content -->
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-11 offset-lg-1">
+                    <section>
+                        {% block content %}
+                        {% endblock %}
+                    </section>
+                </div>
+            </div>
+        </div>
     </main>
 
     <footer>
