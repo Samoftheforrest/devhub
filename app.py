@@ -19,6 +19,7 @@ mongo = PyMongo(app)
 
 # pages
 @app.route("/")
+@app.route("/home")
 def home_page():
     projects = list(mongo.db.projects.find())
     return render_template("home.html", projects=projects)
