@@ -158,3 +158,17 @@ h2, h3, h4, h5, h6 {
 .tooltip .tooltip-arrow::before {
     border-right-color: var(--brand-colour) !important;
 }
+
+/* project cards */
+
+.project-card:hover .project-card-image img, .project-card:focus .project-card-image img {
+    transform: scale(1.1);
+}
+
+.project-card-image {
+    overflow: hidden;
+}
+
+.project-card-image img {
+    transition: all .3s;
+}
