@@ -32,7 +32,7 @@ For this project, I used the pre-made ['Enviro'](https://colorhub.vercel.app/sel
 
 The colours used were:
 - `#3CB35A`: This colour was used as the brand colour, used mostly on call to action buttons/links, or anything else that I wanted to focus the user's attention to.
-- `#03012C`: This colour was used as the primary colour for text (on a white background), and to give a contrasting background to some sections - such as the sidebar.
+- `#1E293B`: This colour was used as the primary colour for text (on a white background), and to give a contrasting background to some sections - such as the sidebar.
 - `#635E79`: This colour was used sparingly either as text decoration or borders - I chose this colour as I felt it is fairly subtle/understated.
 - `#FFFFFF`: This colour is used as the primary background colour, and text colour on dark backgrounds.
 
@@ -127,5 +127,6 @@ Add screenshot for each test
 ### Deployment
 
 ## Credits
+- [This article](https://medium.com/mkdir-awesome/how-to-change-the-bootstrap-5-tooltip-background-and-arrow-color-67e6c5aea510#:~:text=You%20can%20add%20different%20Bootstrap,the%20data%2Dbs%2Dpalcement%20.&text=By%20aiming%20.,you%20can%20change%20the%20color.) helped me to figure out how to style the Bootstrap tooltips (used in the nav).
 
 ### General Thanks

@@ -4,7 +4,7 @@
 /* variables */
 :root {
     --brand-colour: #3CB35A;
-    --dark-colour: #03012C;
+    --dark-colour: #1E293B;
     --mid-colour: #635E79;
     --light-colour: #FFFFFF;
 }
@@ -114,6 +114,14 @@ h2, h3, h4, h5, h6 {
     font-size: 2rem;
 }
 
+.tooltip {
+    margin-left: 10px !important;
+}
+
 .tooltip > .tooltip-inner {
     background: var(--brand-colour);
+}
+
+.tooltip .tooltip-arrow::before {
+    border-right-color: var(--brand-colour) !important;
 }
