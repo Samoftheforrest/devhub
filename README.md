@@ -131,7 +131,7 @@ Add screenshot for each test
 
 #### Project cards different sizes depending on length of description
 - **Bug**: If the length of the project description was too long (approximately > 450 characters), it would cause the project card to expand, thus no longer aligning with its neighbouring cards (as seen in the picture below).
-[Project card bug](/static/docs/readme/bugs/bug-one.png)
+![Project card bug](/static/docs/readme/bugs/bug-one.png)
 - **Fix**: I had two potential fixes in mind for this bug: either make all cards stretch to the same height using `align-items: stretch`. However, after some research, I found that you can limit the amount of characters via Jinja's `truncate` filter - which I set to 450 characters.
 - **Verdict**: If the project's description exceeds 450 characters, it is successfully truncated, stopping the project card from expanding. I have deemed this fix a success.
 
