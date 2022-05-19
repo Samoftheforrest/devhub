@@ -1,11 +1,13 @@
 # DevHub
 
+Welcome to Devhub, the online platform for sharing your web development projects!
+
+The goal of this platform is to make sharing your projects with other devs, or finding inspriation from other devs, as simple as possible.
+
 **User credentials**
 To use the website, you may either create your own account, or use the following test user credentials:
 - Username:
 - Password:
-
-## Goals For This Project
 
 ## Table of Contents
 
@@ -79,6 +81,11 @@ I used a pairing of two [Google Fonts](https://fonts.google.com/) - [Montserrat]
 
 ### Existing Features
 
+#### Site-wide
+**Fixed nav**
+![Static nav](/static/docs/readme/features/fixed-nav.png)
+On every page on the site, the nav is either fixed to the left-side of the screen (on desktop), or slides in from the left-side of the screen (on mobile and tablet).
+
 #### Homepage
 **Project Cards**
 ![Example of two project cards](/static/docs/readme/features/homepage-project-cards.png)
@@ -94,8 +101,9 @@ There is a card containing the following information for each project:
 #### 
 
 ### Features to be Implemented
-- Upvoting/Downvoting:
-- 
+- Upvoting/Downvoting: In future iterations of this project, I would like to add up and down arrows to the project cards for (logged in) users to upvote/downvote the projects.
+- Sorting project by most popular: Once the upvoting/downvoting feature (above) was implemented, I would like the users to be able to filter the projects on the homepage by popularity, seeing which have the most upvotes.
+- Homepage pagination: On the homepage, rather than displaying every single project in a list, I think it would be beneficial to performace to only show a certain number of projects per page.
 
 ## Technologies Used
 
