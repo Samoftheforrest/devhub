@@ -35,22 +35,22 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#" aria-label="Add new project" data-bs-placement="right" data-bs-toggle="tooltip" title="Add a new project">
+                    <a href="{{ url_for('add_project') }}" aria-label="Add new project" data-bs-placement="right" data-bs-toggle="tooltip" title="Add a new project">
                         <i class="fa-solid fa-plus"></i>
                     </a>
                 </li>
                 <li>
-                    <a href="#" aria-label="contact" data-bs-placement="right" data-bs-toggle="tooltip" title="Contact">
+                    <a href="{{ url_for('contact') }}" aria-label="contact" data-bs-placement="right" data-bs-toggle="tooltip" title="Contact">
                         <i class="fa-solid fa-envelope"></i>
                     </a>
                 </li>
                 <li>
-                    <a href="#" aria-label="login or register" data-bs-placement="right" data-bs-toggle="tooltip" title="Login/Register">
+                    <a href="{{ url_for('login') }}" aria-label="login or register" data-bs-placement="right" data-bs-toggle="tooltip" title="Login/Register">
                         <i class="fa-solid fa-arrow-right-to-bracket"></i>
                     </a>
                 </li>
                 <li>
-                    <a href="#" aria-label="Go to your profile" data-bs-placement="right" data-bs-toggle="tooltip" title="Your Profile">S</a>
+                    <a href="{{ url_for('go_to_profile') }}" aria-label="Go to your profile" data-bs-placement="right" data-bs-toggle="tooltip" title="Your Profile">S</a>
                 </li>
             </ul>
         </nav>

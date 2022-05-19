@@ -18,11 +18,61 @@ app.secret_key = os.environ.get('SECRET_KEY')
 mongo = PyMongo(app)
 
 # pages
+# homepage
 @app.route("/")
 @app.route("/home")
 def home_page():
     projects = list(mongo.db.projects.find())
     return render_template("home.html", projects=projects)
+
+
+# login
+@app.route("/login")
+def login():
+    return render_template("login.html")
+
+
+# register
+@app.route("/register")
+def register():
+    return render_template("register.html")
+
+
+# add a project page
+@app.route("/new-project")
+def add_project():
+    return render_template("add-project.html")
+
+
+# edit project page
+@app.route("/edit-project")
+def edit_project():
+    return render_template("edit-project.html")
+
+
+# individual project page
+@app.route("/project") # add project name to end of URL
+def go_to_project():
+    return render_template("project.html")
+
+
+# profile page
+@app.route("/profile") # add username to end of URL
+def go_to_profile():
+    return render_template("profile.html")
+
+
+# edit profile page
+@app.route("/edit-profile")
+def edit_profile():
+    return render_template("edit-profile.html")
+
+
+# contact page
+@app.route("/contact")
+def contact():
+    return render_template("contact.html")
+
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
