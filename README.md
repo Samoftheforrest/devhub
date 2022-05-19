@@ -81,7 +81,7 @@ I used a pairing of two [Google Fonts](https://fonts.google.com/) - [Montserrat]
 
 #### Homepage
 **Project Cards**
-[Example of two project cards](/static/docs/readme/features/homepage-project-cards.png)
+![Example of two project cards](/static/docs/readme/features/homepage-project-cards.png)
 There is a card containing the following information for each project:
     - Name
     - Creator
