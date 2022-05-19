@@ -79,6 +79,20 @@ I used a pairing of two [Google Fonts](https://fonts.google.com/) - [Montserrat]
 
 ### Existing Features
 
+#### Homepage
+**Project Cards**
+[Example of two project cards](/static/docs/readme/features/homepage-project-cards.png)
+There is a card containing the following information for each project:
+    - Name
+    - Creator
+    - Link to live site
+    - Link to repository
+    - Project description
+    - Project image
+    - Project tags
+
+#### 
+
 ### Features to be Implemented
 - Upvoting/Downvoting:
 - 
@@ -115,6 +129,12 @@ Add screenshot for each test
 
 ### Bug Title
 
+#### Project cards different sizes depending on length of description
+- **Bug**: If the length of the project description was too long (approximately > 450 characters), it would cause the project card to expand, thus no longer aligning with its neighbouring cards (as seen in the picture below).
+[Project card bug](/static/docs/readme/bugs/bug-one.png)
+- **Fix**: I had two potential fixes in mind for this bug: either make all cards stretch to the same height using `align-items: stretch`. However, after some research, I found that you can limit the amount of characters via Jinja's `truncate` filter - which I set to 450 characters.
+- **Verdict**: If the project's description exceeds 450 characters, it is successfully truncated, stopping the project card from expanding. I have deemed this fix a success.
+
 #### Bug Description
 - **Bug**: 
 - **Fix**:
@@ -128,5 +148,6 @@ Add screenshot for each test
 
 ## Credits
 - [This article](https://medium.com/mkdir-awesome/how-to-change-the-bootstrap-5-tooltip-background-and-arrow-color-67e6c5aea510#:~:text=You%20can%20add%20different%20Bootstrap,the%20data%2Dbs%2Dpalcement%20.&text=By%20aiming%20.,you%20can%20change%20the%20color.) helped me to figure out how to style the Bootstrap tooltips (used in the nav).
+- [This Stack Overflow answer](https://stackoverflow.com/questions/33627646/python-flask-template-return-first-150-characters) showed me how to use Jinja's `truncate` filter, to limit the project cards to 450 characters each.
 
 ### General Thanks
