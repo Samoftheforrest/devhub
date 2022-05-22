@@ -196,3 +196,4 @@ Add screenshot for each test
 - [This Stack Overflow answer](https://stackoverflow.com/questions/8676455/flask-current-page-in-request-variable) showed me how to apply CSS classes dependent on the page the user is currently on.
 
 ### General Thanks
+- I would like to thank my mentor [Simen](https://github.com/Eventyret) for all of his feedback and support with this project.
