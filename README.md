@@ -101,6 +101,27 @@ Logged out version:
 
 ![Logged out version of nav](/static/docs/readme/features/nav-logged-out.png)
 
+**Current nav link active class**
+
+Depending on which page the user is on, the appropriate nav link will be highlighted to show which page they are on. I achieved this by using a conditional statement within the base template to add the `active` class to the nav link, i.e:
+- ```
+    <li>
+        <a href="{{ url_for('home_page') }}" class="main-logo {% if request.path=='/home' %} active {% endif %}" data-bs-placement="right" data-bs-toggle="tooltip" title="Home">
+            <i class="fa-solid fa-house"></i>
+        </a>
+    </li>
+    ```
+
+Nav with homepage icon active:
+
+![Home page with active class](/static/docs/readme/features/nav-home-active.png)
+
+Nav with contact page active:
+
+![Contact page with active class](/static/docs/readme/features/nav-contact-active.png)
+
+
+
 #### Homepage
 **Project Cards**
 ![Example of two project cards](/static/docs/readme/features/homepage-project-cards.png)
