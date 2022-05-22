@@ -104,13 +104,13 @@ Logged out version:
 **Current nav link active class**
 
 Depending on which page the user is on, the appropriate nav link will be highlighted to show which page they are on. I achieved this by using a conditional statement within the base template to add the `active` class to the nav link, i.e:
-- ```
+```
     <li>
         <a href="{{ url_for('home_page') }}" class="main-logo {% if request.path=='/home' %} active {% endif %}" data-bs-placement="right" data-bs-toggle="tooltip" title="Home">
             <i class="fa-solid fa-house"></i>
         </a>
     </li>
-    ```
+```
 
 Nav with homepage icon active:
 
@@ -193,5 +193,6 @@ Add screenshot for each test
 ## Credits
 - [This article](https://medium.com/mkdir-awesome/how-to-change-the-bootstrap-5-tooltip-background-and-arrow-color-67e6c5aea510#:~:text=You%20can%20add%20different%20Bootstrap,the%20data%2Dbs%2Dpalcement%20.&text=By%20aiming%20.,you%20can%20change%20the%20color.) helped me to figure out how to style the Bootstrap tooltips (used in the nav).
 - [This Stack Overflow answer](https://stackoverflow.com/questions/33627646/python-flask-template-return-first-150-characters) showed me how to use Jinja's `truncate` filter, to limit the project cards to 450 characters each.
+- [This Stack Overflow answer](https://stackoverflow.com/questions/8676455/flask-current-page-in-request-variable) showed me how to apply CSS classes dependent on the page the user is currently on.
 
 ### General Thanks
