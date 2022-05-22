@@ -83,18 +83,22 @@ I used a pairing of two [Google Fonts](https://fonts.google.com/) - [Montserrat]
 
 #### Site-wide
 **Fixed nav**
+
 On every page on the site, the nav is either fixed to the left-side of the screen (on desktop), or slides in from the left-side of the screen (on mobile and tablet).
 
 ![Static nav](/static/docs/readme/features/fixed-nav.png)
 
 **Nav displays different links dependent on if user if logged in/out**
+
 Depending on whether the user is logged in/out, the main nav will show different links - allowing logged in users to access more features of the website. Additionally, when a user is logged in, it shows the first letter of their username as the link to their profile - I achieved this by using using Jinja's `first` and `upper` filters, e.g.:
 - `{{ session.user | first | upper }}`
 
 Logged in version:
+
 ![Logged in version of nav](/static/docs/readme/features/nav-logged-in.png)
 
 Logged out version:
+
 ![Logged out version of nav](/static/docs/readme/features/nav-logged-out.png)
 
 #### Homepage
