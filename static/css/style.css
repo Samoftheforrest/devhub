@@ -68,6 +68,17 @@ h2, h3, h4, h5, h6 {
     font-weight: 600;
 }
 
+/* flash messages */
+.flashes {
+    position: absolute;
+    bottom: 2.5rem;
+    right: 2.5rem;
+    background: var(--brand-colour);
+    padding: 1.5rem 2rem;
+    border-radius: 0.8rem;
+    color: var(--light-colour);
+}
+
 /* page titles */
 .page-title {
     margin: 1.5rem 0 5rem 0;
@@ -106,12 +117,11 @@ h2, h3, h4, h5, h6 {
 }
 
 #sidebar ul li {
-    margin-bottom: 1rem;
     text-align: center;
     border-bottom: 2px solid var(--mid-colour);
 }
 
-#sidebar ul li:last-child {
+#sidebar ul .profile-link {
     margin-top: auto;
     border-bottom: none;
     border-top: 2px solid var(--mid-colour);
@@ -125,6 +135,7 @@ h2, h3, h4, h5, h6 {
     text-decoration: none;
     font-weight: 700;
     display: inline-block;
+    width: 100%;
 }
 
 #sidebar ul .active {
@@ -259,6 +270,63 @@ h2, h3, h4, h5, h6 {
     font-weight: 600;
     background: var(--brand-colour);
     color: var(--dark-colour);
+}
+
+/* forms */
+.form {
+    box-shadow: 0px 2px 10px 2px rgba(0,0,0,0.3);
+    padding: 5rem 3rem;
+    border-radius: 0.8rem;
+}
+
+.form .__active::after {
+    content: '';
+    display: inline-block;
+    width: 110%;
+    height: 4px;
+    background: var(--brand-colour);
+    transform: translateX(-5%);
+}
+
+.form label {
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.form input[type=text], .form input[type=password] {
+    border-radius: 4px;
+    border: 1px solid var(--mid-colour);
+    padding: 5px;
+}
+
+.form input[type=submit] {
+    padding: 1rem 2rem;
+    color: var(--light-colour);
+    background: var(--dark-colour);
+    border: none;
+    border-radius: 4px;
+    font-size: 1.8rem;
+    transition: all .3s;
+}
+
+.form input[type=submit]:hover, input[type=submit]:focus {
+    background: var(--brand-colour);
+}
+
+.form-tab {
+    font-size: 2.7rem;
+    color: var(--dark-colour);
+    text-decoration: none;
+    font-weight: 600;
+    transition: all .3s;
+    text-transform: uppercase;
+    margin: 2rem 0;
+    display: inline-block;
+    line-height: 0.5;
+}
+
+.form-tab:hover, .form-tab:focus {
+    color: var(--brand-colour);
 }
 
 /* media queries */

@@ -27,14 +27,70 @@ def home_page():
 
 
 # login
-@app.route("/login")
+@app.route("/login", methods=["GET", "POST"])
 def login():
+    if request.method == "POST":
+        # check if username exists in db
+        existing_user = mongo.db.users.find_one(
+            {"username": request.form.get("username").lower()})
+
+        if existing_user:
+            # ensure hashed password matches user input
+            if check_password_hash(
+                existing_user["password"], request.form.get("password")):
+                    session["user"] = request.form.get("username").lower()
+                    flash("Welcome, {}".format(request.form.get("username")))
+                    return redirect(url_for("home_page", username=session["user"]))
+            else:
+                # invalid password match
+                flash("Incorrect Username and/or Password")
+                return redirect(url_for("login"))
+
+        else:
+            # username doesn't exist
+            flash("Incorrect Username and/or Password")
+            return redirect(url_for("login"))
     return render_template("login.html")
 
 
+@app.route("/logout")
+def logout():
+    # remove user from session cookies
+    flash("You have been logged out")
+    session.pop("user")
+    return redirect(url_for("login"))
+
+
 # register
-@app.route("/register")
+@app.route("/register", methods=["GET", "POST"])
 def register():
+    if request.method == "POST":
+        # check if username already exists
+        existing_user = mongo.db.users.find_one(
+            {"username": request.form.get("username").lower()})
+
+        if existing_user:
+            flash("username already exists")
+            return redirect(url_for("register"))
+
+        register = {
+            "first_name": request.form.get("firstname").lower(),
+            "last_name": request.form.get("lastname").lower(),
+            "username": request.form.get("username").lower(),
+            "password": generate_password_hash(request.form.get("password"))
+        }
+        
+        if request.form.get("password") == request.form.get("confirmpassword"):
+            mongo.db.users.insert_one(register)
+
+            # put the new user into session cookie
+            session["user"] = request.form.get("username").lower()
+            flash("Registration successful")
+            return redirect(url_for("home_page"))
+        else:
+            flash("Please ensure that both passwords are exactly the same")
+
+
     return render_template("register.html")
 
 

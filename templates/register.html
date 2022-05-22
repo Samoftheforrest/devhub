@@ -6,6 +6,43 @@
             <div class="col-12">
                 <h1 class="page-title">Register</h1>
             </div>
+            <div class="col-md-6 mx-md-auto">
+                <form action="{{ url_for('register') }}" method="POST" class="form">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-6 text-center mb-3">
+                                <a href="{{ url_for('login') }}" class="form-tab">Login</a>
+                            </div>
+                            <div class="col-6 text-center mb-3">
+                                <a href="{{ url_for('register') }}" class="form-tab __active">Register</a>
+                            </div>
+                            <div class="col-md-6 d-flex flex-column mb-3">
+                                <label for="firstname">First name</label>
+                                <input type="text" name="firstname" id="firstname" pattern="^[a-zA-Z0-9]{5, 15}$" required>
+                            </div>
+                            <div class="col-md-6 d-flex flex-column mb-3">
+                                <label for="lastname">Last name</label>
+                                <input type="text" name="lastname" id="lastname" pattern="^[a-zA-Z0-9]{5, 15}$" required>
+                            </div>
+                            <div class="col-12 d-flex flex-column mb-3">
+                                <label for="username">Username</label>
+                                <input type="text" name="username" id="username" pattern="^[a-zA-Z0-9]{5, 15}$" minlength="5" maxlength="15" required>
+                            </div>
+                            <div class="col-12 d-flex flex-column mb-3">
+                                <label for="password">Password</label>
+                                <input type="password" name="password" id="password" pattern="^[a-zA-Z0-9]{5, 15}$" minlength="5" maxlength="15" required>
+                            </div>
+                            <div class="col-12 d-flex flex-column mb-3">
+                                <label for="confirmpassword">Confirm Password</label>
+                                <input type="password" name="confirmpassword" id="confirmpassword" pattern="^[a-zA-Z0-9]{5, 15}$" required>
+                            </div>
+                            <div class="col-12 mt-3">
+                                <input type="submit" value="Register" class="form-button">
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
 {% endblock %}
