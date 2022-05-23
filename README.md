@@ -15,15 +15,45 @@ To use the website, you may either create your own account, or use the following
 
 ### User Goals
 
+- Website needs to be visually appealing.
+- Ability to post your own projects.
+- Ability to comment on others' projects.
+- Functionality across various devices (mobile, tablet, desktop, etc.).
+- Ability to register, login and logout of the website.
+
 ### User Stories
+- As a user, I should be able to navigate around the site simply.
+- As a user, I should be able to add my own projects.
+- As a user, I should be able to edit my projects.
+- As a user, I should be able to log in/out.
+- As a user, logging in - or registering - should be a simple process.
+- As a user, I would like to be able to customise my profile.
+- As a user, I would like to be able to contact the site's creator.
+- As a user, I would like to be able to comment on projects: both my own, and others.
+- As a user, I should be able to access the website on a range of devices (desktop, tablet, mobile).
+- As a user, I would like to have my own profile, where I can see all of my projects.
 
 ### Site Owner's Goals
+- I would like to create a site that allows developers to easily share their projects.
+- I would like to create a web page that is visually appealing.
+- I would like to create a seemless experience across multiple devices, making it as accessible as possible.
+- I would like to make it as easy as possible to allow users to provide feedback about the site - allowing me to make revisions and improve the user experience.
 
 ### User Requirements and Expectations
 
 #### Requirements
+- Should be visually appealing.
+- Should be easily navigable.
+- Should be functional on a range of devices.
+- Feed of all projects on the site.
+- Login/logout functionality.
 
 #### Expectations
+- Ability to sign up for the website using a unique username.
+- When username and password are entered, the user should log in.
+- Certain functionality of the site should only be available when logged in.
+- When a new project is added, it should appear as part of the homepage feed.
+- When a profile is created, it should be customisable.
 
 ### Design Choices
 
@@ -140,6 +170,7 @@ There is a card containing the following information for each project:
 - Upvoting/Downvoting: In future iterations of this project, I would like to add up and down arrows to the project cards for (logged in) users to upvote/downvote the projects.
 - Sorting project by most popular: Once the upvoting/downvoting feature (above) was implemented, I would like the users to be able to filter the projects on the homepage by popularity, seeing which have the most upvotes.
 - Homepage pagination: On the homepage, rather than displaying every single project in a list, I think it would be beneficial to performace to only show a certain number of projects per page.
+- Pinned comments on projects: On each individual project page, the creator of the project will have the ability to pin a comment so that it always shows as the top comment. This may be useful for comments from the creator, to inform potential users of any updates, news, etc.
 
 ## Technologies Used
 
