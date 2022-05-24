@@ -9,7 +9,6 @@
         </div>
         <div class="row">
             {% for project in projects %}
-            {% for i in range(10) %}
             <div class="col-md-6 px-4">
                 <div class="project-card">
                     <div class="container">
@@ -30,10 +29,10 @@
                                 <div class="project-card-info-wrap">
                                     <div class="project-card-info-top d-flex flex-column flex-lg-row justify-content-between">
                                         <div class="project-title-wrap">
-                                            <h2 class="project-title mb-3 mb-lg-0"><a href="#" aria-label="Go to {{ project.project_name }} page">{{ project.project_name }} <i class="fa-solid fa-arrow-right"></i></a></h2>
-                                            <span class="project-subtitle">by <a href="#">{{ project.created_by }}</a></span>
+                                            <h2 class="project-title mb-0 mb-lg-3"><a href="#" aria-label="Go to {{ project.project_name }} page">{{ project.project_name }} <i class="fa-solid fa-arrow-right"></i></a></h2>
+                                            <span class="project-subtitle mb-3 mb-lg-0">by <a href="#">{{ project.created_by }}</a></span>
                                         </div>
-                                        <div class="project-card-links d-flex justify-content-lg-end align-items-center">
+                                        <div class="project-card-links d-flex justify-content-lg-end">
                                             <a href="{{ project.live_link }}" target="_blank" rel="noopener" aria-label="Go to {{ project.live_link }}"><i class="fa-solid fa-square-arrow-up-right"></i></a>
                                             <a href="{{ project.repo_link }}" target="_blank" rel="noopener" class="ms-3" aria-label="Go to {{ project.repo_link }}"><i class="fa-brands fa-github-square"></i></a>
                                         </div>
@@ -50,7 +49,6 @@
                     </div>
                 </div>
             </div>
-            {% endfor %}
             {% endfor %}
         </div>
     </div>

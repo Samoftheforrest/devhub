@@ -1,19 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- font awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" 
-    integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer"  type="text/css"/>
-    <!-- bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-    <!-- custom styles -->
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
-    {% block styles %}
-    {% endblock %}
-    <title>DevHub</title>
+    {% include 'layout/head.html' %}
 </head>
 <body>
     
@@ -35,48 +23,7 @@
 
     <main class="wrapper">
 
-        <div class="burger-button">
-            <span class="bar"></span>
-        </div>
-
-        <!-- sidebar -->
-        <nav id="sidebar">
-            <ul>
-                <li>
-                    <a href="{{ url_for('home_page') }}" class="main-logo {% if request.path=='/home' %} active {% endif %}" data-bs-placement="right" data-bs-toggle="tooltip" title="Home">
-                        <i class="fa-solid fa-house"></i>
-                    </a>
-                </li>
-                {% if session.user %}
-                <li>
-                    <a href="{{ url_for('add_project') }}" class="{% if request.path=='/new-project' %} active {% endif %}" aria-label="Add new project" data-bs-placement="right" data-bs-toggle="tooltip" title="Add a new project">
-                        <i class="fa-solid fa-plus"></i>
-                    </a>
-                </li>
-                <li>
-                    <a href="{{ url_for('logout') }}" aria-label="log out" data-bs-placement="right" data-bs-toggle="tooltip" title="Logout">
-                        <i class="fa-solid fa-arrow-right-to-bracket"></i>
-                    </a>
-                </li>
-                {% else %}
-                <li>
-                    <a href="{{ url_for('login') }}" class="{% if request.path=='/login' or request.path=='/register' %} active {% endif %}" aria-label="login or register" data-bs-placement="right" data-bs-toggle="tooltip" title="Login/Register">
-                        <i class="fa-solid fa-arrow-right-to-bracket"></i>
-                    </a>
-                </li>
-                {% endif %}
-                {% if session.user %}
-                <li>
-                    <a href="{{ url_for('contact') }}" class="{% if request.path=='/contact' %} active {% endif %}" aria-label="contact" data-bs-placement="right" data-bs-toggle="tooltip" title="Contact">
-                        <i class="fa-solid fa-envelope"></i>
-                    </a>
-                </li>
-                <li class="profile-link">
-                    <a href="{{ url_for('go_to_profile') }}" class="{% if request.path=='/profile' %} active {% endif %}" aria-label="Go to your profile" data-bs-placement="right" data-bs-toggle="tooltip" title="Your Profile">{{ session.user | first | upper }}</a>
-                </li>
-                {% endif %}
-            </ul>
-        </nav>
+        {% include 'layout/sidebar.html' %}
 
         <!-- page content -->
         <div class="container">
@@ -95,13 +42,6 @@
 
     </footer>
 
-    <!-- bootstrap javascript bundle -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
-    <!-- jquery -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" referrerpolicy="no-referrer"></script>
-    <!-- custom scripts -->
-    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
-    {% block scripts %}
-    {% endblock %}
+    {% include 'layout/scripts.html' %}
 </body>
 </html>

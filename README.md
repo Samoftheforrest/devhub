@@ -150,11 +150,8 @@ Nav with contact page active:
 
 ![Contact page with active class](/static/docs/readme/features/nav-contact-active.png)
 
-
-
 #### Homepage
 **Project Cards**
-![Example of two project cards](/static/docs/readme/features/homepage-project-cards.png)
 There is a card containing the following information for each project:
     - Name
     - Creator
@@ -163,6 +160,20 @@ There is a card containing the following information for each project:
     - Project description
     - Project image
     - Project tags
+
+![Example of two project cards](/static/docs/readme/features/homepage-project-cards.png)
+
+#### Contact page
+**Contact form**
+The contact page has a form, that uses [EmailJS](https://www.emailjs.com/) in order to send feedback about the site to my personal email.
+
+Contact form:
+
+![Contact form](/static/docs/readme/features/contact-form.png)
+
+Sent email:
+
+![Sent email](/static/docs/readme/features/email.png)
 
 #### 
 
@@ -194,7 +205,68 @@ There is a card containing the following information for each project:
 
 ## Testing
 
-### Test Title
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+
+### Site Navigation
+
+#### User story: '_As a user, I should be able to navigate around the site simply._'
+
+#### Test Description
+Add in a table for the Plan, Implementation, Test, Result steps
+Add screenshot for each test
+
+#### User story: '_As a user, I should be able to add my own projects._'
+
+#### Test Description
+Add in a table for the Plan, Implementation, Test, Result steps
+Add screenshot for each test
+
+#### User story: '_As a user, I should be able to edit my projects._'
+
+#### Test Description
+Add in a table for the Plan, Implementation, Test, Result steps
+Add screenshot for each test
+
+#### User story: '_As a user, I should be able to log in/out._'
+
+#### Test Description
+Add in a table for the Plan, Implementation, Test, Result steps
+Add screenshot for each test
+
+#### User story: '_As a user, logging in - or registering - should be a simple process._'
+
+#### Test Description
+Add in a table for the Plan, Implementation, Test, Result steps
+Add screenshot for each test
+
+#### User story: '_As a user, I would like to be able to customise my profile._'
+
+#### Test Description
+Add in a table for the Plan, Implementation, Test, Result steps
+Add screenshot for each test
+
+#### User story: '_As a user, I would like to be able to contact the site's creator._'
+
+#### Test Description
+Add in a table for the Plan, Implementation, Test, Result steps
+Add screenshot for each test
+
+#### User story: '_As a user, I should be able to access the website on a range of devices (desktop, tablet, mobile)._'
+
+#### Test Description
+Add in a table for the Plan, Implementation, Test, Result steps
+Add screenshot for each test
+
+#### User story: '_As a user, I would like to have my own profile, where I can see all of my projects._'
 
 #### Test Description
 Add in a table for the Plan, Implementation, Test, Result steps

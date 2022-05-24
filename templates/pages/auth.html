@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h1 class="page-title">{{ 'Register' if register else 'Login' }}</h1>
+            </div>
+            <div class="col-md-6 mx-md-auto">
+                {% include 'components/auth/form.html' %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

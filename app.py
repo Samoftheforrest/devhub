@@ -20,10 +20,12 @@ mongo = PyMongo(app)
 # pages
 # homepage
 @app.route("/")
-@app.route("/home")
 def home_page():
+    """
+    Renders the homepage
+    """
     projects = list(mongo.db.projects.find())
-    return render_template("home.html", projects=projects)
+    return render_template("pages/home.html", projects=projects)
 
 
 # login
@@ -50,7 +52,7 @@ def login():
             # username doesn't exist
             flash("Incorrect Username and/or Password")
             return redirect(url_for("login"))
-    return render_template("login.html")
+    return render_template("pages/auth.html", register=False)
 
 
 @app.route("/logout")
@@ -91,7 +93,7 @@ def register():
             flash("Please ensure that both passwords are exactly the same")
 
 
-    return render_template("register.html")
+    return render_template("pages/auth.html", register=True)
 
 
 # add a project page
