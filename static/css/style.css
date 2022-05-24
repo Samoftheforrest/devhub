@@ -329,6 +329,18 @@ h2, h3, h4, h5, h6 {
     color: var(--brand-colour);
 }
 
+/* contact form */
+.contact-form-title {
+    font-size: 2.7rem;
+    margin-bottom: 2rem;
+}
+
+textarea {
+    resize: none;
+    height: 15rem;
+    width: 100%;
+}
+
 /* media queries */
 
 @media screen and (min-width: 992px) {

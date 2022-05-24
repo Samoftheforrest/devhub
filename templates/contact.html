@@ -6,6 +6,59 @@
             <div class="col-12">
                 <h1 class="page-title">Contact</h1>
             </div>
+            <div class="col-md-6 mx-md-auto">
+                <form action="{{ url_for('login')}}" method="POST" id="contact-form" class="form">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-12">
+                                <h2 class="contact-form-title">Get in touch</h2>
+                            </div>
+                            <input type="hidden" name="contact_number" id="contact_number">
+                            <div class="col-12 d-flex flex-column mb-3">
+                                <label for="name">Username</label>
+                                <input type="text" name="name" id="name" required autocomplete="off">
+                            </div>
+                            <div class="col-12 d-flex flex-column mb-3">
+                                <label for="subject">Subject</label>
+                                <input type="text" name="subject" id="subject" required autocomplete="off">
+                            </div>
+                            <div class="col-12 d-flex flex-column mb-3">
+                                <label for="message">Message</label>
+                                <textarea type="message" name="message" id="message" required autocomplete="off"></textarea>
+                            </div>
+                            <div class="col-12 mt-3">
+                                <input type="submit" value="Send" class="form-button">
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
+{% endblock %}
+
+{% block scripts %}
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+<script type="text/javascript">
+    (function() {
+        // https://dashboard.emailjs.com/admin/account
+        emailjs.init('a8B3AGA56UuueD0HR');
+    })();
+</script>
+<script type="text/javascript">
+    window.onload = function() {
+        document.getElementById('contact-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            // generate a five digit number for the contact_number variable
+            this.contact_number.value = Math.random() * 100000 | 0;
+            // these IDs from the previous steps
+            emailjs.sendForm('service_sn159ye', 'contact_form', this)
+                .then(function() {
+                    console.log('SUCCESS!');
+                }, function(error) {
+                    console.log('FAILED...', error);
+                });
+        });
+    }
+</script>
 {% endblock %}

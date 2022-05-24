@@ -61,12 +61,12 @@
                     </a>
                 </li>
                 {% endif %}
+                {% if session.user %}
                 <li>
                     <a href="{{ url_for('contact') }}" class="{% if request.path=='/contact' %} active {% endif %}" aria-label="contact" data-bs-placement="right" data-bs-toggle="tooltip" title="Contact">
                         <i class="fa-solid fa-envelope"></i>
                     </a>
                 </li>
-                {% if session.user %}
                 <li class="profile-link">
                     <a href="{{ url_for('go_to_profile') }}" class="{% if request.path=='/profile' %} active {% endif %}" aria-label="Go to your profile" data-bs-placement="right" data-bs-toggle="tooltip" title="Your Profile">{{ session.user | first | upper }}</a>
                 </li>
