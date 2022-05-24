@@ -6,7 +6,7 @@
 <nav id="sidebar">
     <ul>
         <li>
-            <a href="{{ url_for('home_page') }}" class="main-logo {% if request.path=='/home' %} active {% endif %}" data-bs-placement="right" data-bs-toggle="tooltip" title="Home">
+            <a href="{{ url_for('home_page') }}" class="main-logo {% if request.path=='/' %} active {% endif %}" data-bs-placement="right" data-bs-toggle="tooltip" title="Home">
                 <i class="fa-solid fa-house"></i>
             </a>
         </li>
