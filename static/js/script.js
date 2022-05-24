@@ -8,6 +8,7 @@ let tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
 $('.burger-button').click(function() {
   let sidebar = $('#sidebar');
   let burgerButton = $(this);
+  let body = $('body');
 
   // add/remove active class to burger button
   if (burgerButton.hasClass('__active')) {
@@ -19,7 +20,9 @@ $('.burger-button').click(function() {
   // add/remove active class to nav
   if (sidebar.hasClass('__active')) {
     sidebar.removeClass('__active');
+    body.removeClass('__active');
   } else {
     sidebar.addClass('__active');
+    body.addClass('__active');
   }
 })
