@@ -12,13 +12,6 @@ window.onload = function() {
         emailjs.sendForm('service_sn159ye', 'contact_form', this)
             .then(function() {
                 console.log('SUCCESS!');
-                // reset form
-                let email = document.getElementById('email');
-                let subject = document.getElementById('subject');
-                let message = document.getElementById('message');
-                email.textContent == '';
-                subject.textContent == '';
-                message.textContent == '';
             }, function(error) {
                 console.log('FAILED...', error);
             });
