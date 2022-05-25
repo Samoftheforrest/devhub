@@ -205,23 +205,16 @@ Sent email:
 
 ## Testing
 
-- 
-- 
-- 
-- 
-- 
-- 
-- 
-- 
-- 
-- 
-
 ### Site Navigation
 
 #### User story: '_As a user, I should be able to navigate around the site simply._'
 
 #### Test Description
 Add in a table for the Plan, Implementation, Test, Result steps
+| Plan | Implementation | Test | Result |
+| ---- | -------------- | ---- | ------ |
+| Test | Tets | Test | Test |
+
 Add screenshot for each test
 
 #### User story: '_As a user, I should be able to add my own projects._'
