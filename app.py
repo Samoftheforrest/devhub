@@ -2,6 +2,7 @@ import os
 from flask import (
     Flask, flash, render_template, 
     redirect, request, session, url_for)
+from flask_sqlalchemy import SQLAlchemy
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -10,6 +11,11 @@ if os.path.exists('env.py'):
 
 
 app = Flask(__name__)
+
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+app.config['SQLALCHEMY_DATABSE_URI'] = ''
+
+db = SQLAlchemy(app)
 
 app.config['MONGO_DBNAME'] = os.environ.get('MONGO_DBNAME')
 app.config['MONGO_URI'] = os.environ.get('MONGO_URI')
