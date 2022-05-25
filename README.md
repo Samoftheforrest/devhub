@@ -205,64 +205,112 @@ Sent email:
 
 ## Testing
 
-### Site Navigation
+### Test 1 - Site Navigation
 
 #### User story: '_As a user, I should be able to navigate around the site simply._'
 
-#### Test Description
-Add in a table for the Plan, Implementation, Test, Result steps
+Test description
+
 | Plan | Implementation | Test | Result |
 | ---- | -------------- | ---- | ------ |
 | Test | Tets | Test | Test |
 
 Add screenshot for each test
 
+### Test 2 - Add Projects
+
 #### User story: '_As a user, I should be able to add my own projects._'
 
-#### Test Description
-Add in a table for the Plan, Implementation, Test, Result steps
+Test description
+
+| Plan | Implementation | Test | Result |
+| ---- | -------------- | ---- | ------ |
+| Test | Tets | Test | Test |
+
 Add screenshot for each test
+
+### Test 3 - Edit projects
 
 #### User story: '_As a user, I should be able to edit my projects._'
 
-#### Test Description
-Add in a table for the Plan, Implementation, Test, Result steps
+Test description
+
+| Plan | Implementation | Test | Result |
+| ---- | -------------- | ---- | ------ |
+| Test | Tets | Test | Test |
+
 Add screenshot for each test
+
+### Test 4 - Log in/out
 
 #### User story: '_As a user, I should be able to log in/out._'
 
-#### Test Description
-Add in a table for the Plan, Implementation, Test, Result steps
+Test description
+
+| Plan | Implementation | Test | Result |
+| ---- | -------------- | ---- | ------ |
+| Test | Tets | Test | Test |
+
 Add screenshot for each test
+
+### Test 5 - Simple login/registration
 
 #### User story: '_As a user, logging in - or registering - should be a simple process._'
 
-#### Test Description
-Add in a table for the Plan, Implementation, Test, Result steps
+Test description
+
+| Plan | Implementation | Test | Result |
+| ---- | -------------- | ---- | ------ |
+| Test | Tets | Test | Test |
+
 Add screenshot for each test
+
+### Test 6 - Profile customisation
 
 #### User story: '_As a user, I would like to be able to customise my profile._'
 
-#### Test Description
-Add in a table for the Plan, Implementation, Test, Result steps
+Test description
+
+| Plan | Implementation | Test | Result |
+| ---- | -------------- | ---- | ------ |
+| Test | Tets | Test | Test |
+
 Add screenshot for each test
+
+### Test 7 - Contact
 
 #### User story: '_As a user, I would like to be able to contact the site's creator._'
 
-#### Test Description
-Add in a table for the Plan, Implementation, Test, Result steps
+Test description
+
+| Plan | Implementation | Test | Result |
+| ---- | -------------- | ---- | ------ |
+| Test | Tets | Test | Test |
+
 Add screenshot for each test
+
+### Test 8 - Responsivity
 
 #### User story: '_As a user, I should be able to access the website on a range of devices (desktop, tablet, mobile)._'
 
-#### Test Description
-Add in a table for the Plan, Implementation, Test, Result steps
+Test description
+
+| Plan | Implementation | Test | Result |
+| ---- | -------------- | ---- | ------ |
+| Test | Tets | Test | Test |
+
 Add screenshot for each test
+
+### Test 9 - Personal Profile
 
 #### User story: '_As a user, I would like to have my own profile, where I can see all of my projects._'
 
-#### Test Description
-Add in a table for the Plan, Implementation, Test, Result steps
+Test description
+
+| Plan | Implementation | Test | Result |
+| ---- | -------------- | ---- | ------ |
+| Test | Tets | Test | Test |
+
 Add screenshot for each test
 
 ## Bugs
