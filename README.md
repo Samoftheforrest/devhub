@@ -198,6 +198,9 @@ Sent email:
 - [jQuery](https://jquery.com/)
 - [MongoDB](https://www.mongodb.com/)
 
+### APIs
+- [EmailJS API](https://www.emailjs.com/)
+
 ### Design
 - [Figma](https://www.figma.com/)
 - [Font Awesome](https://fontawesome.com/)
@@ -322,6 +325,12 @@ Add screenshot for each test
 ![Project card bug](/static/docs/readme/bugs/bug-one.png)
 - **Fix**: I had two potential fixes in mind for this bug: either make all cards stretch to the same height using `align-items: stretch`. However, after some research, I found that you can limit the amount of characters via Jinja's `truncate` filter - which I set to 450 characters.
 - **Verdict**: If the project's description exceeds 450 characters, it is successfully truncated, stopping the project card from expanding. I have deemed this fix a success.
+
+#### Contact form not sending emails correctly
+- **Bug**: After refactoring the 'base.html' template, the contact page would return an error when the form was submitted.
+![EmailJS bug](/static/docs/readme/bugs/bug-two.png)
+- **Fix**: I found the issue to be that, after the base tempalte refactor, that the email.js script was no longer included on the contact page. I added `{% block scripts %}` back into the base template and the contact form began working again.
+- **Verdict**: I have determined this fix to be successful.
 
 #### Bug Description
 - **Bug**: 
