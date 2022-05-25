@@ -1,0 +1,40 @@
+<div class="col-md-6 px-4">
+    <div class="project-card">
+        <div class="container">
+            <div class="row d-flex flex-column flex-lg-row">
+                <div class="col-lg-4 px-0">
+                    <div class="project-card-image">
+                        <picture>
+                            <source media="(min-width:1200px)" srcset="https://via.placeholder.com/200x210">
+                            <source media="(min-width:992px)" srcset="https://via.placeholder.com/200x210">
+                            <source media="(min-width:768px)" srcset="https://via.placeholder.com/200x210">
+                            <source media="(min-width:576px)" srcset="https://via.placeholder.com/200x210">
+                            <img src="https://via.placeholder.com/200x205" class="w-100 h-100">
+                        </picture>
+                    </div>
+                    
+                </div>
+                <div class="col-lg-8 d-flex flex-column justify-content-start align-items-between">
+                    <div class="project-card-info-wrap">
+                        <div class="project-card-info-top d-flex flex-column flex-lg-row justify-content-between">
+                            <div class="project-title-wrap">
+                                <h2 class="project-title mb-0 mb-lg-3"><a href="#" aria-label="Go to {{ project.project_name }} page">{{ project.project_name }} <i class="fa-solid fa-arrow-right"></i></a></h2>
+                                <span class="project-subtitle mb-3 mb-lg-0">by <a href="#">{{ project.created_by }}</a></span>
+                            </div>
+                            <div class="project-card-links d-flex justify-content-lg-end">
+                                <a href="{{ project.live_link }}" target="_blank" rel="noopener" aria-label="Go to {{ project.live_link }}"><i class="fa-solid fa-square-arrow-up-right"></i></a>
+                                <a href="{{ project.repo_link }}" target="_blank" rel="noopener" class="ms-3" aria-label="Go to {{ project.repo_link }}"><i class="fa-brands fa-github-square"></i></a>
+                            </div>
+                        </div>
+                        <p>{{ project.project_description | truncate(450) }}</p>
+                        <div class="project-tags">
+                            {% for tag in project.project_tags %}
+                                <span class="project-tag">{{ tag }}</span>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
