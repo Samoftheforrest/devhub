@@ -37,6 +37,9 @@ def home_page():
 # login
 @app.route("/login", methods=["GET", "POST"])
 def login():
+    """
+    Handles user login and renders the login form
+    """
     if request.method == "POST":
         # check if username exists in db
         existing_user = mongo.db.users.find_one(
@@ -46,9 +49,9 @@ def login():
             # ensure hashed password matches user input
             if check_password_hash(
                 existing_user["password"], request.form.get("password")):
-                    session["user"] = request.form.get("username").lower()
-                    flash("Welcome, {}".format(request.form.get("username")))
-                    return redirect(url_for("home_page", username=session["user"]))
+                session["user"] = request.form.get("username").lower()
+                flash("Welcome, {}".format(request.form.get("username")))
+                return redirect(url_for("home_page", username=session["user"]))
             else:
                 # invalid password match
                 flash("Incorrect Username and/or Password")
@@ -63,6 +66,9 @@ def login():
 
 @app.route("/logout")
 def logout():
+    """
+    Handles log out functionality by removing the user from the session
+    """
     # remove user from session cookies
     flash("You have been logged out")
     session.pop("user")
@@ -72,6 +78,9 @@ def logout():
 # register
 @app.route("/register", methods=["GET", "POST"])
 def register():
+    """
+    Handles registration and renders the registration form
+    """
     if request.method == "POST":
         # check if username already exists
         existing_user = mongo.db.users.find_one(
@@ -105,36 +114,54 @@ def register():
 # add a project page
 @app.route("/new-project")
 def add_project():
+    """
+    Handles adding a new project and renders the add project form
+    """
     return render_template("add-project.html")
 
 
 # edit project page
 @app.route("/edit-project")
 def edit_project():
+    """
+    Handles editing a project and renders the edit project form
+    """
     return render_template("edit-project.html")
 
 
 # individual project page
 @app.route("/project") # add project name to end of URL
 def go_to_project():
+    """
+    Renders individual projects
+    """
     return render_template("project.html")
 
 
 # profile page
 @app.route("/profile") # add username to end of URL
 def go_to_profile():
+    """
+    Renders profile pages
+    """
     return render_template("profile.html")
 
 
 # edit profile page
 @app.route("/edit-profile")
 def edit_profile():
+    """
+    Handles editing session user's profile and renders the edit profile form
+    """
     return render_template("edit-profile.html")
 
 
 # contact page
 @app.route("/contact")
 def contact():
+    """
+    Renders the contact us form
+    """
     return render_template("contact.html")
 
 
