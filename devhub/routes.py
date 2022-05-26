@@ -1,37 +1,5 @@
-import os
-from flask import (
-    Flask, flash, render_template, 
-    redirect, request, session, url_for)
-from flask_sqlalchemy import SQLAlchemy
-from flask_pymongo import PyMongo
-from bson.objectid import ObjectId
-from werkzeug.security import generate_password_hash, check_password_hash
-if os.path.exists('env.py'):
-    import env
-
-
-app = Flask(__name__)
-
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-app.config['SQLALCHEMY_DATABSE_URI'] = 'postgres://wzlawbygbnkcfw:31237ca27f9c2fadb006e5c13c531feecf4525d6f845fcb8dfdfaba5dc9b2ff4@ec2-63-35-156-160.eu-west-1.compute.amazonaws.com:5432/d81u0d8dnje45o'
-db = SQLAlchemy(app)
-
-class User(db.Model):
-    """ User model """
-
-    __tablename__ = "users"
-    id = db.Column(db.Integer, primary_key=True)
-    first_name = db.Column(db.String(), nullable=False)
-    last_name = db.Column(db.String(), nullable=False)
-    username = db.Column(db.String(25), unique=True, nullable=False)
-    password = db.Column(db.String(), nullable=False)
-
-
-app.config['MONGO_DBNAME'] = os.environ.get('MONGO_DBNAME')
-app.config['MONGO_URI'] = os.environ.get('MONGO_URI')
-app.secret_key = os.environ.get('SECRET_KEY')
-
-mongo = PyMongo(app)
+from flask import render_template, redirect, request
+from devhub import app, db, mongo
 
 # pages
 # homepage
@@ -166,9 +134,3 @@ def contact():
     Renders the contact us form
     """
     return render_template("contact.html")
-
-
-if __name__ == '__main__':
-    app.run(host=os.environ.get('IP'),
-    port=int(os.environ.get('PORT')),
-    debug=True)
