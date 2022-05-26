@@ -13,9 +13,19 @@ if os.path.exists('env.py'):
 app = Flask(__name__)
 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-app.config['SQLALCHEMY_DATABSE_URI'] = ''
-
+app.config['SQLALCHEMY_DATABSE_URI'] = 'postgres://wzlawbygbnkcfw:31237ca27f9c2fadb006e5c13c531feecf4525d6f845fcb8dfdfaba5dc9b2ff4@ec2-63-35-156-160.eu-west-1.compute.amazonaws.com:5432/d81u0d8dnje45o'
 db = SQLAlchemy(app)
+
+class User(db.Model):
+    """ User model """
+
+    __tablename__ = "users"
+    id = db.Column(db.Integer, primary_key=True)
+    first_name = db.Column(db.String(), nullable=False)
+    last_name = db.Column(db.String(), nullable=False)
+    username = db.Column(db.String(25), unique=True, nullable=False)
+    password = db.Column(db.String(), nullable=False)
+
 
 app.config['MONGO_DBNAME'] = os.environ.get('MONGO_DBNAME')
 app.config['MONGO_URI'] = os.environ.get('MONGO_URI')
@@ -82,30 +92,23 @@ def register():
     Handles registration and renders the registration form
     """
     if request.method == "POST":
-        # check if username already exists
-        existing_user = mongo.db.users.find_one(
-            {"username": request.form.get("username").lower()})
+        first_name = request.form.get('firstname')
+        last_name = request.form.get('lastname')
+        username = request.form.get('username')
+        password = request.form.get('password')
 
-        if existing_user:
-            flash("username already exists")
-            return redirect(url_for("register"))
+        user = User.query.filter_by(username=username).first()
 
-        register = {
-            "first_name": request.form.get("firstname").lower(),
-            "last_name": request.form.get("lastname").lower(),
-            "username": request.form.get("username").lower(),
-            "password": generate_password_hash(request.form.get("password"))
-        }
-        
-        if request.form.get("password") == request.form.get("confirmpassword"):
-            mongo.db.users.insert_one(register)
+        if user:
+            flash('Username already exists')
+            return redirect(url_for(register))
 
-            # put the new user into session cookie
-            session["user"] = request.form.get("username").lower()
-            flash("Registration successful")
-            return redirect(url_for("home_page"))
-        else:
-            flash("Please ensure that both passwords are exactly the same")
+        new_user = User(first_name=first_name, 
+                        last_name=last_name, 
+                        username=username, password=generate_password_hash(password))
+
+        db.session.add(new_user)
+        db.session.commit()
 
 
     return render_template("pages/auth.html", register=True)
