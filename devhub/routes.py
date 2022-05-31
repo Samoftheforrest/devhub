@@ -1,5 +1,7 @@
-from flask import render_template, redirect, request
+from flask import render_template, redirect, request, url_for, flash, session
+from werkzeug.security import generate_password_hash, check_password_hash
 from devhub import app, db, mongo
+from devhub.models import User
 
 # pages
 # homepage
@@ -20,13 +22,11 @@ def login():
     """
     if request.method == "POST":
         # check if username exists in db
-        existing_user = mongo.db.users.find_one(
-            {"username": request.form.get("username").lower()})
+        existing_user = bool(User.query.filter_by(username=request.form.get('username')).first())
 
         if existing_user:
             # ensure hashed password matches user input
-            if check_password_hash(
-                existing_user["password"], request.form.get("password")):
+            if check_password_hash():
                 session["user"] = request.form.get("username").lower()
                 flash("Welcome, {}".format(request.form.get("username")))
                 return redirect(url_for("home_page", username=session["user"]))
@@ -60,24 +60,15 @@ def register():
     Handles registration and renders the registration form
     """
     if request.method == "POST":
-        first_name = request.form.get('firstname')
-        last_name = request.form.get('lastname')
-        username = request.form.get('username')
-        password = request.form.get('password')
-
-        user = User.query.filter_by(username=username).first()
-
-        if user:
-            flash('Username already exists')
-            return redirect(url_for(register))
-
-        new_user = User(first_name=first_name, 
-                        last_name=last_name, 
-                        username=username, password=generate_password_hash(password))
-
-        db.session.add(new_user)
-        db.session.commit()
-
+        if bool(User.query.filter_by(username=request.form.get('username')).first()):
+            flash('That username is already taken - please try again.')
+        else:
+            user = User(first_name=request.form.get('firstname'),
+            last_name=request.form.get('lastname'), 
+            username=request.form.get('username').lower(), 
+            password=generate_password_hash(request.form.get('password')))
+            db.session.add(user)
+            db.session.commit()
 
     return render_template("pages/auth.html", register=True)
 
