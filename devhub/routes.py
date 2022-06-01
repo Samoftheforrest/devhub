@@ -23,10 +23,11 @@ def login():
     if request.method == "POST":
         # check if username exists in db
         existing_user = bool(User.query.filter_by(username=request.form.get('username')).first())
+        check_user = User.query.filter_by(username=request.form.get('username')).first()
 
         if existing_user:
             # ensure hashed password matches user input
-            if check_password_hash():
+            if check_password_hash(check_user.password, request.form.get('password')):
                 session["user"] = request.form.get("username").lower()
                 flash("Welcome, {}".format(request.form.get("username")))
                 return redirect(url_for("home_page", username=session["user"]))
