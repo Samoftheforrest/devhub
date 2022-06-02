@@ -60,7 +60,7 @@ To use the website, you may either create your own account, or use the following
 #### Colours
 For this project, I used the pre-made ['Enviro'](https://colorhub.vercel.app/select-palette/enviro) colour pallete from [Daniel Cranney](https://twitter.com/danielcranney)'s ['ColorHub'](https://colorhub.vercel.app/). I decided that I wanted green to be the focal brand colour of this project to symbolise growth. Also, I wanted the other colours in the pallete to be more mild shades of black, grey, and white, to make the brand green stand out.
 
-![Devhub's Colour Pallete](static/docs/readme/colour-palette.png)
+![Devhub's Colour Pallete](/devhub/static/docs/readme/colour-palette.png)
 
 The colours used were:
 - `#3CB35A`: This colour was used as the brand colour, used mostly on call to action buttons/links, or anything else that I wanted to focus the user's attention to.
@@ -335,8 +335,8 @@ Add screenshot for each test
 #### Input text not sanitised on login/registration
 - **Bug**: On the login/registration form, the username input was being converted to lowercase - this meant that you could have many usernames that look identical, but with different capitalisation. Additionally, when trying to log in, if a user types their username, but with incorrect capitalisation, they will be denied access.
 ![Login bug](/devhub/static/docs/readme/bugs/bug-three.png)
-- **Fix**:
-- **Verdict**:
+- **Fix**: To fix this, I used the sqlalchemy function `func.lower()` to force all text inputs to be converted to lowercase when submitted.
+- **Verdict**: After testing five different capitalisations of 'testaccount', and all of them successfully logging in, I have deemed this fix to be successful.
 
 #### Bug Description
 - **Bug**: 
