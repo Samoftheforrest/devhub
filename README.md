@@ -116,7 +116,7 @@ I used a pairing of two [Google Fonts](https://fonts.google.com/) - [Montserrat]
 
 On every page on the site, the nav is either fixed to the left-side of the screen (on desktop), or slides in from the left-side of the screen (on mobile and tablet).
 
-![Static nav](/static/docs/readme/features/fixed-nav.png)
+![Static nav](/devhub/static/docs/readme/features/fixed-nav.png)
 
 **Nav displays different links dependent on if user if logged in/out**
 
@@ -125,11 +125,11 @@ Depending on whether the user is logged in/out, the main nav will show different
 
 Logged in version:
 
-![Logged in version of nav](/static/docs/readme/features/nav-logged-in.png)
+![Logged in version of nav](/devhub/static/docs/readme/features/nav-logged-in.png)
 
 Logged out version:
 
-![Logged out version of nav](/static/docs/readme/features/nav-logged-out.png)
+![Logged out version of nav](/devhub/static/docs/readme/features/nav-logged-out.png)
 
 **Current nav link active class**
 
@@ -144,11 +144,11 @@ Depending on which page the user is on, the appropriate nav link will be highlig
 
 Nav with homepage icon active:
 
-![Home page with active class](/static/docs/readme/features/nav-home-active.png)
+![Home page with active class](/devhub/static/docs/readme/features/nav-home-active.png)
 
 Nav with contact page active:
 
-![Contact page with active class](/static/docs/readme/features/nav-contact-active.png)
+![Contact page with active class](/devhub/static/docs/readme/features/nav-contact-active.png)
 
 #### Homepage
 **Project Cards**
@@ -161,7 +161,7 @@ There is a card containing the following information for each project:
     - Project image
     - Project tags
 
-![Example of two project cards](/static/docs/readme/features/homepage-project-cards.png)
+![Example of two project cards](/devhub/static/docs/readme/features/homepage-project-cards.png)
 
 #### Contact page
 **Contact form**
@@ -169,11 +169,11 @@ The contact page has a form, that uses [EmailJS](https://www.emailjs.com/) in or
 
 Contact form:
 
-![Contact form](/static/docs/readme/features/contact-form.png)
+![Contact form](/devhub/static/docs/readme/features/contact-form.png)
 
 Sent email:
 
-![Sent email](/static/docs/readme/features/email.png)
+![Sent email](/devhub/static/docs/readme/features/email.png)
 
 #### 
 
@@ -322,15 +322,21 @@ Add screenshot for each test
 
 #### Project cards different sizes depending on length of description
 - **Bug**: If the length of the project description was too long (approximately > 450 characters), it would cause the project card to expand, thus no longer aligning with its neighbouring cards (as seen in the picture below).
-![Project card bug](/static/docs/readme/bugs/bug-one.png)
+![Project card bug](/devhub/static/docs/readme/bugs/bug-one.png)
 - **Fix**: I had two potential fixes in mind for this bug: either make all cards stretch to the same height using `align-items: stretch`. However, after some research, I found that you can limit the amount of characters via Jinja's `truncate` filter - which I set to 450 characters.
 - **Verdict**: If the project's description exceeds 450 characters, it is successfully truncated, stopping the project card from expanding. I have deemed this fix a success.
 
 #### Contact form not sending emails correctly
 - **Bug**: After refactoring the 'base.html' template, the contact page would return an error when the form was submitted.
-![EmailJS bug](/static/docs/readme/bugs/bug-two.png)
+![EmailJS bug](/devhub/static/docs/readme/bugs/bug-two.png)
 - **Fix**: I found the issue to be that, after the base tempalte refactor, that the email.js script was no longer included on the contact page. I added `{% block scripts %}` back into the base template and the contact form began working again.
 - **Verdict**: I have determined this fix to be successful.
+
+#### Input text not sanitised on login/registration
+- **Bug**: On the login/registration form, the username input was being converted to lowercase - this meant that you could have many usernames that look identical, but with different capitalisation. Additionally, when trying to log in, if a user types their username, but with incorrect capitalisation, they will be denied access.
+![Login bug](/devhub/static/docs/readme/bugs/bug-three.png)
+- **Fix**:
+- **Verdict**:
 
 #### Bug Description
 - **Bug**: 
@@ -347,6 +353,7 @@ Add screenshot for each test
 - [This article](https://medium.com/mkdir-awesome/how-to-change-the-bootstrap-5-tooltip-background-and-arrow-color-67e6c5aea510#:~:text=You%20can%20add%20different%20Bootstrap,the%20data%2Dbs%2Dpalcement%20.&text=By%20aiming%20.,you%20can%20change%20the%20color.) helped me to figure out how to style the Bootstrap tooltips (used in the nav).
 - [This Stack Overflow answer](https://stackoverflow.com/questions/33627646/python-flask-template-return-first-150-characters) showed me how to use Jinja's `truncate` filter, to limit the project cards to 450 characters each.
 - [This Stack Overflow answer](https://stackoverflow.com/questions/8676455/flask-current-page-in-request-variable) showed me how to apply CSS classes dependent on the page the user is currently on.
+- [This Stack Overflow answer](https://stackoverflow.com/questions/16573095/case-insensitive-flask-sqlalchemy-query) demonstrated how to convert Sqlalchemy queries to lowercase.
 
 ### General Thanks
 - I would like to thank my mentor [Simen](https://github.com/Eventyret) for all of his feedback and support with this project.

@@ -23,12 +23,15 @@ def login():
     """
     if request.method == "POST":
         # check if username exists in db
-        existing_user = bool(User.query.filter_by(username=func.lower(request.form.get('username'))).first())
-        check_user = User.query.filter_by(username=func.lower(request.form.get('username'))).first()
+        existing_user = bool(User.query.filter_by(
+            username=func.lower(request.form.get('username'))).first())
+        check_user = User.query.filter_by(username=func.lower(
+            request.form.get('username'))).first()
 
         if existing_user:
             # ensure hashed password matches user input
-            if check_password_hash(check_user.password, request.form.get('password')):
+            if check_password_hash(check_user.password,
+                                   request.form.get('password')):
                 session["user"] = request.form.get("username").lower()
                 flash(f"Welcome, {check_user}")
                 return redirect(url_for("home_page", username=session["user"]))
@@ -66,16 +69,17 @@ def register():
         confirm_password = request.form.get('confirmpassword')
         # check if the username already exists
         if bool(User.query.filter_by(
-            username=func.lower(request.form.get('username'))).first()):
+                username=func.lower(request.form.get('username'))).first()):
             flash('That username is already taken - please try again.')
         # check if both passwords are the same
         elif not password == confirm_password:
             flash('Please make sure that both passwords are identical')
         else:
             user = User(first_name=request.form.get('firstname'),
-            last_name=request.form.get('lastname'), 
-            username=request.form.get('username').lower(), 
-            password=generate_password_hash(request.form.get('password')))
+                        last_name=request.form.get('lastname'),
+                        username=request.form.get('username').lower(),
+                        password=generate_password_hash(
+                            request.form.get('password')))
             db.session.add(user)
             db.session.commit()
 
@@ -101,7 +105,7 @@ def edit_project():
 
 
 # individual project page
-@app.route("/project") # add project name to end of URL
+@app.route("/project")
 def go_to_project():
     """
     Renders individual projects
@@ -110,7 +114,7 @@ def go_to_project():
 
 
 # profile page
-@app.route("/profile") # add username to end of URL
+@app.route("/profile")
 def go_to_profile():
     """
     Renders profile pages
