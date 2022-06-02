@@ -248,13 +248,19 @@ Add screenshot for each test
 
 #### User story: '_As a user, I should be able to log in/out._'
 
-Test description
-
 | Plan | Implementation | Test | Result |
 | ---- | -------------- | ---- | ------ |
-| Test | Tets | Test | Test |
+| I would like the user to be able to log in or out of the page (using the same button for both functions) | I will use Flask to handle the POST method's logic (for both log in and out), a Postgresql database to store the usernames and passwords, and session to track whether the user is logged in or not | I will log and out of three separate test accounts, and attempt to log into an account that does not exist: testaccount, samforrest, l.gilbert, doesnotexist | The three users logged in successfully, but when the non-existing user tried to log in, a flash error was displayed |
 
-Add screenshot for each test
+Successful login:
+![Successful login screenshot](/devhub/static/docs/readme/tests/successful-login.png)
+
+Successful logout:
+![Successful logout screenshot](/devhub/static/docs/readme/tests/successful-logout.png)
+
+Unsuccessful login:
+![Unsuccessful login](/devhub/static/docs/readme/tests/unsuccessful-login.png)
+
 
 ### Test 5 - Simple login/registration
 
