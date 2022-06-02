@@ -26,7 +26,6 @@ To use the website, you may either create your own account, or use the following
 - As a user, I should be able to add my own projects.
 - As a user, I should be able to edit my projects.
 - As a user, I should be able to log in/out.
-- As a user, logging in - or registering - should be a simple process.
 - As a user, I would like to be able to customise my profile.
 - As a user, I would like to be able to contact the site's creator.
 - As a user, I would like to be able to comment on projects: both my own, and others.
@@ -261,20 +260,7 @@ Successful logout:
 Unsuccessful login:
 ![Unsuccessful login](/devhub/static/docs/readme/tests/unsuccessful-login.png)
 
-
-### Test 5 - Simple login/registration
-
-#### User story: '_As a user, logging in - or registering - should be a simple process._'
-
-Test description
-
-| Plan | Implementation | Test | Result |
-| ---- | -------------- | ---- | ------ |
-| Test | Tets | Test | Test |
-
-Add screenshot for each test
-
-### Test 6 - Profile customisation
+### Test 5 - Profile customisation
 
 #### User story: '_As a user, I would like to be able to customise my profile._'
 
@@ -286,7 +272,7 @@ Test description
 
 Add screenshot for each test
 
-### Test 7 - Contact
+### Test 6 - Contact
 
 #### User story: '_As a user, I would like to be able to contact the site's creator._'
 
@@ -298,7 +284,7 @@ Test description
 
 Add screenshot for each test
 
-### Test 8 - Responsivity
+### Test 7 - Responsivity
 
 #### User story: '_As a user, I should be able to access the website on a range of devices (desktop, tablet, mobile)._'
 
@@ -310,7 +296,7 @@ Test description
 
 Add screenshot for each test
 
-### Test 9 - Personal Profile
+### Test 8 - Personal Profile
 
 #### User story: '_As a user, I would like to have my own profile, where I can see all of my projects._'
 
@@ -324,27 +310,25 @@ Add screenshot for each test
 
 ## Bugs
 
-### Bug Title
-
-#### Project cards different sizes depending on length of description
+### Project cards different sizes depending on length of description
 - **Bug**: If the length of the project description was too long (approximately > 450 characters), it would cause the project card to expand, thus no longer aligning with its neighbouring cards (as seen in the picture below).
 ![Project card bug](/devhub/static/docs/readme/bugs/bug-one.png)
 - **Fix**: I had two potential fixes in mind for this bug: either make all cards stretch to the same height using `align-items: stretch`. However, after some research, I found that you can limit the amount of characters via Jinja's `truncate` filter - which I set to 450 characters.
 - **Verdict**: If the project's description exceeds 450 characters, it is successfully truncated, stopping the project card from expanding. I have deemed this fix a success.
 
-#### Contact form not sending emails correctly
+### Contact form not sending emails correctly
 - **Bug**: After refactoring the 'base.html' template, the contact page would return an error when the form was submitted.
 ![EmailJS bug](/devhub/static/docs/readme/bugs/bug-two.png)
 - **Fix**: I found the issue to be that, after the base tempalte refactor, that the email.js script was no longer included on the contact page. I added `{% block scripts %}` back into the base template and the contact form began working again.
 - **Verdict**: I have determined this fix to be successful.
 
-#### Input text not sanitised on login/registration
+### Input text not sanitised on login/registration
 - **Bug**: On the login/registration form, the username input was being converted to lowercase - this meant that you could have many usernames that look identical, but with different capitalisation. Additionally, when trying to log in, if a user types their username, but with incorrect capitalisation, they will be denied access.
 ![Login bug](/devhub/static/docs/readme/bugs/bug-three.png)
 - **Fix**: To fix this, I used the sqlalchemy function `func.lower()` to force all text inputs to be converted to lowercase when submitted.
 - **Verdict**: After testing five different capitalisations of 'testaccount', and all of them successfully logging in, I have deemed this fix to be successful.
 
-#### Bug Description
+### Bug Description
 - **Bug**: 
 - **Fix**:
 - **Verdict**:
