@@ -1,4 +1,5 @@
 from flask import render_template, redirect, request, url_for, flash, session
+from sqlalchemy import func
 from werkzeug.security import generate_password_hash, check_password_hash
 from devhub import app, db, mongo
 from devhub.models import User
@@ -22,14 +23,14 @@ def login():
     """
     if request.method == "POST":
         # check if username exists in db
-        existing_user = bool(User.query.filter_by(username=request.form.get('username')).first())
-        check_user = User.query.filter_by(username=request.form.get('username')).first()
+        existing_user = bool(User.query.filter_by(username=func.lower(request.form.get('username'))).first())
+        check_user = User.query.filter_by(username=func.lower(request.form.get('username'))).first()
 
         if existing_user:
             # ensure hashed password matches user input
             if check_password_hash(check_user.password, request.form.get('password')):
                 session["user"] = request.form.get("username").lower()
-                flash("Welcome, {}".format(request.form.get("username")))
+                flash(f"Welcome, {check_user}")
                 return redirect(url_for("home_page", username=session["user"]))
             else:
                 # invalid password match
@@ -38,7 +39,7 @@ def login():
 
         else:
             # username doesn't exist
-            flash("Incorrect Username and/or Password")
+            flash('Incorrect username/password. Please try again.')
             return redirect(url_for("login"))
     return render_template("pages/auth.html", register=False)
 
@@ -64,7 +65,8 @@ def register():
         password = request.form.get('password')
         confirm_password = request.form.get('confirmpassword')
         # check if the username already exists
-        if bool(User.query.filter_by(username=request.form.get('username')).first()):
+        if bool(User.query.filter_by(
+            username=func.lower(request.form.get('username'))).first()):
             flash('That username is already taken - please try again.')
         # check if both passwords are the same
         elif not password == confirm_password:
