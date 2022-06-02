@@ -61,8 +61,14 @@ def register():
     Handles registration and renders the registration form
     """
     if request.method == "POST":
+        password = request.form.get('password')
+        confirm_password = request.form.get('confirmpassword')
+        # check if the username already exists
         if bool(User.query.filter_by(username=request.form.get('username')).first()):
             flash('That username is already taken - please try again.')
+        # check if both passwords are the same
+        elif not password == confirm_password:
+            flash('Please make sure that both passwords are identical')
         else:
             user = User(first_name=request.form.get('firstname'),
             last_name=request.form.get('lastname'), 
