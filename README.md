@@ -149,6 +149,18 @@ Nav with contact page active:
 
 ![Contact page with active class](/devhub/static/docs/readme/features/nav-contact-active.png)
 
+**Form validation**
+
+Form validation has been added to the following pages: login, registration, and contact. If any information has been omitted, or does not meet the requirements of the particular form, it will display an error - and change the styling of - the particular input. I implemented this validation using the default classes provided by Bootstrap.
+
+Successful validation:
+
+![Successful validation](/devhub/static/docs/readme/features/form-validation-success.png)
+
+Unsuccessful validation:
+
+![Unsuccessful validation](/devhub/static/docs/readme/features/form-validation-failed.png)
+
 #### Homepage
 **Project Cards**
 There is a card containing the following information for each project:
@@ -196,6 +208,7 @@ Sent email:
 - [Bootstrap](https://getbootstrap.com/)
 - [jQuery](https://jquery.com/)
 - [MongoDB](https://www.mongodb.com/)
+- [Postgres](https://www.postgresql.org/)
 
 ### APIs
 - [EmailJS API](https://www.emailjs.com/)
