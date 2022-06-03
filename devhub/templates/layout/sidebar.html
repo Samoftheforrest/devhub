@@ -35,7 +35,7 @@
             </a>
         </li>
         <li class="profile-link">
-            <a href="{{ url_for('go_to_profile') }}" class="{% if request.path=='/profile' %} active {% endif %}" aria-label="Go to your profile" data-bs-placement="right" data-bs-toggle="tooltip" title="Your Profile">{{ session.user | first | upper }}</a>
+            <a href="{{ url_for('go_to_profile', username=session['user']) }}" class="{% if active==True %} active {% endif %}" aria-label="Go to your profile" data-bs-placement="right" data-bs-toggle="tooltip" title="Your Profile">{{ session.user | first | upper }}</a>
         </li>
         {% endif %}
     </ul>

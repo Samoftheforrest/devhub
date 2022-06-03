@@ -114,12 +114,14 @@ def go_to_project():
 
 
 # profile page
-@app.route("/profile")
-def go_to_profile():
+@app.route("/profile/<username>", methods=["GET", "POST"])
+def go_to_profile(username):
     """
     Renders profile pages
     """
-    return render_template("profile.html")
+    # grab the session user's username from the database
+    username = User.query.filter_by(username=session['user']).first()
+    return render_template("profile.html", username=username, active=True)
 
 
 # edit profile page
