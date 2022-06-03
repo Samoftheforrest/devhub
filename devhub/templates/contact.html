@@ -7,7 +7,7 @@
                 <h1 class="page-title">Contact</h1>
             </div>
             <div class="col-md-9 col-lg-6 mx-md-auto">
-                <form action="{{ url_for('contact')}}" method="POST" id="contact-form" class="form">
+                <form action="{{ url_for('contact')}}" method="POST" id="contact-form" class="form needs-validation" novalidate autocomplete="off">
                     <div class="container">
                         <div class="row">
                             <div class="col-12">
@@ -16,15 +16,24 @@
                             <input type="hidden" name="contact_number" id="contact_number">
                             <div class="col-12 d-flex flex-column mb-3">
                                 <label for="email">Email address</label>
-                                <input type="email" name="email" id="email" required autocomplete="off">
+                                <input class="form-control" type="email" name="email" id="email" required>
+                                <div class="invalid-feedback">
+                                    Please enter your email address
+                                </div>
                             </div>
                             <div class="col-12 d-flex flex-column mb-3">
                                 <label for="subject">Subject</label>
-                                <input type="text" name="subject" id="subject" required autocomplete="off">
+                                <input class="form-control" type="text" name="subject" id="subject" required>
+                                <div class="invalid-feedback">
+                                    Please enter your subject
+                                </div>
                             </div>
                             <div class="col-12 d-flex flex-column mb-3">
                                 <label for="message">Message</label>
-                                <textarea type="message" name="message" id="message" required autocomplete="off"></textarea>
+                                <textarea class="form-control" type="message" name="message" id="message" required></textarea>
+                                <div class="invalid-feedback">
+                                    Please enter your message
+                                </div>
                             </div>
                             <div class="col-12 mt-3">
                                 <input type="submit" value="Send" class="form-button">
@@ -39,5 +48,6 @@
 
 {% block scripts %}
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+<script src="{{ url_for('static', filename='js/validation.js') }}"></script>
 <script src="{{ url_for('static', filename='js/email.js') }}"></script>
 {% endblock %}

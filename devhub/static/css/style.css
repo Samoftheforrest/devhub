@@ -361,7 +361,7 @@ h2, h3, h4, h5, h6 {
     margin-bottom: 5px;
 }
 
-.form input[type=text], .form input[type=password] {
+.form input[type=text], .form input[type=password], .form input[type=email] {
     border-radius: 4px;
     border: 1px solid var(--mid-colour);
     padding: 0.8rem;
@@ -404,10 +404,12 @@ h2, h3, h4, h5, h6 {
     margin-bottom: 2rem;
 }
 
-textarea {
+.form textarea {
     resize: none;
     height: 15rem;
     width: 100%;
+    border: 1px solid var(--mid-colour);
+    font-size: 1.6rem;
 }
 
 /* media queries */
