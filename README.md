@@ -289,13 +289,27 @@ Add screenshot for each test
 
 #### User story: '_As a user, I would like to be able to contact the site's creator._'
 
-Test description
-
 | Plan | Implementation | Test | Result |
 | ---- | -------------- | ---- | ------ |
-| Test | Tets | Test | Test |
+| I would like the user to be able to complete a simple form to send a message to myself with any suggestions or queries that they may have | I will create a simple form and use EmailJS to handle the email functionality | I will complete the form myself three separate times, to see if the email is sent correctly | All three emails were sent to me correctly (see screenshots) - I have deemed this test to be a success |
 
-Add screenshot for each test
+Test email one:
+
+![Contact form for test email one](/devhub/static/docs/readme/tests/test-email-one.png)
+
+![Test email one received](/devhub/static/docs/readme/tests/test-email-one-received.png)
+
+Test email two:
+
+![Contact form for test email two](/devhub/static/docs/readme/tests/test-email-two.png)
+
+![Test email two received](/devhub/static/docs/readme/tests/test-email-two-received.png)
+
+Test email three:
+
+![Contact form for test email three](/devhub/static/docs/readme/tests/test-email-three.png)
+
+![Test email three received](/devhub/static/docs/readme/tests/test-email-three-received.png)
 
 ### Test 7 - Responsivity
 
