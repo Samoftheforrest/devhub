@@ -33,7 +33,7 @@ def login():
             if check_password_hash(check_user.password,
                                    request.form.get('password')):
                 session["user"] = request.form.get("username").lower()
-                flash(f"Welcome, {check_user}")
+                flash(f"Welcome, {str(check_user).capitalize()}")
                 return redirect(url_for("home_page", username=session["user"]))
             else:
                 # invalid password match
