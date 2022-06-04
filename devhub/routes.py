@@ -12,7 +12,7 @@ def home_page():
     Renders the homepage
     """
     projects = list(mongo.db.projects.find())
-    return render_template("pages/home.html", projects=projects)
+    return render_template("pages/home.html", projects=projects, home_active=True)
 
 
 # login
@@ -44,7 +44,7 @@ def login():
             # username doesn't exist
             flash('Incorrect username/password. Please try again.')
             return redirect(url_for("login"))
-    return render_template("pages/auth.html", register=False)
+    return render_template("pages/auth.html", register=False, login_active=True)
 
 
 @app.route("/logout")
@@ -92,7 +92,7 @@ def add_project():
     """
     Handles adding a new project and renders the add project form
     """
-    return render_template("add-project.html")
+    return render_template("add-or-edit-project.html", add_project=True, project_active=True)
 
 
 # edit project page
@@ -101,7 +101,7 @@ def edit_project():
     """
     Handles editing a project and renders the edit project form
     """
-    return render_template("edit-project.html")
+    return render_template("add-or-edit-project.html", project_active=True)
 
 
 # individual project page
@@ -121,7 +121,7 @@ def go_to_profile(username):
     """
     # grab the session user's username from the database
     username = User.query.filter_by(username=session['user']).first()
-    return render_template("profile.html", username=username, active=True)
+    return render_template("profile.html", username=username, profile_active=True)
 
 
 # edit profile page
@@ -139,4 +139,4 @@ def contact():
     """
     Renders the contact us form
     """
-    return render_template("contact.html")
+    return render_template("contact.html", contact_active=True)

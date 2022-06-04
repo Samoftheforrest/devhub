@@ -6,13 +6,13 @@
 <nav id="sidebar">
     <ul>
         <li>
-            <a href="{{ url_for('home_page') }}" class="main-logo {% if request.path=='/' %} active {% endif %}" data-bs-placement="right" data-bs-toggle="tooltip" title="Home">
+            <a href="{{ url_for('home_page') }}" class="main-logo {% if home_active %} active {% endif %}" data-bs-placement="right" data-bs-toggle="tooltip" title="Home">
                 <i class="fa-solid fa-house"></i>
             </a>
         </li>
         {% if session.user %}
         <li>
-            <a href="{{ url_for('add_project') }}" class="{% if request.path=='/new-project' %} active {% endif %}" aria-label="Add new project" data-bs-placement="right" data-bs-toggle="tooltip" title="Add a new project">
+            <a href="{{ url_for('add_project') }}" class="{% if project_active %} active {% endif %}" aria-label="Add new project" data-bs-placement="right" data-bs-toggle="tooltip" title="Add a new project">
                 <i class="fa-solid fa-plus"></i>
             </a>
         </li>
@@ -23,19 +23,19 @@
         </li>
         {% else %}
         <li>
-            <a href="{{ url_for('login') }}" class="{% if request.path=='/login' or request.path=='/register' %} active {% endif %}" aria-label="login or register" data-bs-placement="right" data-bs-toggle="tooltip" title="Login/Register">
+            <a href="{{ url_for('login') }}" class="{% if login_active or register %} active {% endif %}" aria-label="login or register" data-bs-placement="right" data-bs-toggle="tooltip" title="Login/Register">
                 <i class="fa-solid fa-arrow-right-to-bracket"></i>
             </a>
         </li>
         {% endif %}
         {% if session.user %}
         <li>
-            <a href="{{ url_for('contact') }}" class="{% if request.path=='/contact' %} active {% endif %}" aria-label="contact" data-bs-placement="right" data-bs-toggle="tooltip" title="Contact">
+            <a href="{{ url_for('contact') }}" class="{% if contact_active %} active {% endif %}" aria-label="contact" data-bs-placement="right" data-bs-toggle="tooltip" title="Contact">
                 <i class="fa-solid fa-envelope"></i>
             </a>
         </li>
         <li class="profile-link">
-            <a href="{{ url_for('go_to_profile', username=session['user']) }}" class="{% if active==True %} active {% endif %}" aria-label="Go to your profile" data-bs-placement="right" data-bs-toggle="tooltip" title="Your Profile">{{ session.user | first | upper }}</a>
+            <a href="{{ url_for('go_to_profile', username=session['user']) }}" class="{% if profile_active %} active {% endif %}" aria-label="Go to your profile" data-bs-placement="right" data-bs-toggle="tooltip" title="Your Profile">{{ session.user | first | upper }}</a>
         </li>
         {% endif %}
     </ul>

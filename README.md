@@ -141,6 +141,8 @@ Depending on which page the user is on, the appropriate nav link will be highlig
     </li>
 ```
 
+**Update:** I updated the implementation of this feature by simply passing a variable to each page (e.g. 'home' on the homepage) which is set to True; the sidebar partial then checks which page has the true variable, and styles the nav accordingly. I decided to do it this way to make it more readable.
+
 Nav with homepage icon active:
 
 ![Home page with active class](/devhub/static/docs/readme/features/nav-home-active.png)
