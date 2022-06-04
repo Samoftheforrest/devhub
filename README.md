@@ -231,7 +231,7 @@ Test description
 
 | Plan | Implementation | Test | Result |
 | ---- | -------------- | ---- | ------ |
-| Test | Tets | Test | Test |
+| I would like the user to have a sidebar nav that is always available, providing them with links to navigate around the site | To do this, I will include a sticky navbar - that is present on each page - with links to the main pages of the site | I will follow each of the available links 3 times each to ensure that they go to the appropriate page | Each of the links led me to the correct page on each attempt - I have deemed this test to be successful |
 
 Add screenshot for each test
 
@@ -243,7 +243,7 @@ Test description
 
 | Plan | Implementation | Test | Result |
 | ---- | -------------- | ---- | ------ |
-| Test | Tets | Test | Test |
+| I would like the user to be able to add their own projects - when logged in - by filling out a short form, and uploading an image if they choose to | Within the `add_project` page, I have created a short form for the user to fill out about their project. The data from this form will be sent to MongoDB, and will in turn be used to display their project | I will attempt to fill out the form and upload three separate projects, from three separate accounts | Test |
 
 Add screenshot for each test
 
@@ -255,7 +255,7 @@ Test description
 
 | Plan | Implementation | Test | Result |
 | ---- | -------------- | ---- | ------ |
-| Test | Tets | Test | Test |
+| Once a logged in user has uploaded their project, I would like them to be able to edit that project by clicking on the project's card, or on the 'edit' button on the project page. The edit button should only be visible to the owner of the project | I have reused the form from the test above, but I have used jinja templating logic to fill out the fields with the current project data. Additionally, I have included jinja logic that only allows the user to see the edit button on the projects where the session['user'] matches with the project owner | I will attempt to edit three projects: one through the project card, one through an individual project page, and one project that is not owned by the currently logged in user. I should be able to edit the first two, but not the last. | Test |
 
 Add screenshot for each test
 
@@ -284,7 +284,7 @@ Test description
 
 | Plan | Implementation | Test | Result |
 | ---- | -------------- | ---- | ------ |
-| Test | Tets | Test | Test |
+| Once a user has created an account - I would like them to be able to share some information about themselves on their personal profile, not only their projects | If the user visits the profile associated with their account, I will include an edit button, which will take them to a form where they can fill out some information about themselves | I will edit the profile of my testing account 'testaccount' three times, and check that each time the edits are displaying as intended | Test |
 
 Add screenshot for each test
 
