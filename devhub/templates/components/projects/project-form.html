@@ -1,0 +1,101 @@
+<form action="{{ url_for('add_project') }}" class="form needs-validation" novalidate>
+    <div class="container">
+        <div class="row">
+            <div class="col-9 mb-2">
+                <label for="projectname">Project name</label>
+                <input type="text" name="projectname" id="projectname" class="form-control" required>
+                <div class="invalid-feedback">
+                    Project name cannot be left blank
+                </div>
+            </div>
+            <div class="col-3 mb-2">
+                <label for="projectimage" class="d-flex flex-column">
+                    Image (optional)
+                    <input type="file" name="projectimage" id="projectimage" class="form-control" style="opacity: 0;">
+                    <span class="button mt-2">+</span>
+                </label>
+                <label for="filename" class="filename"></label>
+            </div>
+            <div class="col-12 mb-4">
+                <label for="projectdescription">Project description</label>
+                <textarea name="projectdescription" id="projectdescription" cols="30" rows="10" class="form-control"  required></textarea>
+                <div class="invalid-feedback">
+                    Project description cannot be left blank
+                </div>
+            </div>
+            <div class="col-12 mb-4">
+                <label for="livelink">Live link</label>
+                <input type="text" name="livelink" id="livelink" class="form-control"  required>
+                <div class="invalid-feedback">
+                    Live link cannot be left blank
+                </div>
+            </div>
+            <div class="col-12 mb-4">
+                <label for="repolink">Repo link</label>
+                <input type="text" name="repolink" id="repolink" class="form-control"  required>
+                <div class="invalid-feedback">
+                    Repo link cannot be left blank
+                </div>
+            </div>
+            <div class="col-12 mb-4">
+                <fieldset>
+                    <legend class="mb-3">Project tags - choose up to 3:</legend>
+                    <div class="d-flex">
+                        <div id="checkboxes" class="d-flex me-3">
+                            <div class="checkbox-container">
+                                <input type="checkbox" class="projecttags" name="html" id="html">
+                                <i class="fa-solid fa-check"></i>
+                            </div>
+                            <label for="html">HTML</label>
+                        </div>
+                        <div class="d-flex me-3">
+                            <div class="checkbox-container">
+                                <input type="checkbox" class="projecttags" name="css" id="css">
+                                <i class="fa-solid fa-check"></i>
+                            </div>
+                            <label for="css">CSS</label>
+                        </div>
+                        <div class="d-flex me-3">
+                            <div class="checkbox-container">
+                                <input type="checkbox" class="projecttags" name="sass" id="sass">
+                                <i class="fa-solid fa-check"></i>
+                            </div>
+                            <label for="sass">SASS/SCSS</label>
+                        </div>
+                        <div class="d-flex me-3">
+                            <div class="checkbox-container">
+                                <input type="checkbox" class="projecttags" name="javascript" id="javascript">
+                                <i class="fa-solid fa-check"></i>
+                            </div>
+                            <label for="javascript">Javascript</label>
+                        </div>
+                        <div class="d-flex me-3">
+                            <div class="checkbox-container">
+                                <input type="checkbox" class="projecttags" name="python" id="python">
+                                <i class="fa-solid fa-check"></i>
+                            </div>
+                            <label for="python">Python</label>
+                        </div>
+                        <div class="d-flex me-3">
+                            <div class="checkbox-container">
+                                <input type="checkbox" class="projecttags" name="react" id="react">
+                                <i class="fa-solid fa-check"></i>
+                            </div>
+                            <label for="react">React</label>
+                        </div>
+                        <div class="d-flex me-3">
+                            <div class="checkbox-container">
+                                <input type="checkbox" class="projecttags" name="other" id="other">
+                                <i class="fa-solid fa-check"></i>
+                            </div>
+                            <label for="other">Other</label>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+            <div class="col-12">
+                <input type="submit" value="{{ 'Add' if add_project else 'Save' }} project">
+            </div>
+        </div>
+    </div>
+</form>

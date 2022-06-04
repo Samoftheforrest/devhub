@@ -195,6 +195,7 @@ Sent email:
 - Sorting project by most popular: Once the upvoting/downvoting feature (above) was implemented, I would like the users to be able to filter the projects on the homepage by popularity, seeing which have the most upvotes.
 - Homepage pagination: On the homepage, rather than displaying every single project in a list, I think it would be beneficial to performace to only show a certain number of projects per page.
 - Pinned comments on projects: On each individual project page, the creator of the project will have the ability to pin a comment so that it always shows as the top comment. This may be useful for comments from the creator, to inform potential users of any updates, news, etc.
+- Searching by project tags: search/filtering functionality could be added that shows all projects with specific tags (i.e. React, SCSS, Python, etc).
 
 ## Technologies Used
 
@@ -373,6 +374,7 @@ Add screenshot for each test
 - [This Stack Overflow answer](https://stackoverflow.com/questions/33627646/python-flask-template-return-first-150-characters) showed me how to use Jinja's `truncate` filter, to limit the project cards to 450 characters each.
 - [This Stack Overflow answer](https://stackoverflow.com/questions/8676455/flask-current-page-in-request-variable) showed me how to apply CSS classes dependent on the page the user is currently on.
 - [This Stack Overflow answer](https://stackoverflow.com/questions/16573095/case-insensitive-flask-sqlalchemy-query) demonstrated how to convert Sqlalchemy queries to lowercase.
+- [This Stack Overflow thread](https://stackoverflow.com/questions/41542845/how-to-display-file-name-for-custom-styled-input-file-using-jquery) showed me how to display the name of the file being uploaded when using a custom upload button
 
 ### General Thanks
 - I would like to thank my mentor [Simen](https://github.com/Eventyret) for all of his feedback and support with this project.

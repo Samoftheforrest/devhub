@@ -28,3 +28,31 @@ if ($(window).width() < 992) {
     }
   })
 }
+
+// add/edit project form - show name of file to upload
+$('#projectimage').change(function() {
+  $('.filename').text(this.files[0].name);
+})
+
+// add/edit project form - custom checkboxes
+$('.projecttags').each(function() {
+  let currentInput = $(this);
+  let currentContainer = currentInput.closest('.checkbox-container');
+
+  currentInput.change(function() {
+    if (currentInput.is(':checked')) {
+      currentContainer.addClass('checked');
+    } else {
+      currentContainer.removeClass('checked');
+    }
+  })
+});
+
+// limit the amount of checkboxes it is possible to select
+let limit = 3;
+$('.projecttags').change(function() {
+  if ($('input[type=checkbox]:checked').length > limit) {
+    $(this).prop('checked', false);
+    $(this).closest('.checkbox-container').removeClass('checked');
+  }
+})
