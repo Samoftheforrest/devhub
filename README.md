@@ -322,7 +322,7 @@ Test description
 
 | Plan | Implementation | Test | Result |
 | ---- | -------------- | ---- | ------ |
-| Test | Tets | Test | Test |
+| I would like the site to be aesthetically pleasing regardless of the device the user uses to view the site | To implement this, I will use a combination of Bootstrap classes and media queries to make the pages responsive | I will load each of the pages on one mobile, tablet and desktop device, and assess whether the element are in the correct layout - based on the wireframes for the pages | Test |
 
 Add screenshot for each test
 
@@ -334,7 +334,7 @@ Test description
 
 | Plan | Implementation | Test | Result |
 | ---- | -------------- | ---- | ------ |
-| Test | Tets | Test | Test |
+| Once a user has registered from the site, I would like this to generate a page which shows their name, optional information about the user, and all projects associated with that user | To implement this, I will use jinja templating logic to check the username of the current session user, displaying their username on the profile page and then loop through each project in MongoDB - but only displaying those created by the session user | I will create three different accounts - testaccount, samforrest, and l.gilbert - then I will add a project for each of these accounts. Once this is done, I will login with each of these accounts and navigate to the profile page - ensuring that all the correct information is displaying | Test |
 
 Add screenshot for each test
 
