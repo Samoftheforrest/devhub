@@ -1,6 +1,7 @@
 from flask import render_template, redirect, request, url_for, flash, session
 import cloudinary
 import cloudinary.uploader
+from datetime import datetime
 from werkzeug.utils import secure_filename
 from bson.objectid import ObjectId
 from sqlalchemy import func
@@ -99,12 +100,14 @@ def add_project():
     if request.method == "POST":
         image = request.files['projectimage']
         upload_result = cloudinary.uploader.upload(image)
+        current_date = datetime.now()
+        date = current_date.strftime("%x")
         project = {
             "project_name": request.form.get('projectname'),
             "project_description": request.form.get('projectdescription'),
             "project_image": upload_result["secure_url"],
             "created_by": session['user'],
-            "date_posted": "",
+            "date_posted": date,
             "live_link": request.form.get('livelink'),
             "repo_link": request.form.get('repolink'),
         }
