@@ -2,24 +2,31 @@
     <div class="project-card">
         <div class="container">
             <div class="row d-flex flex-column flex-lg-row">
+                {% if project.project_image %}
                 <div class="col-lg-4 px-0">
                     <div class="project-card-image">
                         <picture>
-                            <source media="(min-width:1200px)" srcset="https://via.placeholder.com/200x210">
-                            <source media="(min-width:992px)" srcset="https://via.placeholder.com/200x210">
-                            <source media="(min-width:768px)" srcset="https://via.placeholder.com/200x210">
-                            <source media="(min-width:576px)" srcset="https://via.placeholder.com/200x210">
-                            <img src="https://via.placeholder.com/200x205" class="w-100 h-100">
+                            <source media="(min-width:1200px)" srcset="{{ project.project_image }}">
+                            <source media="(min-width:992px)" srcset="{{ project.project_image }}">
+                            <source media="(min-width:768px)" srcset="{{ project.project_image }}">
+                            <source media="(min-width:576px)" srcset="{{ project.project_image }}">
+                            <img src="{{ project.project_image }}" class="w-100 h-100">
                         </picture>
+                        {% if project.created_by == session['user'] %}
+                            <div class="project-buttons">
+                                <a href="{{ url_for('edit_project') }}" class="project-button mb-2">Edit</a>
+                                <a href="{{ url_for('delete_project', project_id=project._id) }}" class="project-button">Delete</a>
+                            </div>
+                        {% endif %}
                     </div>
-                    
                 </div>
-                <div class="col-lg-8 d-flex flex-column justify-content-start align-items-between">
+                {% endif %}
+                <div class="col-{{'lg-8' if project.project_image else '12'}} d-flex flex-column justify-content-start align-items-between">
                     <div class="project-card-info-wrap">
                         <div class="project-card-info-top d-flex flex-column flex-lg-row justify-content-between">
                             <div class="project-title-wrap">
                                 <h2 class="project-title mb-0 mb-lg-3"><a href="#" aria-label="Go to {{ project.project_name }} page">{{ project.project_name }} <i class="fa-solid fa-arrow-right"></i></a></h2>
-                                <span class="project-subtitle mb-3 mb-lg-0">by <a href="#">{{ project.created_by }}</a></span>
+                                <span class="project-subtitle mb-3 mb-lg-0">by <a href="#">{{ project.created_by }}</a> {% if project.created_by == session['user'] %} <i class="fa-solid fa-star" data-bs-placement="right" data-bs-toggle="tooltip" title="You own this project"></i> {% endif %} </span>
                             </div>
                             <div class="project-card-links d-flex justify-content-lg-end">
                                 <a href="{{ project.live_link }}" target="_blank" rel="noopener" aria-label="Go to {{ project.live_link }}"><i class="fa-solid fa-square-arrow-up-right"></i></a>

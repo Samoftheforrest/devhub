@@ -1,4 +1,8 @@
 from flask import render_template, redirect, request, url_for, flash, session
+import cloudinary
+import cloudinary.uploader
+from werkzeug.utils import secure_filename
+from bson.objectid import ObjectId
 from sqlalchemy import func
 from werkzeug.security import generate_password_hash, check_password_hash
 from devhub import app, db, mongo
@@ -87,12 +91,30 @@ def register():
 
 
 # add a project page
-@app.route("/new-project")
+@app.route("/new-project", methods=["GET", "POST"])
 def add_project():
     """
     Handles adding a new project and renders the add project form
     """
-    return render_template("add-or-edit-project.html", add_project=True, project_active=True)
+    if request.method == "POST":
+        image = request.files['projectimage']
+        upload_result = cloudinary.uploader.upload(image)
+        project = {
+            "project_name": request.form.get('projectname'),
+            "project_description": request.form.get('projectdescription'),
+            "project_image": upload_result["secure_url"],
+            "created_by": session['user'],
+            "date_posted": "",
+            "live_link": request.form.get('livelink'),
+            "repo_link": request.form.get('repolink'),
+        }
+        mongo.db.projects.insert_one(project)
+        project_name = request.form.get('projectname')
+        flash(f'{project_name} successfully added')
+
+    return render_template("add-or-edit-project.html",
+                            add_project=True,
+                            project_active=True)
 
 
 # edit project page
@@ -102,6 +124,14 @@ def edit_project():
     Handles editing a project and renders the edit project form
     """
     return render_template("add-or-edit-project.html", project_active=True)
+
+
+# delete project
+@app.route("/delete-project/<project_id>")
+def delete_project(project_id):
+    mongo.db.projects.delete_one({"_id": ObjectId(project_id)})
+    flash('Project deleted')
+    return redirect(url_for("home_page"))
 
 
 # individual project page
