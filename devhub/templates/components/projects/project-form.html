@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-9 mb-2">
                 <label for="projectname">Project name</label>
-                <input type="text" name="projectname" id="projectname" class="form-control" required>
+                <input type="text" name="projectname" id="projectname" class="form-control" value="{{ project.project_name }}" required>
                 <div class="invalid-feedback">
                     Project name cannot be left blank
                 </div>
@@ -21,21 +21,23 @@
             </div>
             <div class="col-12 mb-4">
                 <label for="projectdescription">Project description</label>
-                <textarea name="projectdescription" id="projectdescription" cols="30" rows="10" class="form-control"  required></textarea>
+                <textarea name="projectdescription" id="projectdescription" cols="30" rows="10" class="form-control" required>
+                    {{- project.project_description -}}
+                </textarea>
                 <div class="invalid-feedback">
                     Project description cannot be left blank
                 </div>
             </div>
             <div class="col-12 mb-4">
                 <label for="livelink">Live link</label>
-                <input type="text" name="livelink" id="livelink" class="form-control"  required>
+                <input type="text" name="livelink" id="livelink" class="form-control" value="{{ project.live_link }}" required>
                 <div class="invalid-feedback">
                     Live link cannot be left blank
                 </div>
             </div>
             <div class="col-12 mb-4">
                 <label for="repolink">Repo link</label>
-                <input type="text" name="repolink" id="repolink" class="form-control"  required>
+                <input type="text" name="repolink" id="repolink" class="form-control" value="{{ project.repo_link }}" required>
                 <div class="invalid-feedback">
                     Repo link cannot be left blank
                 </div>

@@ -121,12 +121,25 @@ def add_project():
 
 
 # edit project page
-@app.route("/edit-project")
-def edit_project():
+@app.route("/edit-project/<project_id>", methods=["GET", "POST"])
+def edit_project(project_id):
     """
     Handles editing a project and renders the edit project form
     """
-    return render_template("add-or-edit-project.html", project_active=True)
+    if request.method == "POST":
+        submit = {
+            "project_name": request.form.get('projectname'),
+            "project_description": request.form.get('projectdescription'),
+            "project_image": upload_result["secure_url"],
+            "created_by": session['user'],
+            "date_posted": date,
+            "live_link": request.form.get('livelink'),
+            "repo_link": request.form.get('repolink'),
+        }
+        mongo.db.projects.update_one({"_id": ObjectId(project_id)}, {"$set": submit})
+
+    project = mongo.db.projects.find_one({"_id": ObjectId(project_id)})
+    return render_template("add-or-edit-project.html", edit_project=True, project_active=True, project=project)
 
 
 # delete project

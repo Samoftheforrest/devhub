@@ -176,6 +176,8 @@ There is a card containing the following information for each project:
 
 ![Example of two project cards](/devhub/static/docs/readme/features/homepage-project-cards.png)
 
+If a user is logged in, 
+
 #### Contact page
 **Contact form**
 The contact page has a form, that uses [EmailJS](https://www.emailjs.com/) in order to send feedback about the site to my personal email.
