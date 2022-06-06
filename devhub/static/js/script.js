@@ -32,6 +32,7 @@ if ($(window).width() < 992) {
 // add/edit project form - show name of file to upload
 $('#projectimage').change(function() {
   $('.filename').text(this.files[0].name);
+  $('#filename').val(this.files[0].name);
 })
 
 // add/edit project form - custom checkboxes
@@ -42,8 +43,10 @@ $('.projecttags').each(function() {
   currentInput.change(function() {
     if (currentInput.is(':checked')) {
       currentContainer.addClass('checked');
+      currentInput.attr('name', 'checked');
     } else {
       currentContainer.removeClass('checked');
+      currentInput.attr('name', '');
     }
   })
 });

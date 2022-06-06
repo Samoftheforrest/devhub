@@ -106,15 +106,17 @@ def add_project():
             "project_name": request.form.get('projectname'),
             "project_description": request.form.get('projectdescription'),
             "project_image": upload_result["secure_url"],
+            "project_image_name": request.form.get('filename'),
             "created_by": session['user'],
             "date_posted": date,
             "live_link": request.form.get('livelink'),
             "repo_link": request.form.get('repolink'),
+            "project_tags": request.form.getlist('checked')
         }
         mongo.db.projects.insert_one(project)
         project_name = request.form.get('projectname')
         flash(f'{project_name} successfully added')
-
+            
     return render_template("add-or-edit-project.html",
                             add_project=True,
                             project_active=True)
@@ -127,16 +129,20 @@ def edit_project(project_id):
     Handles editing a project and renders the edit project form
     """
     if request.method == "POST":
+        image = request.files['projectimage']
+        upload_result = cloudinary.uploader.upload(image)
         submit = {
             "project_name": request.form.get('projectname'),
             "project_description": request.form.get('projectdescription'),
             "project_image": upload_result["secure_url"],
+            "project_image_name": request.form.get('filename'),
             "created_by": session['user'],
-            "date_posted": date,
             "live_link": request.form.get('livelink'),
             "repo_link": request.form.get('repolink'),
+            "project_tags": request.form.getlist('checked')
         }
         mongo.db.projects.update_one({"_id": ObjectId(project_id)}, {"$set": submit})
+        flash(f'Your project has been successfully updated')
 
     project = mongo.db.projects.find_one({"_id": ObjectId(project_id)})
     return render_template("add-or-edit-project.html", edit_project=True, project_active=True, project=project)

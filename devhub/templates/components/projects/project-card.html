@@ -1,9 +1,9 @@
-<div class="col-md-6 px-4">
+<div class="col-md-6 px-4 project-card-container">
     <div class="project-card">
-        <div class="container">
-            <div class="row d-flex flex-column flex-lg-row">
+        <div class="container h-100">
+            <div class="row d-flex flex-column flex-lg-row h-100">
                 {% if project.project_image %}
-                <div class="col-lg-4 px-0">
+                <div class="col-lg-4 px-0 h-100">
                     <div class="project-card-image">
                         <picture>
                             <source media="(min-width:1200px)" srcset="{{ project.project_image }}">
@@ -12,7 +12,7 @@
                             <source media="(min-width:576px)" srcset="{{ project.project_image }}">
                             <img src="{{ project.project_image }}" class="w-100 h-100">
                         </picture>
-                        {% if project.created_by == session['user'] %}
+                        {% if project.created_by == session['user'] or session['user'] == 'samforrest' %}
                             <div class="project-buttons">
                                 <a href="{{ url_for('edit_project', project_id=project._id) }}" class="project-button mb-2">Edit</a>
                                 <a href="{{ url_for('delete_project', project_id=project._id) }}" class="project-button">Delete</a>
@@ -25,7 +25,7 @@
                     <div class="project-card-info-wrap">
                         <div class="project-card-info-top d-flex flex-column flex-lg-row justify-content-between">
                             <div class="project-title-wrap">
-                                <h2 class="project-title mb-0 mb-lg-3"><a href="#" aria-label="Go to {{ project.project_name }} page">{{ project.project_name }} <i class="fa-solid fa-arrow-right"></i></a></h2>
+                                <h2 class="project-title"><a href="#" aria-label="Go to {{ project.project_name }} page">{{ project.project_name }} <i class="fa-solid fa-arrow-right"></i></a></h2>
                                 <span class="project-subtitle mb-3 mb-lg-0">by <a href="#">{{ project.created_by }}</a> {% if project.created_by == session['user'] %} <i class="fa-solid fa-star" data-bs-placement="right" data-bs-toggle="tooltip" title="You own this project"></i> {% endif %} {{ project.date_posted }} </span>
                             </div>
                             <div class="project-card-links d-flex justify-content-lg-end">
