@@ -108,9 +108,7 @@ I used a pairing of two [Google Fonts](https://fonts.google.com/) - [Montserrat]
 
 ## Features
 
-### Existing Features
-
-#### Site-wide
+### Site-wide
 **Fixed nav**
 
 On every page on the site, the nav is either fixed to the left-side of the screen (on desktop), or slides in from the left-side of the screen (on mobile and tablet).
@@ -163,7 +161,7 @@ Unsuccessful validation:
 
 ![Unsuccessful validation](/devhub/static/docs/readme/features/form-validation-failed.png)
 
-#### Homepage
+### Homepage
 **Project Cards**
 There is a card containing the following information for each project:
     - Name
@@ -182,7 +180,7 @@ If a user is logged in, it will also show edit/delete buttons when the user hove
 
 ![Ownership star on project cards](/devhub/static/docs/readme/features/project-card-star.png)
 
-#### Contact page
+### Contact page
 **Contact form**
 The contact page has a form, that uses [EmailJS](https://www.emailjs.com/) in order to send feedback about the site to my personal email.
 
@@ -193,8 +191,6 @@ Contact form:
 Sent email:
 
 ![Sent email](/devhub/static/docs/readme/features/email.png)
-
-#### 
 
 ### Features to be Implemented
 - Upvoting/Downvoting: In future iterations of this project, I would like to add up and down arrows to the project cards for (logged in) users to upvote/downvote the projects.
