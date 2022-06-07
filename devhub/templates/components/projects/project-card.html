@@ -15,7 +15,7 @@
                         {% if project.created_by == session['user'] or session['user'] == 'samforrest' %}
                             <div class="project-buttons">
                                 <a href="{{ url_for('edit_project', project_id=project._id) }}" class="project-button mb-2">Edit</a>
-                                <a href="{{ url_for('warning', project_id=project._id) }}" class="project-button">Delete</a>
+                                <a href="{{ url_for('warning', project_id=project._id) }}" class="project-button mb-2 mb-lg-0 ms-2 ms-lg-0">Delete</a>
                             </div>
                         {% endif %}
                     </div>
