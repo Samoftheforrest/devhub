@@ -247,7 +247,13 @@ Test description
 | ---- | -------------- | ---- | ------ |
 | I would like the user to be able to add their own projects - when logged in - by filling out a short form, and uploading an image if they choose to | Within the `add_project` page, I have created a short form for the user to fill out about their project. The data from this form will be sent to MongoDB, and will in turn be used to display their project | I will attempt to fill out the form and upload three separate projects, from three separate accounts | Test |
 
-Add screenshot for each test
+![Bordle test project](/devhub/static/docs/readme/features/add-project-form-one.png)
+
+![Minefield memory test project](/devhub/static/docs/readme/features/add-project-form-two.png)
+
+![Devhub test project](/devhub/static/docs/readme/features/add-project-form-three.png)
+
+![Uploaded projects](/devhub/static/docs/readme/features/add-project-cards.png)
 
 ### Test 3 - Edit projects
 
