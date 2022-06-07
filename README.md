@@ -176,7 +176,11 @@ There is a card containing the following information for each project:
 
 ![Example of two project cards](/devhub/static/docs/readme/features/homepage-project-cards.png)
 
-If a user is logged in, 
+If a user is logged in, it will also show edit/delete buttons when the user hovers on the project cards they own and a star next to their username to signify that they own it (which also shows a tooltip saying 'You own this project'). This applies to all projects if you are logged in as the admin.
+
+![Example of edit/delete buttons on project cards](/devhub/static/docs/readme/features/project-card-buttons.png)
+
+![Ownership star on project cards](/devhub/static/docs/readme/features/project-card-star.png)
 
 #### Contact page
 **Contact form**
