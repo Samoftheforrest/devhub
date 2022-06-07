@@ -235,7 +235,7 @@ Test description
 | ---- | -------------- | ---- | ------ |
 | I would like the user to have a sidebar nav that is always available, providing them with links to navigate around the site | To do this, I will include a sticky navbar - that is present on each page - with links to the main pages of the site | I will follow each of the available links 3 times each to ensure that they go to the appropriate page | Each of the links led me to the correct page on each attempt - I have deemed this test to be successful |
 
-Add screenshot for each test
+A demonstration of the site's nav can be found [here](https://www.awesomescreenshot.com/video/9327096?key=5749d43e64ba5d7adb06fb872ff3ccf7)
 
 ### Test 2 - Add Projects
 
