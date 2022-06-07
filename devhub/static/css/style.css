@@ -57,6 +57,11 @@ body {
     font-size: 1.6rem;
 }
 
+.highlight {
+    color: var(--brand-colour);
+    font-weight: 700;
+}
+
 /* title font */
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Montserrat';
@@ -429,6 +434,8 @@ h2, h3, h4, h5, h6 {
 .modal-title {
     font-size: 4rem;
     margin-bottom: 1rem;
+    font-weight: 700;
+    color: var(--brand-colour);
 }
 
 .modal-description {

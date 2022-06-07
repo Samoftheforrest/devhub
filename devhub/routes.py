@@ -148,6 +148,15 @@ def edit_project(project_id):
     return render_template("add-or-edit-project.html", edit_project=True, project_active=True, project=project)
 
 
+# project deletion warning
+@app.route("/warning/<project_id>")
+def warning(project_id):
+
+    project=mongo.db.projects.find_one({"_id": ObjectId(project_id)})
+    projects = list(mongo.db.projects.find())
+    return render_template("pages/home.html", project=project, projects=projects, modal=True)
+
+
 # delete project
 @app.route("/delete-project/<project_id>")
 def delete_project(project_id):
