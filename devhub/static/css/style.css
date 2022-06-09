@@ -308,8 +308,12 @@ h2, h3, h4, h5, h6 {
     transition: all .3s;
 }
 
-.project-buttons .project-button:hover, .project-buttons .project-button:focus {
+.project-buttons .edit-button:hover, .project-buttons .edit-button:focus {
     background: var(--brand-colour);
+}
+
+.project-buttons .delete-button:hover, .project-buttons .delete-button:focus {
+    background: red;
 }
 
 .project-card-info-wrap {
@@ -451,6 +455,36 @@ h2, h3, h4, h5, h6 {
 .modal-button:hover, .modal-button:focus {
     background: var(--brand-colour);
     color: var(--light-colour);
+}
+
+.delete-button:hover, .delete-button:focus {
+    background: red;
+    color: var(--light-colour);
+}
+
+/* profile pages */
+.user-bio-link {
+    text-decoration: none;
+    position: relative;
+}
+
+.user-bio-link::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--brand-colour);
+    transition: all .3s;
+}
+
+.user-bio-link:hover, .user-bio-link:focus {
+    color: var(--brand-colour);
+}
+
+.user-bio-link:hover::before, .user-bio-link:focus::before {
+    width: 100%;
 }
 
 /* forms */
