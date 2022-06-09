@@ -9,6 +9,19 @@
         </div>
     </div>
 
+    <div class="container mb-5">
+        <div class="row">
+            <div class="col-12">
+                <h2 class="page-subtitle mb-3">{{ user.account_name }}</h2>
+            </div>
+            {% if not user.bio %}
+                <p>It looks like you don't have a profile yet, you can create one <a href="#" class="highlight user-bio-link">here</a>.</p>
+            {% else %}
+                <p>{{ user.bio }}</p>
+            {% endif %}
+        </div>
+    </div>
+
     <div class="container">
         <div class="row">
             <div class="col-12">
