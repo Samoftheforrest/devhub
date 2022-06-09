@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h1 class="page-title">{{ username }}</h1>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h2 class="mb-3">{{ username }}'s projects</h2>
+            </div>
+        </div>
+        <div class="row">
+            {% for project in projects %}
+                    {% include 'components/projects/project-card.html' %}
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

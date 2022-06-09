@@ -117,7 +117,7 @@ def add_project():
         project_name = request.form.get('projectname')
         flash(f'{project_name} successfully added')
             
-    return render_template("add-or-edit-project.html",
+    return render_template("pages/add-or-edit-project.html",
                             add_project=True,
                             project_active=True)
 
@@ -145,7 +145,7 @@ def edit_project(project_id):
         flash(f'Your project has been successfully updated')
 
     project = mongo.db.projects.find_one({"_id": ObjectId(project_id)})
-    return render_template("add-or-edit-project.html", edit_project=True, project_active=True, project=project)
+    return render_template("pages/add-or-edit-project.html", edit_project=True, project_active=True, project=project)
 
 
 # project deletion warning
@@ -171,7 +171,7 @@ def go_to_project():
     """
     Renders individual projects
     """
-    return render_template("project.html")
+    return render_template("pages/project.html")
 
 
 # profile page
@@ -181,8 +181,9 @@ def go_to_profile(username):
     Renders profile pages
     """
     # grab the session user's username from the database
-    username = User.query.filter_by(username=session['user']).first()
-    return render_template("profile.html", username=username, profile_active=True)
+    username = User.query.filter_by(username=username).first()
+    projects = list(mongo.db.projects.find({"created_by": str(username)}))
+    return render_template("pages/profile.html", projects=projects, username=username, profile_active=True)
 
 
 # edit profile page
@@ -191,7 +192,7 @@ def edit_profile():
     """
     Handles editing session user's profile and renders the edit profile form
     """
-    return render_template("edit-profile.html")
+    return render_template("pages/edit-profile.html")
 
 
 # contact page
@@ -200,4 +201,4 @@ def contact():
     """
     Renders the contact us form
     """
-    return render_template("contact.html", contact_active=True)
+    return render_template("pages/contact.html", contact_active=True)
