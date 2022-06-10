@@ -176,7 +176,7 @@ def go_to_project():
 
 # profile page
 @app.route("/profile/<username>", methods=["GET", "POST"])
-def go_to_profile(username):
+def go_to_profile(username, active_page):
     """
     Renders profile pages
     """
@@ -184,16 +184,30 @@ def go_to_profile(username):
     username = User.query.filter_by(username=username).first()
     user = mongo.db.users.find_one({"account_name": str(username)})
     projects = list(mongo.db.projects.find({"created_by": str(username)}))
-    return render_template("pages/profile.html", projects=projects, username=username, user=user, profile_active=True)
+    active_page = active_page
+    return render_template("pages/profile.html", projects=projects, username=username, user=user, active_page=True)
 
 
 # edit profile page
-@app.route("/edit-profile")
-def edit_profile():
+@app.route("/edit-profile/<user>", methods=["GET", "POST"])
+def edit_profile(user):
     """
     Handles editing session user's profile and renders the edit profile form
     """
-    return render_template("pages/edit-profile.html")
+    if request.method == "POST":
+        image = request.files['projectimage']
+        upload_result = cloudinary.uploader.upload(image)
+        submit = {
+            "name": request.form.get('name'),
+            "user_bio": request.form.get('userbio'),
+            "user_image": upload_result["secure_url"],
+            "user_image_name": request.form.get('filename'),
+        }
+        mongo.db.users.update_one({"account_name": str(user)}, {"$set": submit})
+        flash(f'Your profile has been successfully updated')
+
+    user = mongo.db.users.find_one({"account_name": str(user)})
+    return render_template("pages/edit-profile.html", user=user, profile_active=True)
 
 
 # contact page

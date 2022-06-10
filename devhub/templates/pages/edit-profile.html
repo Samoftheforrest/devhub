@@ -8,4 +8,39 @@
             </div>
         </div>
     </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-8 mx-auto">
+                <form action="{{ url_for('go_to_profile', username=session['user']) }}" method="POST" class="form needs-validation" enctype="multipart/form-data" novalidate>
+                    <div class="container px-0">
+                        <div class="row">
+                            <div class="col-10 mb-2">
+                                <label for="name">Your name</label>
+                                <input type="text" name="name" id="name" class="form-control">
+                            </div>
+                            <div class="col-2 mb-2">
+                                <label for="projectimage" class="d-flex flex-column">
+                                    Image
+                                    <input type="file" name="projectimage" id="projectimage" class="form-control-file" required>
+                                    <span class="button mt-2">+</span>
+                                    <div class="invalid-feedback">
+                                        Please upload a project image
+                                    </div>
+                                </label>
+                            </div>
+                            <div class="col-12 mb-4">
+                                <label for="userbio">Bio</label>
+                                <textarea name="userbio" id="userbio" cols="30" rows="10" class="form-control"></textarea>
+                            </div>
+                            <div class="col-12">
+                                <input type="submit" value="Save profile">
+                            </div>
+                        </div>
+                    </div>
+                    
+                </form>
+            </div>
+        </div>
+    </div>
 {% endblock %}
