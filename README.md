@@ -163,6 +163,7 @@ Unsuccessful validation:
 
 ### Homepage
 **Project Cards**
+
 There is a card containing the following information for each project:
     - Name
     - Creator
@@ -182,6 +183,7 @@ If a user is logged in, it will also show edit/delete buttons when the user hove
 
 ### Add/edit project page
 **Add project**
+
 Users are presented with a short form to complete - once the form is submitted, the information is passed to MongoDB, where it is then used to generate the project cards.
 
 Completed add project form
@@ -191,16 +193,36 @@ Outputted project cards
 ![Outputted project card](/devhub/static/docs/readme/features/project-card-bordle.png)
 
 **Edit project**
+
 If the user owns a project, or is an admin, they have the option to edit the project - which will bring them to a version of the 'add project' form with all the fields filled out with the project's current information.
 
 Edit project form
 ![Edit project form](/devhub/static/docs/readme/features/edit-project-form.png)
 
-
 ### Login, Logout, Registration
 
+**Registration form**
+
+Users can fill out a short registration form, consisting of their: first name, last name, username, password and an additional field to confirm that their password
+
+![Registration form](/devhub/static/docs/readme/features/register-form.png)
+
+**Login form**
+
+Once a user has registered for the site - all they have to do to log in is enter their username and password to this form
+
+![Login form](/devhub/static/docs/readme/features/login-form.png)
+
+**Logout**
+
+Once a user is logged in, to log out all they have to do it click the logout link in the nav (which then turns into the login link while there is noone logged in)
+
+![Login/logout link](/devhub/static/docs/readme/features/login-logout-link.png)
+
 ### Contact page
+
 **Contact form**
+
 The contact page has a form, that uses [EmailJS](https://www.emailjs.com/) in order to send feedback about the site to my personal email.
 
 Contact form:
