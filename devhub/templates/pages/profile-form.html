@@ -31,8 +31,8 @@
                                         Please upload a profile picture
                                     </div>
                                 </label>
-                                <label for="filename" class="filename"></label>
-                                <input type="text" name="filename" id="filename" value="{{ project.project_image_name if edit_project else '' }}">
+                                <label for="filename" class="filename">{{ user.user_image_name }}</label>
+                                <input type="text" name="filename" id="filename" value="{{ user.user_image_name }}">
                             </div>
                             <div class="col-12 mb-4">
                                 <label for="userbio">Bio</label>
