@@ -189,7 +189,10 @@ def go_to_profile(username):
     username = User.query.filter_by(username=username).first()
     user = mongo.db.users.find_one({"account_name": str(username)})
     projects = list(mongo.db.projects.find({"created_by": str(username)}))
-    return render_template("pages/profile.html", projects=projects, username=username, user=user, profile_active=True)
+    if str(username) == session['user']:
+        return render_template("pages/profile.html", projects=projects, username=username, user=user, profile_active=True)
+    else:
+        return render_template("pages/profile.html", projects=projects, username=username, user=user, home_active=True)
 
 
 # edit profile page
