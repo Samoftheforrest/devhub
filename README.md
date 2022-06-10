@@ -187,9 +187,11 @@ If a user is logged in, it will also show edit/delete buttons when the user hove
 Users are presented with a short form to complete - once the form is submitted, the information is passed to MongoDB, where it is then used to generate the project cards.
 
 Completed add project form
+
 ![Completed add project form](/devhub/static/docs/readme/features/add-project-form.png)
 
 Outputted project cards
+
 ![Outputted project card](/devhub/static/docs/readme/features/project-card-bordle.png)
 
 **Edit project**
@@ -197,6 +199,7 @@ Outputted project cards
 If the user owns a project, or is an admin, they have the option to edit the project - which will bring them to a version of the 'add project' form with all the fields filled out with the project's current information.
 
 Edit project form
+
 ![Edit project form](/devhub/static/docs/readme/features/edit-project-form.png)
 
 ### Login, Logout, Registration
