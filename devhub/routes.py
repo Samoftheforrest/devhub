@@ -156,7 +156,9 @@ def edit_project(project_id):
 # project deletion warning
 @app.route("/warning/<project_id>")
 def warning(project_id):
-
+    """
+    Renders a warning modal when a user tries to delete a project
+    """
     project=mongo.db.projects.find_one({"_id": ObjectId(project_id)})
     projects = list(mongo.db.projects.find())
     return render_template("pages/home.html", project=project, projects=projects, modal=True)
@@ -165,6 +167,9 @@ def warning(project_id):
 # delete project
 @app.route("/delete-project/<project_id>")
 def delete_project(project_id):
+    """
+    Removes a project from the MongoDB database
+    """
     mongo.db.projects.delete_one({"_id": ObjectId(project_id)})
     flash('Project deleted')
     return redirect(url_for("home_page"))
@@ -180,7 +185,7 @@ def go_to_project():
 
 
 # profile page
-@app.route("/profile/<username>", methods=["GET", "POST"])
+@app.route("/profile/<username>")
 def go_to_profile(username):
     """
     Renders profile pages
@@ -221,6 +226,9 @@ def edit_profile(user):
 # delete profile
 @app.route("/delete-profile/<user>")
 def delete_profile(user):
+    """
+    Delete's a user profile - both from MongoDB and Postgres DB
+    """
     mongo.db.users.delete_one({"account_name": str(user)})
     User.query.filter_by(username=str(user)).delete()
     flash('Profile deleted')
