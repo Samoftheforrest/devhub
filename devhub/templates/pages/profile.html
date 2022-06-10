@@ -29,14 +29,16 @@
                         <img src="{{ user.user_image }}" alt="{{ user.account_name }}'s profile picture" class="h-100 w-100">
                     </div>
                 </div>
-                <div class="col-8 position-relative">
+                <div class="col-9 position-relative">
                     <div class="user-info">
-                        <h3 class="mb-3">{{ user.name }}</h3>
-                        <p>{{ user.user_bio | truncate(1000) }}</p>
+                        <h3>{{ user.name }}</h3>
+                        <p class="user-bio">{{ user.user_bio | truncate(900) }}</p>
+                        {% if user.account_name == session['user'] %}
                         <div class="profile-buttons">
-                            <a href="" class="profile-button edit">Edit</a>
-                            <a href="" class="profile-button delete">Delete</a>
+                            <a href="{{ url_for('edit_profile', user=session['user']) }}" class="profile-button edit">Edit</a>
+                            <a href="{{ url_for('delete_profile', user=session['user']) }}" class="profile-button delete">Delete</a>
                         </div>
+                        {% endif %}
                     </div>
                 </div>
                 {% endif %}

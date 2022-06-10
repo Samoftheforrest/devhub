@@ -88,6 +88,11 @@ def register():
             db.session.add(user)
             db.session.commit()
 
+            user_mongo = {
+                "account_name": request.form.get('username').lower()
+            }
+            mongo.db.users.insert_one(user_mongo)
+
     return render_template("pages/auth.html", register=True)
 
 
@@ -176,7 +181,7 @@ def go_to_project():
 
 # profile page
 @app.route("/profile/<username>", methods=["GET", "POST"])
-def go_to_profile(username, active_page):
+def go_to_profile(username):
     """
     Renders profile pages
     """
@@ -184,8 +189,7 @@ def go_to_profile(username, active_page):
     username = User.query.filter_by(username=username).first()
     user = mongo.db.users.find_one({"account_name": str(username)})
     projects = list(mongo.db.projects.find({"created_by": str(username)}))
-    active_page = active_page
-    return render_template("pages/profile.html", projects=projects, username=username, user=user, active_page=True)
+    return render_template("pages/profile.html", projects=projects, username=username, user=user, profile_active=True)
 
 
 # edit profile page
@@ -195,7 +199,7 @@ def edit_profile(user):
     Handles editing session user's profile and renders the edit profile form
     """
     if request.method == "POST":
-        image = request.files['projectimage']
+        image = request.files['profileimage']
         upload_result = cloudinary.uploader.upload(image)
         submit = {
             "name": request.form.get('name'),
@@ -205,9 +209,20 @@ def edit_profile(user):
         }
         mongo.db.users.update_one({"account_name": str(user)}, {"$set": submit})
         flash(f'Your profile has been successfully updated')
+        return redirect(url_for("go_to_profile", username=str(user)))
 
     user = mongo.db.users.find_one({"account_name": str(user)})
-    return render_template("pages/edit-profile.html", user=user, profile_active=True)
+    return render_template("pages/profile-form.html", user=user, profile_active=True)
+
+
+# delete profile
+@app.route("/delete-profile/<user>")
+def delete_profile(user):
+    mongo.db.users.delete_one({"account_name": str(user)})
+    User.query.filter_by(username=str(user)).delete()
+    flash('Profile deleted')
+    session.pop("user")
+    return redirect(url_for("login"))
 
 
 # contact page

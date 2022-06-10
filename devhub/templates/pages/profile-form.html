@@ -12,26 +12,34 @@
     <div class="container">
         <div class="row">
             <div class="col-8 mx-auto">
-                <form action="{{ url_for('go_to_profile', username=session['user']) }}" method="POST" class="form needs-validation" enctype="multipart/form-data" novalidate>
+                <form action="{{ url_for('edit_profile', user=session['user']) }}" method="POST" class="form needs-validation" enctype="multipart/form-data" novalidate>
                     <div class="container px-0">
                         <div class="row">
                             <div class="col-10 mb-2">
                                 <label for="name">Your name</label>
-                                <input type="text" name="name" id="name" class="form-control">
+                                <input type="text" name="name" id="name" class="form-control" value="{{ user.name }}" required>
+                                <div class="invalid-feedback">
+                                    Name cannot be left blank
+                                </div>
                             </div>
                             <div class="col-2 mb-2">
-                                <label for="projectimage" class="d-flex flex-column">
+                                <label for="profileimage" class="d-flex flex-column">
                                     Image
-                                    <input type="file" name="projectimage" id="projectimage" class="form-control-file" required>
+                                    <input type="file" name="profileimage" id="profileimage" class="form-control-file" required>
                                     <span class="button mt-2">+</span>
                                     <div class="invalid-feedback">
-                                        Please upload a project image
+                                        Please upload a profile picture
                                     </div>
                                 </label>
+                                <label for="filename" class="filename"></label>
+                                <input type="text" name="filename" id="filename" value="{{ project.project_image_name if edit_project else '' }}">
                             </div>
                             <div class="col-12 mb-4">
                                 <label for="userbio">Bio</label>
-                                <textarea name="userbio" id="userbio" cols="30" rows="10" class="form-control"></textarea>
+                                <textarea name="userbio" id="userbio" cols="30" rows="10" class="form-control" required>{{- user.user_bio -}}</textarea>
+                                <div class="invalid-feedback">
+                                    Please enter your bio
+                                </div>
                             </div>
                             <div class="col-12">
                                 <input type="submit" value="Save profile">
@@ -43,4 +51,8 @@
             </div>
         </div>
     </div>
+{% endblock %}
+
+{% block scripts %}
+    <script src="{{ url_for('static', filename='js/validation.js') }}"></script>
 {% endblock %}
