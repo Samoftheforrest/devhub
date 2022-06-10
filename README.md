@@ -165,6 +165,7 @@ Unsuccessful validation:
 **Project Cards**
 
 There is a card containing the following information for each project:
+
     - Name
     - Creator
     - Link to live site
@@ -186,11 +187,11 @@ If a user is logged in, it will also show edit/delete buttons when the user hove
 
 Users are presented with a short form to complete - once the form is submitted, the information is passed to MongoDB, where it is then used to generate the project cards.
 
-Completed add project form
+Completed add project form:
 
 ![Completed add project form](/devhub/static/docs/readme/features/add-project-form.png)
 
-Outputted project cards
+Outputted project cards:
 
 ![Outputted project card](/devhub/static/docs/readme/features/project-card-bordle.png)
 
