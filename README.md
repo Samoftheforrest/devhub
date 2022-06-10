@@ -180,6 +180,25 @@ If a user is logged in, it will also show edit/delete buttons when the user hove
 
 ![Ownership star on project cards](/devhub/static/docs/readme/features/project-card-star.png)
 
+### Add/edit project page
+**Add project**
+Users are presented with a short form to complete - once the form is submitted, the information is passed to MongoDB, where it is then used to generate the project cards.
+
+Completed add project form
+![Completed add project form](/devhub/static/docs/readme/features/add-project-form.png)
+
+Outputted project cards
+![Outputted project card](/devhub/static/docs/readme/features/project-card-bordle.png)
+
+**Edit project**
+If the user owns a project, or is an admin, they have the option to edit the project - which will bring them to a version of the 'add project' form with all the fields filled out with the project's current information.
+
+Edit project form
+![Edit project form](/devhub/static/docs/readme/features/edit-project-form.png)
+
+
+### Login, Logout, Registration
+
 ### Contact page
 **Contact form**
 The contact page has a form, that uses [EmailJS](https://www.emailjs.com/) in order to send feedback about the site to my personal email.
@@ -191,6 +210,8 @@ Contact form:
 Sent email:
 
 ![Sent email](/devhub/static/docs/readme/features/email.png)
+
+### Profile pages
 
 ### Features to be Implemented
 - Upvoting/Downvoting: In future iterations of this project, I would like to add up and down arrows to the project cards for (logged in) users to upvote/downvote the projects.
@@ -248,16 +269,16 @@ Test description
 | I would like the user to be able to add their own projects - when logged in - by filling out a short form, and uploading an image if they choose to | Within the `add_project` page, I have created a short form for the user to fill out about their project. The data from this form will be sent to MongoDB, and will in turn be used to display their project | I will attempt to fill out the form and upload three separate projects, from three separate accounts | Test |
 
 **Test 1**
-![Bordle test project](/devhub/static/docs/readme/features/add-project-form-one.png)
+![Bordle test project](/devhub/static/docs/readme/tests/add-project-form-one.png)
 
 **Test 2**
-![Minefield memory test project](/devhub/static/docs/readme/features/add-project-form-two.png)
+![Minefield memory test project](/devhub/static/docs/readme/tests/add-project-form-two.png)
 
 **Test 3**
-![Devhub test project](/devhub/static/docs/readme/features/add-project-form-three.png)
+![Devhub test project](/devhub/static/docs/readme/tests/add-project-form-three.png)
 
 **Results**
-![Uploaded projects](/devhub/static/docs/readme/features/add-project-cards.png)
+![Uploaded projects](/devhub/static/docs/readme/tests/add-project-cards.png)
 
 ### Test 3 - Edit projects
 
