@@ -165,14 +165,13 @@ Unsuccessful validation:
 **Project Cards**
 
 There is a card containing the following information for each project:
-
-    - Name
-    - Creator
-    - Link to live site
-    - Link to repository
-    - Project description
-    - Project image
-    - Project tags
+- Name
+- Creator
+- Link to live site
+- Link to repository
+- Project description
+- Project image
+- Project tags
 
 ![Example of two project cards](/devhub/static/docs/readme/features/homepage-project-cards.png)
 
@@ -327,12 +326,15 @@ Add screenshot for each test
 | I would like the user to be able to log in or out of the page (using the same button for both functions) | I will use Flask to handle the POST method's logic (for both log in and out), a Postgresql database to store the usernames and passwords, and session to track whether the user is logged in or not | I will log and out of three separate test accounts, and attempt to log into an account that does not exist: testaccount, samforrest, l.gilbert, doesnotexist | The three users logged in successfully, but when the non-existing user tried to log in, a flash error was displayed |
 
 Successful login:
+
 ![Successful login screenshot](/devhub/static/docs/readme/tests/successful-login.png)
 
 Successful logout:
+
 ![Successful logout screenshot](/devhub/static/docs/readme/tests/successful-logout.png)
 
 Unsuccessful login:
+
 ![Unsuccessful login](/devhub/static/docs/readme/tests/unsuccessful-login.png)
 
 ### Test 5 - Profile customisation
@@ -416,6 +418,11 @@ Add screenshot for each test
 ![Login bug](/devhub/static/docs/readme/bugs/bug-three.png)
 - **Fix**: To fix this, I used the sqlalchemy function `func.lower()` to force all text inputs to be converted to lowercase when submitted.
 - **Verdict**: After testing five different capitalisations of 'testaccount', and all of them successfully logging in, I have deemed this fix to be successful.
+
+### Profile nav link highlighted when on other users' profiles
+- **Bug**: 
+- **Fix**:
+- **Verdict**:
 
 ### Bug Description
 - **Bug**: 
