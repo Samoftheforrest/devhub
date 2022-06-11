@@ -13,10 +13,10 @@ if os.path.exists("env.py"):
 app = Flask(__name__)
 
 # mongodb
-mongo = PyMongo(app)
 app.config['MONGO_DBNAME'] = os.environ.get('MONGO_DBNAME')
 app.config['MONGO_URI'] = os.environ.get('MONGO_URI')
 app.secret_key = os.environ.get('SECRET_KEY')
+mongo = PyMongo(app)
 
 # cloudinary
 app.config['UPLOAD_FOLDER'] = os.environ.get("UPLOAD_FOLDER")
@@ -29,7 +29,6 @@ cloudinary.config(
 )
 
 # postgresql
-db = SQLAlchemy(app)
 if os.environ.get("DEVELOPMENT") == "True":
     app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DB_URL')
 else:
@@ -37,5 +36,7 @@ else:
     if uri.startswith("postgres://"):
         uri = uri.replace("postgres://", "postgresql://")
     app.config['SQLALCHEMY_DATABASE_URI'] = uri
+
+db = SQLAlchemy(app)
 
 from devhub import routes

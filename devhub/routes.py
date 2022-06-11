@@ -109,7 +109,7 @@ def add_project():
         current_date = datetime.now()
         date = current_date.strftime("%x")
         project = {
-            "project_name": request.form.get('projectname'),
+            "project_name": request.form.get('projectname').lower(),
             "project_description": request.form.get('projectdescription'),
             "project_image": upload_result["secure_url"],
             "project_image_name": request.form.get('filename'),
@@ -177,12 +177,13 @@ def delete_project(project_id):
 
 
 # individual project page
-@app.route("/project")
-def go_to_project():
+@app.route("/project/<project>")
+def go_to_project(project):
     """
     Renders individual projects
     """
-    return render_template("pages/project.html")
+    project = mongo.db.projects.find_one({"project_name": str(project).lower()})
+    return render_template("pages/project.html", project=project, home_active=True)
 
 
 # profile page
