@@ -16,7 +16,7 @@ def home_page():
     """
     Renders the homepage
     """
-    projects = list(mongo.db.projects.find())
+    projects = list(mongo.db.projects.find().sort("_id", -1))
     return render_template("pages/home.html", projects=projects, home_active=True)
 
 
@@ -194,7 +194,7 @@ def go_to_profile(username):
     # grab the session user's username from the database
     username = User.query.filter_by(username=username).first()
     user = mongo.db.users.find_one({"account_name": str(username)})
-    projects = list(mongo.db.projects.find({"created_by": str(username)}))
+    projects = list(mongo.db.projects.find({"created_by": str(username)}).sort("_id", -1))
     if str(username) == session['user']:
         return render_template("pages/profile.html", projects=projects, username=username, user=user, profile_active=True)
     else:
