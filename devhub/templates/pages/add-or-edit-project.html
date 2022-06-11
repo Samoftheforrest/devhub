@@ -19,4 +19,11 @@
 
 {% block scripts %}
     <script src="{{ url_for('static', filename='js/validation.js') }}"></script>
+
+    <script>
+        $('.checked').each(function() {
+            $(this).children('input').prop('checked', true);
+        })
+    </script>
+    
 {% endblock %}

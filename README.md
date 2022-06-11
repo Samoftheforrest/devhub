@@ -238,6 +238,10 @@ Sent email:
 
 ### Profile pages
 
+Once a user has registered, they will have their own profile page - a page that displays the user's username, bio (once it has been created) and all projects created by that use (sorted by newest to oldest).
+
+![Example profile page](/devhub/static/docs/readme/features/profile-page.png)
+
 ### Features to be Implemented
 - Upvoting/Downvoting: In future iterations of this project, I would like to add up and down arrows to the project cards for (logged in) users to upvote/downvote the projects.
 - Sorting project by most popular: Once the upvoting/downvoting feature (above) was implemented, I would like the users to be able to filter the projects on the homepage by popularity, seeing which have the most upvotes.
