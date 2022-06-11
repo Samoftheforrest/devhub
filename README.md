@@ -424,7 +424,11 @@ Add screenshot for each test
 - **Fix**: To fix this, I added an if statement to the end of the `go_to_profile` funtion within routes.py, to check if the user is logged in. When navigating to your own profile, the render_template has an argument of `profile_active=True` - but when navigating to another user's profile, it has the parameter `home_active=True`
 - **Verdict**: The active class is now added to the nav links appropriately - I have determined this fix to be a success.
 
+Profile nav link for logged in user:
+
 ![Nav link when visiting your own profile](/devhub/static/docs/readme/bugs/nav-link-user.png)
+
+Nav link when visiting other user's profiles:
 
 ![Nav link when visiting another user's profile](/devhub/static/docs/readme/bugs/nav-link-user-2.png)
 
