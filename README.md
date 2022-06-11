@@ -281,6 +281,8 @@ Test description
 | ---- | -------------- | ---- | ------ |
 | I would like the user to have a sidebar nav that is always available, providing them with links to navigate around the site | To do this, I will include a sticky navbar - that is present on each page - with links to the main pages of the site | I will follow each of the available links 3 times each to ensure that they go to the appropriate page | Each of the links led me to the correct page on each attempt - I have deemed this test to be successful |
 
+Demo:
+
 A demonstration of the site's nav can be found [here](https://www.awesomescreenshot.com/video/9327096?key=5749d43e64ba5d7adb06fb872ff3ccf7)
 
 ### Test 2 - Add Projects
@@ -291,16 +293,20 @@ A demonstration of the site's nav can be found [here](https://www.awesomescreens
 | ---- | -------------- | ---- | ------ |
 | I would like the user to be able to add their own projects - when logged in - by filling out a short form, and uploading an image if they choose to | Within the `add_project` page, I have created a short form for the user to fill out about their project. The data from this form will be sent to MongoDB, and will in turn be used to display their project | I will attempt to fill out the form and upload three separate projects, from three separate accounts | After completing the form, for each of the project, the correct data was displayed on the homepage - I have considered this test a success |
 
-**Test 1**
+Test 1:
+
 ![Bordle test project](/devhub/static/docs/readme/tests/add-project-form-one.png)
 
-**Test 2**
+Test 2:
+
 ![Minefield memory test project](/devhub/static/docs/readme/tests/add-project-form-two.png)
 
-**Test 3**
+Test 3:
+
 ![Devhub test project](/devhub/static/docs/readme/tests/add-project-form-three.png)
 
-**Results**
+Result:
+
 ![Uploaded projects](/devhub/static/docs/readme/tests/add-project-cards.png)
 
 ### Test 3 - Edit projects
@@ -317,7 +323,7 @@ Project one before:
 
 Project one after:
 
-![Project one before](/devhub/static/docs/readme/tests/edit-project-one-before.png)
+![Project one before](/devhub/static/docs/readme/tests/edit-project-one-after.png)
 
 Project two before:
 
@@ -325,7 +331,7 @@ Project two before:
 
 Project two after:
 
-![Project two before](/devhub/static/docs/readme/tests/edit-project-two-before.png)
+![Project two before](/devhub/static/docs/readme/tests/edit-project-two-after.png)
 
 Project three before:
 
@@ -333,7 +339,7 @@ Project three before:
 
 Project three after:
 
-![Project three before](/devhub/static/docs/readme/tests/edit-project-three-before.png)
+![Project three before](/devhub/static/docs/readme/tests/edit-project-three-after.png)
 
 
 ### Test 4 - Log in/out
