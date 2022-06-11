@@ -9,11 +9,27 @@ from werkzeug.utils import secure_filename
 if os.path.exists("env.py"):
     import env
 
+# flask
 app = Flask(__name__)
 
+# mongodb
+mongo = PyMongo(app)
 app.config['MONGO_DBNAME'] = os.environ.get('MONGO_DBNAME')
 app.config['MONGO_URI'] = os.environ.get('MONGO_URI')
 app.secret_key = os.environ.get('SECRET_KEY')
+
+# cloudinary
+app.config['UPLOAD_FOLDER'] = os.environ.get("UPLOAD_FOLDER")
+ALLOWED_EXTENSIONS = ["png", "jpg", "jpeg"]
+
+cloudinary.config(
+    cloud_name=os.environ.get("CLOUD_NAME"),
+    api_key=os.environ.get("API_KEY"),
+    api_secret=os.environ.get("API_SECRET")
+)
+
+# postgresql
+db = SQLAlchemy(app)
 if os.environ.get("DEVELOPMENT") == "True":
     app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DB_URL')
 else:
@@ -21,17 +37,5 @@ else:
     if uri.startswith("postgres://"):
         uri = uri.replace("postgres://", "postgresql://")
     app.config['SQLALCHEMY_DATABASE_URI'] = uri
-
-app.config['UPLOAD_FOLDER'] = "static/uploads/"
-
-db = SQLAlchemy(app)
-mongo = PyMongo(app)
-ALLOWED_EXTENSIONS = ["png", "jpg", "jpeg"]
-
-cloudinary.config(
-    cloud_name="samforrest",
-    api_key="483791879975147",
-    api_secret=os.environ.get("API_SECRET")
-)
 
 from devhub import routes
