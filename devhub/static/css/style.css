@@ -317,7 +317,7 @@ h2, h3, h4, h5, h6 {
 }
 
 .project-card-info-wrap {
-    padding: 2rem 1rem;
+    padding: 2rem 1rem 3rem 1rem;
 }
 
 .project-card-info-top {
@@ -395,7 +395,7 @@ h2, h3, h4, h5, h6 {
     color: var(--light-colour);
 }
 
-.delete-project {
+.modal-container {
     width: 100vw;
     height: 100vh;
     position: absolute;
@@ -408,7 +408,7 @@ h2, h3, h4, h5, h6 {
     align-items: center;
 }
 
-.delete-project-modal::before {
+.modal-container::before {
     content: '';
     height: 100vh;
     width: 100vw;
@@ -420,7 +420,7 @@ h2, h3, h4, h5, h6 {
     z-index: -1;
 }
 
-.delete-project-modal {
+.modal-test {
     background: var(--light-colour);
     padding: 4rem;
     border-radius: 0.8rem;

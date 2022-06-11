@@ -162,7 +162,7 @@ def warning(project_id):
     """
     project=mongo.db.projects.find_one({"_id": ObjectId(project_id)})
     projects = list(mongo.db.projects.find())
-    return render_template("pages/home.html", project=project, projects=projects, modal=True)
+    return render_template("pages/home.html", project=project, projects=projects, delete_project=True, modal=True)
 
 
 # delete project
@@ -224,14 +224,27 @@ def edit_profile(user):
     return render_template("pages/profile-form.html", user=user, profile_active=True)
 
 
+# profile deletion warning
+@app.route("/warning-profile/<user>")
+def warning_profile(user):
+    """
+    Renders a warning modal when a user tries to delete a project
+    """
+    username = User.query.filter_by(username=user).first()
+    user = mongo.db.users.find_one({"account_name": str(user)})
+    projects = list(mongo.db.projects.find({"created_by": str(username)}))
+    return render_template("pages/profile.html", projects=projects, username=username, user=user, profile_active=True, delete_profile=True, modal=True)
+
 # delete profile
 @app.route("/delete-profile/<user>")
 def delete_profile(user):
     """
     Delete's a user profile - both from MongoDB and Postgres DB
     """
+    User.query.filter_by(username=user).delete()
+    db.session.commit()
+    mongo.db.projects.delete_many({"created_by": str(user)})
     mongo.db.users.delete_one({"account_name": str(user)})
-    User.query.filter_by(username=str(user)).delete()
     flash('Profile deleted')
     session.pop("user")
     return redirect(url_for("login"))

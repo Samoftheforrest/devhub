@@ -38,12 +38,16 @@
         </div>
     </main>
 
+    {% if modal %}
+        {% include 'components/modal/modal.html' %}
+    {% endif %}
+
     <footer>
 
     </footer>
 
     {% include 'layout/scripts.html' %}
-    {% block scripts %}
+        {% block scripts %}
     {% endblock %}
 </body>
 </html>
