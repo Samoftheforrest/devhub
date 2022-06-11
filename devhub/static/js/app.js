@@ -1,15 +1,15 @@
 // Initialise Bootstrap tooltips
-let tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
-let tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+const tooltipList = tooltipTriggerList.map((tooltipTriggerEl) => {
   return new bootstrap.Tooltip(tooltipTriggerEl)
 });
 
 // mobile nav
 if ($(window).width() < 992) {
   $('.burger-button').click(function() {
-    let sidebar = $('#sidebar');
-    let burgerButton = $(this);
-    let body = $('body');
+    const sidebar = $('#sidebar');
+    const burgerButton = $(this);
+    const body = $('body');
   
     // add/remove active class to burger button
     if (burgerButton.hasClass('__active')) {
@@ -30,15 +30,15 @@ if ($(window).width() < 992) {
 }
 
 // add/edit project form - show name of file to upload
-$('#projectimage, #profileimage').change(function() {
+$('#projectimage, #profileimage').change(() => {
   $('.filename').text(this.files[0].name);
   $('#filename').val(this.files[0].name);
 })
 
 // add/edit project form - custom checkboxes
 $('.projecttags').each(function() {
-  let currentInput = $(this);
-  let currentContainer = currentInput.closest('.checkbox-container');
+  const currentInput = $(this);
+  const currentContainer = currentInput.closest('.checkbox-container');
 
   currentInput.change(function() {
     if (currentInput.is(':checked')) {
