@@ -161,7 +161,7 @@ def warning(project_id):
     Renders a warning modal when a user tries to delete a project
     """
     project=mongo.db.projects.find_one({"_id": ObjectId(project_id)})
-    projects = list(mongo.db.projects.find())
+    projects = list(mongo.db.projects.find().sort("_id", -1))
     return render_template("pages/home.html", project=project, projects=projects, delete_project=True, modal=True)
 
 
@@ -232,7 +232,7 @@ def warning_profile(user):
     """
     username = User.query.filter_by(username=user).first()
     user = mongo.db.users.find_one({"account_name": str(user)})
-    projects = list(mongo.db.projects.find({"created_by": str(username)}))
+    projects = list(mongo.db.projects.find({"created_by": str(username)}).sort("_id", -1))
     return render_template("pages/profile.html", projects=projects, username=username, user=user, profile_active=True, delete_profile=True, modal=True)
 
 # delete profile
