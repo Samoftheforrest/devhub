@@ -366,13 +366,25 @@ Unsuccessful login:
 
 #### User story: '_As a user, I would like to be able to customise my profile._'
 
-Test description
-
 | Plan | Implementation | Test | Result |
 | ---- | -------------- | ---- | ------ |
-| Once a user has created an account - I would like them to be able to share some information about themselves on their personal profile, not only their projects | If the user visits the profile associated with their account, I will include an edit button, which will take them to a form where they can fill out some information about themselves | I will edit the profile of my testing account 'testaccount' three times, and check that each time the edits are displaying as intended | Test |
+| Once a user has created an account - I would like them to be able to share some information about themselves on their personal profile, not only their projects | If the user visits the profile associated with their account, I will include an edit button, which will take them to a form where they can fill out some information about themselves | I will edit the profile of my testing account 'testaccount' three times, and check that each time the edits are displaying as intended | Each time I edited the profile, the correct information was displayed - I have deemed this test successful. |
 
-Add screenshot for each test
+Testaccount profile before:
+
+![Testaccount profile (before)](/devhub/static/docs/readme/tests/edit-profile-before.png)
+
+Edit one:
+
+![Testaccount profile (before)](/devhub/static/docs/readme/tests/edit-profile-one.png)
+
+Edit two:
+
+![Testaccount profile (before)](/devhub/static/docs/readme/tests/edit-profile-two.png)
+
+Edit three:
+
+![Testaccount profile (before)](/devhub/static/docs/readme/tests/edit-profile-three.png)
 
 ### Test 6 - Contact
 
