@@ -420,9 +420,13 @@ Add screenshot for each test
 - **Verdict**: After testing five different capitalisations of 'testaccount', and all of them successfully logging in, I have deemed this fix to be successful.
 
 ### Profile nav link highlighted when on other users' profiles
-- **Bug**: 
-- **Fix**:
-- **Verdict**:
+- **Bug**: When a logged in user navigates to their own profile via the nav menu, the appropriate nav link is given the 'active' class. However, this nav link is also given the active class when looking at someone else's profile - even though it was intended to only be 'active' when viewing your own.
+- **Fix**: To fix this, I added an if statement to the end of the `go_to_profile` funtion within routes.py, to check if the user is logged in. When navigating to your own profile, the render_template has an argument of `profile_active=True` - but when navigating to another user's profile, it has the parameter `home_active=True`
+- **Verdict**: The active class is now added to the nav links appropriately - I have determined this fix to be a success.
+
+![Nav link when visiting your own profile](/devhub/static/docs/readme/bugs/nav-link-user.png)
+
+![Nav link when visiting another user's profile](/devhub/static/docs/readme/bugs/nav-link-user-2.png)
 
 ### Bug Description
 - **Bug**: 
