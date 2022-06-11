@@ -287,11 +287,9 @@ A demonstration of the site's nav can be found [here](https://www.awesomescreens
 
 #### User story: '_As a user, I should be able to add my own projects._'
 
-Test description
-
 | Plan | Implementation | Test | Result |
 | ---- | -------------- | ---- | ------ |
-| I would like the user to be able to add their own projects - when logged in - by filling out a short form, and uploading an image if they choose to | Within the `add_project` page, I have created a short form for the user to fill out about their project. The data from this form will be sent to MongoDB, and will in turn be used to display their project | I will attempt to fill out the form and upload three separate projects, from three separate accounts | Test |
+| I would like the user to be able to add their own projects - when logged in - by filling out a short form, and uploading an image if they choose to | Within the `add_project` page, I have created a short form for the user to fill out about their project. The data from this form will be sent to MongoDB, and will in turn be used to display their project | I will attempt to fill out the form and upload three separate projects, from three separate accounts | After completing the form, for each of the project, the correct data was displayed on the homepage - I have considered this test a success |
 
 **Test 1**
 ![Bordle test project](/devhub/static/docs/readme/tests/add-project-form-one.png)
@@ -309,13 +307,34 @@ Test description
 
 #### User story: '_As a user, I should be able to edit my projects._'
 
-Test description
-
 | Plan | Implementation | Test | Result |
 | ---- | -------------- | ---- | ------ |
-| Once a logged in user has uploaded their project, I would like them to be able to edit that project by clicking on the project's card, or on the 'edit' button on the project page. The edit button should only be visible to the owner of the project | I have reused the form from the test above, but I have used jinja templating logic to fill out the fields with the current project data. Additionally, I have included jinja logic that only allows the user to see the edit button on the projects where the session['user'] matches with the project owner | I will attempt to edit three projects: one through the project card, one through an individual project page, and one project that is not owned by the currently logged in user. I should be able to edit the first two, but not the last. | Test |
+| Once a logged in user has uploaded their project, I would like them to be able to edit that project by clicking on the project's card, or on the 'edit' button on the project page. The edit button should only be visible to the owner of the project | I have reused the form from the test above, but I have used jinja templating logic to fill out the fields with the current project data. Additionally, I have included jinja logic that only allows the user to see the edit button on the projects where the session['user'] matches with the project owner | I will attempt to edit three projects: one through the project card, one through an individual project page, and one project that is not owned by the currently logged in user. I should be able to edit the first two, but not the last. | All the editted information was outputted as expected - I have deemed this test successful |
 
-Add screenshot for each test
+Project one before:
+
+![Project one before](/devhub/static/docs/readme/tests/edit-project-one-before.png)
+
+Project one after:
+
+![Project one before](/devhub/static/docs/readme/tests/edit-project-one-before.png)
+
+Project two before:
+
+![Project two before](/devhub/static/docs/readme/tests/edit-project-two-before.png)
+
+Project two after:
+
+![Project two before](/devhub/static/docs/readme/tests/edit-project-two-before.png)
+
+Project three before:
+
+![Project three before](/devhub/static/docs/readme/tests/edit-project-three-before.png)
+
+Project three after:
+
+![Project three before](/devhub/static/docs/readme/tests/edit-project-three-before.png)
+
 
 ### Test 4 - Log in/out
 
