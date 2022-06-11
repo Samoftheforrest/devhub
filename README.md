@@ -432,9 +432,19 @@ Test description
 
 | Plan | Implementation | Test | Result |
 | ---- | -------------- | ---- | ------ |
-| Once a user has registered from the site, I would like this to generate a page which shows their name, optional information about the user, and all projects associated with that user | To implement this, I will use jinja templating logic to check the username of the current session user, displaying their username on the profile page and then loop through each project in MongoDB - but only displaying those created by the session user | I will create three different accounts - testaccount, samforrest, and l.gilbert - then I will add a project for each of these accounts. Once this is done, I will login with each of these accounts and navigate to the profile page - ensuring that all the correct information is displaying | Test |
+| Once a user has registered from the site, I would like this to generate a page which shows their name, optional information about the user, and all projects associated with that user | To implement this, I will use jinja templating logic to check the username of the current session user, displaying their username on the profile page and then loop through each project in MongoDB - but only displaying those created by the session user | I will create three different accounts - testaccount, samforrest, and l.gilbert - then I will add a project for each of these accounts. Once this is done, I will login with each of these accounts and navigate to the profile page - ensuring that all the correct information is displaying | All of the accounts I have created are displaying the correct information/projects - I have deemed this test successful. |
 
-Add screenshot for each test
+Profile one:
+
+![Profile one](/devhub/static/docs/readme/tests/profile-page-one.png)
+
+Profile two:
+
+![Profile two](/devhub/static/docs/readme/tests/profile-page-two.png)
+
+Profile three:
+
+![Profile three](/devhub/static/docs/readme/tests/profile-page-three.png)
 
 ## Bugs
 

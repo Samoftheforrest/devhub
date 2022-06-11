@@ -92,6 +92,7 @@ def register():
                 "account_name": request.form.get('username').lower()
             }
             mongo.db.users.insert_one(user_mongo)
+            flash('Registration successful')
 
     return render_template("pages/auth.html", register=True)
 
