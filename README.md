@@ -420,9 +420,19 @@ Test description
 
 | Plan | Implementation | Test | Result |
 | ---- | -------------- | ---- | ------ |
-| I would like the site to be aesthetically pleasing regardless of the device the user uses to view the site | To implement this, I will use a combination of Bootstrap classes and media queries to make the pages responsive | I will load each of the pages on one mobile, tablet and desktop device, and assess whether the element are in the correct layout - based on the wireframes for the pages | Test |
+| I would like the site to be aesthetically pleasing regardless of the device the user uses to view the site | To implement this, I will use a combination of Bootstrap classes and media queries to make the pages responsive | I will load each of the pages on one mobile, tablet and desktop device, and assess whether the element are in the correct layout - based on the wireframes for the pages | All of the pages sized in the expected way - I have deemed this test successful |
 
-Add screenshot for each test
+Homepage (desktop view):
+
+![Homepage (desktop view)](/devhub/static/docs/readme/tests/homepage-desktop.png)
+
+Homepage (tablet view):
+
+![Homepage (desktop view)](/devhub/static/docs/readme/tests/homepage-tablet.png)
+
+Homepage (mobile view):
+
+![Homepage (desktop view)](/devhub/static/docs/readme/tests/homepage-mobile.png)
 
 ### Test 8 - Personal Profile
 
