@@ -522,6 +522,25 @@ The project can be run locally by completing the following:
 
 ### Deployment
 
+This page is deployed using [Heroku](). Here I will explain how to deploy a project using Heroku.
+
+1. Create a Heroku account.
+2. Under 'new' select 'create new app'
+    ![New Heroku project](/devhub/static/docs/readme/deployment/new-heroku-project.png)
+3. Choose a name and region
+    ![Heroku name and region screen](/devhub/static/docs/readme/deployment/heroku-name-and-region.png)
+    - **Note:** the name must be unique, and the it is a good idea to set the region to the one closest to you geographically
+4. Once created, navigate to the 'deploy' tab, this will give you a list of the deployment methods. For this project I decided to use the Heroku CLI - as there was issues with GitHub integration - to do this:
+    ![Heroku deployment methods](/devhub/static/docs/readme/deployment/heroku-deployment-methods.png)
+    1. Navigate back to your project and open a terminal
+    2. Use the command `heroku login -i` to login via the terminal
+    3. Enter your email and password
+    4. Once you are logged in, use the following commands:
+        1. `git add .`: this will stage your changes.
+        2. `git commit -m 'commit message'`: this will commit your code, readying it to be pushed up
+        3. `git push heroku main`: this will push your code to Heroku - it is worth noting that the `main` in this command may need to be changed to reflect the name of the branch you are pushing.
+5. Sit back and let Heroku do the work!
+ 
 ## Credits
 - [This article](https://medium.com/mkdir-awesome/how-to-change-the-bootstrap-5-tooltip-background-and-arrow-color-67e6c5aea510#:~:text=You%20can%20add%20different%20Bootstrap,the%20data%2Dbs%2Dpalcement%20.&text=By%20aiming%20.,you%20can%20change%20the%20color.) helped me to figure out how to style the Bootstrap tooltips (used in the nav).
 - [This Stack Overflow answer](https://stackoverflow.com/questions/33627646/python-flask-template-return-first-150-characters) showed me how to use Jinja's `truncate` filter, to limit the project cards to 450 characters each.
