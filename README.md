@@ -502,6 +502,24 @@ Nav link when visiting other user's profiles:
 
 ### Local Development
 
+I created this project using [Github]() to store the code and [Gitpod]() as my code editor.
+
+The project can be run locally by completing the following:
+
+1. Clone the project
+    - Navigate to the [project repo](https://github.com/Samoftheforrest/devhub)
+    - Click the 'code' button (highlighted on the image below) - from here you have two options:
+    ![Project repo homepage](/devhub/static/docs/readme/deployment/github-repo.png)
+    1. Open a terminal and run the following command: `git clone https://www.github.com/samoftheforrest/devhub.git`
+    2. Select 'download ZIP' to download the files
+    ![The repository's 'code' panel](/devhub/static/docs/readme/deployment/github-code-window.png)
+2. Navigate to, and open, the cloned/downloaded folder in your code editor, through the following steps:
+    - File -> open folder
+    - Navigate through your file directory to the place where the repo is cloned/downloaded
+    - Select 'open folder'
+3. Run a live server using the following command:
+    `python3 run.py`
+
 ### Deployment
 
 ## Credits
