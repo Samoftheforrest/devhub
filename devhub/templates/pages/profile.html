@@ -9,7 +9,7 @@
         </div>
     </div>
 
-    <div class="container mb-5">
+    <div class="container mb-md-5">
         <div class="row">
                 {% if not user.user_bio %}
                     {% if user.account_name == session['user'] %}
@@ -24,12 +24,12 @@
                     </div>
                     {% endif %}
                 {% else %}
-                <div class="col-md-3">
+                <div class="col-md-6 col-xl-3">
                     <div class="profile-picture">
                         <img src="{{ user.user_image }}" alt="{{ user.account_name }}'s profile picture" class="h-100 w-100">
                     </div>
                 </div>
-                <div class="col-9 position-relative">
+                <div class="col-md-6 col-xl-9 position-relative">
                     <div class="user-info">
                         <h3>{{ user.name }}</h3>
                         <p class="user-bio">{{ user.user_bio | truncate(900) }}</p>

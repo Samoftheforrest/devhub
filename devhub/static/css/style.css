@@ -70,7 +70,7 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 {
     font-weight: 700;
-    font-size: 5rem;
+    font-size: 3rem;
 }
 
 h2, h3, h4, h5, h6 {
@@ -97,7 +97,7 @@ h2, h3, h4, h5, h6 {
 
 /* page titles */
 .page-title {
-    margin: 1.5rem 0 5rem 0;
+    margin: 1.5rem 0 3rem 0;
     position: relative;
     display: inline-block;
 }
@@ -105,7 +105,7 @@ h2, h3, h4, h5, h6 {
 .page-title::before {
     content: '';
     display: inline-block;
-    height: 3rem;
+    height: 1.5rem;
     width: 95%;
     background: var(--brand-colour);
     position: absolute;
@@ -542,11 +542,11 @@ h2, h3, h4, h5, h6 {
 }
 
 .profile-picture img {
-    border-radius: 50%;
+    border-radius: 0;
 }
 
 .user-info {
-    padding: 1rem 0 5rem 5rem;
+    padding: 1rem 0 3rem 0;
 }
 
 .user-info h3 {
@@ -559,8 +559,8 @@ h2, h3, h4, h5, h6 {
 
 .profile-buttons {
     position: absolute;
-    right: 5px;
-    bottom: 5px;
+    right: 1rem;
+    top: -4.5rem;
 }
 
 .profile-button {
@@ -738,6 +738,18 @@ h2, h3, h4, h5, h6 {
 /* media queries */
 
 @media screen and (min-width: 992px) {
+    h1 {
+        font-size: 5rem;
+    }
+
+    .page-title {
+        margin: 1.5rem 0 5rem 0;
+    }
+
+    .page-title::before {
+        height: 3rem;
+    }
+
     #sidebar {
         background: var(--dark-colour);
         top: 0;
@@ -776,5 +788,19 @@ h2, h3, h4, h5, h6 {
 
     .project-buttons .project-button {
         width: 100%;
+    }
+
+    .user-info {
+        padding: 1rem 0 5rem 5rem;
+    }
+
+    .profile-picture img {
+        border-radius: 50%;
+    }
+
+    .profile-buttons {
+        right: 5px;
+        bottom: 5px;
+        top: auto;
     }
 }
