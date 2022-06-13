@@ -1,5 +1,4 @@
 from flask import render_template, redirect, request, url_for, flash, session
-import re
 import cloudinary
 import cloudinary.uploader
 from datetime import datetime
