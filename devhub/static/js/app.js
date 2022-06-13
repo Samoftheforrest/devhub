@@ -50,12 +50,3 @@ $('.projecttags').each(function() {
     }
   })
 });
-
-// limit the amount of checkboxes it is possible to select
-let limit = 3;
-$('.projecttags').change(function() {
-  if ($('input[type=checkbox]:checked').length > limit) {
-    $(this).prop('checked', false);
-    $(this).closest('.checkbox-container').removeClass('checked');
-  }
-})

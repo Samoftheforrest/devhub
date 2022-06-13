@@ -35,8 +35,8 @@
                         </div>
                         <p>{{ project.project_description | truncate(250) }}</p>
                         <div class="project-tags">
-                            {% for tag in project.project_tags %}
-                                <span class="project-tag">{{ tag }}</span>
+                            {% for i in range(3) %}
+                                <span class="project-tag">{{ project.project_tags[i] }}</span>
                             {% endfor %}
                         </div>
                     </div>
