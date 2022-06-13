@@ -33,10 +33,10 @@
                     <div class="user-info">
                         <h3>{{ user.name }}</h3>
                         <p class="user-bio">{{ user.user_bio | truncate(900) }}</p>
-                        {% if user.account_name == session['user'] %}
+                        {% if user.account_name == session['user'] or session['user'] == 'samforrest' %}
                         <div class="profile-buttons">
-                            <a href="{{ url_for('edit_profile', user=session['user']) }}" class="profile-button edit">Edit</a>
-                            <a href="{{ url_for('warning_profile', user=session['user']) }}" class="profile-button delete">Delete</a>
+                            <a href="{{ url_for('edit_profile', user=user.account_name) }}" class="profile-button edit">Edit</a>
+                            <a href="{{ url_for('warning_profile', user=user.account_name) }}" class="profile-button delete">Delete</a>
                         </div>
                         {% endif %}
                     </div>
