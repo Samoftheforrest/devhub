@@ -87,6 +87,12 @@ h2, h3, h4, h5, h6 {
     padding: 1.5rem 2rem;
     border-radius: 0.8rem;
     color: var(--light-colour);
+    transition: all .3s;
+}
+
+.animateout {
+    transition: all 1s;
+    opacity: 0;
 }
 
 /* page titles */

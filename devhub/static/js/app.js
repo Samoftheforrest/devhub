@@ -50,3 +50,10 @@ $('.projecttags').each(function() {
     }
   })
 });
+
+// animate flash messages
+$(document).ready(function() {
+  setTimeout(function() {
+    $('.flashes').addClass('animateout');
+  }, 2500)
+})
