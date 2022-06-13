@@ -1,4 +1,5 @@
 from flask import render_template, redirect, request, url_for, flash, session
+import re
 import cloudinary
 import cloudinary.uploader
 from datetime import datetime
@@ -108,6 +109,8 @@ def add_project():
         upload_result = cloudinary.uploader.upload(image)
         current_date = datetime.now()
         date = current_date.strftime("%x")
+        live_link = request.form.get('livelink').replace("https://", "")
+        repo_link = request.form.get('repolink').replace("https://", "")
         project = {
             "project_name": request.form.get('projectname').lower(),
             "project_description": request.form.get('projectdescription'),
@@ -115,8 +118,8 @@ def add_project():
             "project_image_name": request.form.get('filename'),
             "created_by": session['user'],
             "date_posted": date,
-            "live_link": request.form.get('livelink'),
-            "repo_link": request.form.get('repolink'),
+            "live_link": f"https://{live_link}",
+            "repo_link": f"https://{repo_link}",
             "project_tags": request.form.getlist('checked')
         }
         mongo.db.projects.insert_one(project)
@@ -137,14 +140,16 @@ def edit_project(project_id):
     if request.method == "POST":
         image = request.files['projectimage']
         upload_result = cloudinary.uploader.upload(image)
+        live_link = request.form.get('livelink').replace("https://", "")
+        repo_link = request.form.get('repolink').replace("https://", "")
         submit = {
             "project_name": request.form.get('projectname'),
             "project_description": request.form.get('projectdescription'),
             "project_image": upload_result["secure_url"],
             "project_image_name": request.form.get('filename'),
             "created_by": session['user'],
-            "live_link": request.form.get('livelink'),
-            "repo_link": request.form.get('repolink'),
+            "live_link": f"https://{live_link}",
+            "repo_link": f"https://{repo_link}",
             "project_tags": request.form.getlist('checked')
         }
         mongo.db.projects.update_one({"_id": ObjectId(project_id)}, {"$set": submit})
