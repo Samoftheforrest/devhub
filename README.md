@@ -1,4 +1,6 @@
-# DevHub
+# DEVHUB
+
+![Devhub cover image](/devhub/static/docs/readme/cover-image.png)
 
 Welcome to Devhub, the online platform for sharing your web development projects!
 
