@@ -10,7 +10,7 @@
                             <source media="(min-width:992px)" srcset="{{ project.project_image }}">
                             <source media="(min-width:768px)" srcset="{{ project.project_image }}">
                             <source media="(min-width:576px)" srcset="{{ project.project_image }}">
-                            <img src="{{ project.project_image }}" class="w-100 h-100">
+                            <img src="{{ project.project_image }}" alt="Screenshot of {{ project.project_name }}" class="w-100 h-100">
                         </picture>
                         {% if project.created_by == session['user'] or session['user'] == 'samforrest' %}
                             <div class="project-buttons">

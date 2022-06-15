@@ -51,49 +51,49 @@
                     <div class="d-flex" id="checkboxes">
                         <div class="d-flex me-3">
                             <div class="checkbox-container {% if edit_project %} {{- 'checked' if 'HTML' in project.project_tags -}} {% endif %}">
-                                <input type="checkbox" class="projecttags" name="{% if edit_project %} {{- 'checked' if 'HTML' in project.project_tags -}} {% endif %}" id="html" value="HTML">
+                                <input type="checkbox" class="projecttags" name="html {% if edit_project %} {{- 'checked' if 'HTML' in project.project_tags -}} {% endif %}" id="html" value="HTML">
                                 <i class="fa-solid fa-check"></i>
                             </div>
                             <label for="html">HTML</label>
                         </div>
                         <div class="d-flex me-3">
                             <div class="checkbox-container {% if edit_project %} {{- 'checked' if 'CSS' in project.project_tags -}} {% endif %}">
-                                <input type="checkbox" class="projecttags" name="{% if edit_project %} {{- 'checked' if 'CSS' in project.project_tags -}} {% endif %}" id="css" value="CSS">
+                                <input type="checkbox" class="projecttags" name="css {% if edit_project %} {{- 'checked' if 'CSS' in project.project_tags -}} {% endif %}" id="css" value="CSS">
                                 <i class="fa-solid fa-check"></i>
                             </div>
                             <label for="css">CSS</label>
                         </div>
                         <div class="d-flex me-3">
                             <div class="checkbox-container {% if edit_project %} {{- 'checked' if 'SASS/SCSS' in project.project_tags -}} {% endif %}">
-                                <input type="checkbox" class="projecttags" name="{% if edit_project %} {{- 'checked' if 'SASS/SCSS' in project.project_tags -}} {% endif %}" id="sass" value="SASS/SCSS">
+                                <input type="checkbox" class="projecttags" name="sass {% if edit_project %} {{- 'checked' if 'SASS/SCSS' in project.project_tags -}} {% endif %}" id="sass" value="SASS/SCSS">
                                 <i class="fa-solid fa-check"></i>
                             </div>
                             <label for="sass">SASS/SCSS</label>
                         </div>
                         <div class="d-flex me-3">
                             <div class="checkbox-container {% if edit_project %} {{- 'checked' if 'JavaScript' in project.project_tags -}} {% endif %}">
-                                <input type="checkbox" class="projecttags" name="{% if edit_project %} {{- 'checked' if 'JavaScript' in project.project_tags -}} {% endif %}" id="javascript" value="JavaScript">
+                                <input type="checkbox" class="projecttags" name="javascript {% if edit_project %} {{- 'checked' if 'JavaScript' in project.project_tags -}} {% endif %}" id="javascript" value="JavaScript">
                                 <i class="fa-solid fa-check"></i>
                             </div>
                             <label for="javascript">Javascript</label>
                         </div>
                         <div class="d-flex me-3">
                             <div class="checkbox-container {% if edit_project %} {{- 'checked' if 'Python' in project.project_tags -}} {% endif %}">
-                                <input type="checkbox" class="projecttags" name="{% if edit_project %} {{- 'checked' if 'Python' in project.project_tags -}} {% endif %}" id="python" value="Python">
+                                <input type="checkbox" class="projecttags" name="python {% if edit_project %} {{- 'checked' if 'Python' in project.project_tags -}} {% endif %}" id="python" value="Python">
                                 <i class="fa-solid fa-check"></i>
                             </div>
                             <label for="python">Python</label>
                         </div>
                         <div class="d-flex me-3">
                             <div class="checkbox-container {% if edit_project %} {{- 'checked' if 'React' in project.project_tags -}} {% endif %}">
-                                <input type="checkbox" class="projecttags" name="{% if edit_project %} {{- 'checked' if 'React' in project.project_tags -}} {% endif %}" id="react" value="React">
+                                <input type="checkbox" class="projecttags" name="react {% if edit_project %} {{- 'checked' if 'React' in project.project_tags -}} {% endif %}" id="react" value="React">
                                 <i class="fa-solid fa-check"></i>
                             </div>
                             <label for="react">React</label>
                         </div>
                         <div class="d-flex me-3">
                             <div class="checkbox-container {% if edit_project %} {{- 'checked' if 'Other' in project.project_tags -}} {% endif %}">
-                                <input type="checkbox" class="projecttags" name="{% if edit_project %} {{- 'checked' if 'Other' in project.project_tags -}} {% endif %}" id="other" value="Other">
+                                <input type="checkbox" class="projecttags" name="other {% if edit_project %} {{- 'checked' if 'Other' in project.project_tags -}} {% endif %}" id="other" value="Other">
                                 <i class="fa-solid fa-check"></i>
                             </div>
                             <label for="other">Other</label>
