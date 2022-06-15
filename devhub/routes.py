@@ -181,11 +181,15 @@ def delete_project(project_id):
 
 
 # individual project page
-@app.route("/project/<project>")
+@app.route("/project/<project>", methods=["GET", "POST"])
 def go_to_project(project):
     """
     Renders individual projects
     """
+    if request.method == "POST":
+        comment = request.form.get('comment')
+        mongo.db.projects.update_one({"project_name": str(project).lower()}, {"$push": {"comments": {"$each": [comment], "$position": 0}}})
+        flash('Comment added')
     project = mongo.db.projects.find_one({"project_name": str(project).lower()})
     return render_template("pages/project.html", project=project, home_active=True)
 

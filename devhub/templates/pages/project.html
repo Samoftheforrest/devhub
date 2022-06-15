@@ -7,19 +7,19 @@
                 <h1 class="page-title">{{ project.project_name }}</h1>
             </div>
             <div class="col-lg-8 mx-lg-auto">
-                <div class="project-image position-relative mb-3">
+                <div class="project-image position-relative mb-4">
                     <img src="{{ project.project_image }}" alt="{{ project.project_image_name }}">
                 </div>
                 <div class="container px-0">
                     <div class="row">
                         <div class="col-lg-10">
-                            <p class="mb-3"> Posted by <a href="{{ url_for('go_to_profile', username=project.created_by) }}" class="project-creator">{{ project.created_by }}</a> on {{ project.date_posted }}</p>
-                            <div class="project-description mb-3">
+                            <p class="mb-4"> Posted by <a href="{{ url_for('go_to_profile', username=project.created_by) }}" class="project-creator">{{ project.created_by }}</a> on {{ project.date_posted }}</p>
+                            <div class="project-description mb-4">
                                 <h2>Description:</h2>
                                 <p>{{ project.project_description }}</p>
                             </div>
                             <h2>Find this project here:</h2>
-                            <div class="project-links d-flex mb-3">
+                            <div class="project-links d-flex mb-4">
                                 <a href="{{ project.live_link }}" target="_blank" rel="noopener" aria-label="Go to {{ project.live_link }}"><i class="fa-solid fa-square-arrow-up-right"></i></a>
                                 <a href="{{ project.repo_link }}" target="_blank" rel="noopener" class="ms-3" aria-label="Go to {{ project.repo_link }}"><i class="fa-brands fa-github-square"></i></a>
                             </div>
@@ -37,7 +37,22 @@
             </div>
 
             <div class="col-lg-8 mx-lg-auto">
-                <h2>Comments:</h2>
+                <h2 class="mb-4">Comments:</h2>
+                {% if session['user'] %}
+                <form action="{{ url_for('go_to_project', project=project.project_name) }}" method="POST" class="comment-form">
+                    <label for="comment" class="mb-2">Your comment:</label>
+                    <textarea class="mb-4" name="comment" id="comment" cols="30" rows="10" placeholder="..."></textarea>
+                    <input type="submit" value="Add comment">
+                </form>
+                {% endif %}
+                <div class="comments">
+                    {% for comment in project.comments %}
+                        <div class="comment d-flex flex-column">
+                            <p class="comment-text">{{ comment }}</p>
+                            <span class="comment-author">By: <span class="highlight">{{ session['user'] }}</span></span>
+                        </div>
+                    {% endfor %}
+                </div>
             </div>
 
         </div>
