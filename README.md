@@ -250,6 +250,7 @@ Once a user has registered, they will have their own profile page - a page that 
 - Homepage pagination: On the homepage, rather than displaying every single project in a list, I think it would be beneficial to performace to only show a certain number of projects per page.
 - Pinned comments on projects: On each individual project page, the creator of the project will have the ability to pin a comment so that it always shows as the top comment. This may be useful for comments from the creator, to inform potential users of any updates, news, etc.
 - Searching by project tags: search/filtering functionality could be added that shows all projects with specific tags (i.e. React, SCSS, Python, etc).
+- Edit/delete comments: I would like either the user, the owner of the project, or the admin, to be able to edit/delete comments on the project pages.
 
 ## Technologies Used
 
