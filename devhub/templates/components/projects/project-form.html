@@ -11,7 +11,7 @@
             <div class="col-3 mb-2">
                 <label for="projectimage" class="d-flex flex-column">
                     Image
-                    <input type="file" name="projectimage" id="projectimage" class="form-control-file" required>
+                    <input type="file" name="projectimage" id="projectimage" class="form-control-file" {{ required if not edit_project }}>
                     <span class="button mt-2">+</span>
                     <div class="invalid-feedback">
                         Please upload a project image

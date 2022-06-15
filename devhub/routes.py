@@ -137,20 +137,32 @@ def edit_project(project_id):
     Handles editing a project and renders the edit project form
     """
     if request.method == "POST":
-        image = request.files['projectimage']
-        upload_result = cloudinary.uploader.upload(image)
         live_link = request.form.get('livelink').replace("https://", "")
         repo_link = request.form.get('repolink').replace("https://", "")
-        submit = {
-            "project_name": request.form.get('projectname'),
-            "project_description": request.form.get('projectdescription'),
-            "project_image": upload_result["secure_url"],
-            "project_image_name": request.form.get('filename'),
-            "created_by": session['user'],
-            "live_link": f"https://{live_link}",
-            "repo_link": f"https://{repo_link}",
-            "project_tags": request.form.getlist('checked')
+
+        if bool(mongo.db.projects.find_one({"_id": ObjectId(project_id)}, {"project_image": {"exists": True}})) and bool(request.files['projectimage']) is False:
+            submit = {
+                "project_name": request.form.get('projectname'),
+                "project_description": request.form.get('projectdescription'),
+                "created_by": session['user'],
+                "live_link": f"https://{live_link}",
+                "repo_link": f"https://{repo_link}",
+                "project_tags": request.form.getlist('checked')
         }
+        else:  
+            image = request.files['projectimage']
+            upload_result = cloudinary.uploader.upload(image)
+            submit = {
+                "project_name": request.form.get('projectname'),
+                "project_description": request.form.get('projectdescription'),
+                "project_image": upload_result["secure_url"],
+                "project_image_name": request.form.get('filename'),
+                "created_by": session['user'],
+                "live_link": f"https://{live_link}",
+                "repo_link": f"https://{repo_link}",
+                "project_tags": request.form.getlist('checked')
+            }
+
         mongo.db.projects.update_one({"_id": ObjectId(project_id)}, {"$set": submit})
         flash(f'Your project has been successfully updated')
 
