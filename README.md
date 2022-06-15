@@ -495,10 +495,22 @@ Nav link when visiting other user's profiles:
 
 ![Nav link when visiting another user's profile](/devhub/static/docs/readme/bugs/nav-link-user-2.png)
 
-### Bug Description
-- **Bug**: 
-- **Fix**:
-- **Verdict**:
+### Project cards showing static amount of project tags
+- **Bug**: The project card, initially, was set to always show 3 project tags. However, after changing the functionality of the add/edit project form, the user was allowed to choose as many tags as they wanted; this would cause a problem if the user chose more - or less - than 3 tags, as it would either display tags with no text content, or so many tabs that they would overflow off the card.
+    ![Project tags bug](/devhub/static/docs/readme/bugs/project-tags-bug.png)
+- **Fix**: To fix this, I added in the following jinja logic to first check if there were more than three tags for the project. If there were more than three tags, I chose to limit it to three, and if there were less than 3 - or exactly 3 - it would only show the project tags that were there.
+    ```
+    {% if project.project_tags | length > 3 %}
+        {% for i in range(3) %}
+            <span class="project-tag">{{ project.project_tags[i] }}</span>
+        {% endfor %}
+    {% else %}
+        {% for tag in project.project_tags %}
+            <span class="project-tag">{{ tag }}</span>
+        {% endfor %}
+    {% endif %}
+    ```
+- **Verdict**: The correct amount of project tags are consistently showing now - I have deemed this fix a success.
 
 ## Deployment
 
