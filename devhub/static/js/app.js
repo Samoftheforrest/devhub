@@ -30,7 +30,7 @@ if ($(window).width() < 992) {
 }
 
 // add/edit project form - show name of file to upload
-$('#projectimage, #profileimage').change(() => {
+$('#projectimage, #profileimage').change(function() {
   $('.filename').text(this.files[0].name);
   $('#filename').val(this.files[0].name);
 })
