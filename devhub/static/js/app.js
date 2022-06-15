@@ -1,7 +1,7 @@
 // Initialise Bootstrap tooltips
-const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
 const tooltipList = tooltipTriggerList.map((tooltipTriggerEl) => {
-  return new bootstrap.Tooltip(tooltipTriggerEl)
+  return new bootstrap.Tooltip(tooltipTriggerEl);
 });
 
 // mobile nav
@@ -26,14 +26,14 @@ if ($(window).width() < 992) {
       sidebar.addClass('__active');
       body.addClass('__active');
     }
-  })
+  });
 }
 
 // add/edit project form - show name of file to upload
 $('#projectimage, #profileimage').change(function() {
   $('.filename').text(this.files[0].name);
   $('#filename').val(this.files[0].name);
-})
+});
 
 // add/edit project form - custom checkboxes
 $('.projecttags').each(function() {
@@ -48,12 +48,12 @@ $('.projecttags').each(function() {
       currentContainer.removeClass('checked');
       currentInput.attr('name', '');
     }
-  })
+  });
 });
 
 // animate flash messages
 $(document).ready(function() {
   setTimeout(function() {
     $('.flashes').addClass('animateout');
-  }, 2500)
-})
+  }, 2500);
+});
