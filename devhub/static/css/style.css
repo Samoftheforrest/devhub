@@ -26,10 +26,11 @@ time, mark, audio, video {
 	margin: 0;
 	padding: 0;
 	border: 0;
+	font-size: 100%;
+	font: inherit;
 	vertical-align: baseline;
 }
 
-/* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 
 footer, header, hgroup, menu, nav, section {
 	display: block;
@@ -43,7 +44,8 @@ body[class*='__active'] {
     overflow: hidden;
 }
 
-ol, ul {
+ol, 
+ul {
 	list-style: none;
 }
 
@@ -63,7 +65,12 @@ body {
 }
 
 /* title font */
-h1, h2, h3, h4, h5, h6 {
+h1, 
+h2, 
+h3, 
+h4, 
+h5, 
+h6 {
     font-family: 'Montserrat';
     text-transform: uppercase;
 }
@@ -73,7 +80,11 @@ h1 {
     font-size: 3rem;
 }
 
-h2, h3, h4, h5, h6 {
+h2, 
+h3, 
+h4, 
+h5, 
+h6 {
     font-weight: 600;
 }
 
@@ -136,6 +147,7 @@ h2, h3, h4, h5, h6 {
     height: 100%;
     display: flex;
     flex-direction: column;
+    padding: 0;
 }
 
 #sidebar ul li {
@@ -204,7 +216,8 @@ h2, h3, h4, h5, h6 {
     position: relative;
 }
 
-.bar::before, .bar::after {
+.bar::before, 
+.bar::after {
     content: '';
     display: inline-block;
     height: .6rem;
@@ -258,11 +271,13 @@ h2, h3, h4, h5, h6 {
     width: 100%;
 }
 
-.project-card:hover .project-card-image img, .project-card:focus .project-card-image img {
+.project-card:hover .project-card-image img, 
+.project-card:focus .project-card-image img {
     transform: scale(1.05);
 }
 
-.project-card:hover .project-card-image::before, .project-card:focus .project-card-image::before {
+.project-card:hover .project-card-image::before, 
+.project-card:focus .project-card-image::before {
     opacity: 0.3;
 }
 
@@ -314,11 +329,13 @@ h2, h3, h4, h5, h6 {
     transition: all .3s;
 }
 
-.project-buttons .edit-button:hover, .project-buttons .edit-button:focus {
+.project-buttons .edit-button:hover, 
+.project-buttons .edit-button:focus {
     background: var(--brand-colour);
 }
 
-.project-buttons .delete-button:hover, .project-buttons .delete-button:focus {
+.project-buttons .delete-button:hover, 
+.project-buttons .delete-button:focus {
     background: red;
 }
 
@@ -374,7 +391,8 @@ h2, h3, h4, h5, h6 {
     transition: all .3s;
 }
 
-.project-subtitle a:hover, .project-subtitle:focus {
+.project-subtitle a:hover, 
+.project-subtitle:focus {
     color: var(--brand-colour);
 }
 
@@ -383,7 +401,8 @@ h2, h3, h4, h5, h6 {
     transition: all .3s;
 }
 
-.project-card-links a:hover, .project-card-links a:focus {
+.project-card-links a:hover, 
+.project-card-links a:focus {
     color: var(--brand-colour);
 }
 
@@ -460,12 +479,14 @@ h2, h3, h4, h5, h6 {
     text-decoration: none;
 }
 
-.modal-button:hover, .modal-button:focus {
+.modal-button:hover, 
+.modal-button:focus {
     background: var(--brand-colour);
     color: var(--light-colour);
 }
 
-.delete-button:hover, .delete-button:focus {
+.delete-button:hover, 
+.delete-button:focus {
     background: red;
     color: var(--light-colour);
 }
@@ -494,11 +515,13 @@ h2, h3, h4, h5, h6 {
     transition: all .3s;
 }
 
-.project-creator:hover, .project-creator:focus {
+.project-creator:hover,
+.project-creator:focus {
     color: var(--brand-colour);
 }
 
-.project-creator:hover::before, .project-creator:focus::before {
+.project-creator:hover::before, 
+.project-creator:focus::before {
     width: 100%;
 }
 
@@ -508,7 +531,8 @@ h2, h3, h4, h5, h6 {
     color: var(--dark-colour);
 }
 
-.project-links a:hover, .project-card-links a:focus {
+.project-links a:hover, 
+.project-card-links a:focus {
     color: var(--brand-colour);
 }
 
@@ -529,11 +553,13 @@ h2, h3, h4, h5, h6 {
     transition: all .3s;
 }
 
-.user-bio-link:hover, .user-bio-link:focus {
+.user-bio-link:hover, 
+.user-bio-link:focus {
     color: var(--brand-colour);
 }
 
-.user-bio-link:hover::before, .user-bio-link:focus::before {
+.user-bio-link:hover::before, 
+.user-bio-link:focus::before {
     width: 100%;
 }
 
@@ -576,12 +602,14 @@ h2, h3, h4, h5, h6 {
     text-decoration: none;
 }
 
-.profile-buttons .edit:hover, .profile-buttons .edit:focus {
+.profile-buttons .edit:hover, 
+.profile-buttons .edit:focus {
     background: var(--brand-colour);
     color: var(--light-colour);
 }
 
-.profile-buttons .delete:hover, .profile-buttons .delete:focus {
+.profile-buttons .delete:hover, 
+.profile-buttons .delete:focus {
     background: red;
     color: var(--light-colour);
 }
@@ -609,7 +637,9 @@ h2, h3, h4, h5, h6 {
     font-size: 1.6rem;
 }
 
-.form input[type=text], .form input[type=password], .form input[type=email] {
+.form input[type=text], 
+.form input[type=password], 
+.form input[type=email] {
     border-radius: 4px;
     border: 1px solid var(--mid-colour);
     padding: 0.8rem;
@@ -684,7 +714,8 @@ h2, h3, h4, h5, h6 {
     cursor: pointer;
 }
 
-.form input[type=submit], .form .button {
+.form input[type=submit], 
+.form .button {
     padding: 1rem 2rem;
     color: var(--light-colour);
     background: var(--dark-colour);
@@ -700,7 +731,10 @@ h2, h3, h4, h5, h6 {
     text-align: center;
 }
 
-.form input[type=submit]:hover, input[type=submit]:focus, .form .button:hover, .form .button:focus {
+.form input[type=submit]:hover, 
+input[type=submit]:focus, 
+.form .button:hover, 
+.form .button:focus {
     background: var(--brand-colour);
     cursor: pointer;
 }
@@ -717,7 +751,8 @@ h2, h3, h4, h5, h6 {
     line-height: 0.5;
 }
 
-.form-tab:hover, .form-tab:focus {
+.form-tab:hover, 
+.form-tab:focus {
     color: var(--brand-colour);
 }
 
@@ -764,7 +799,8 @@ h2, h3, h4, h5, h6 {
     transition: all .3s;
 }
 
-.comment-form input[type=submit]:hover, .comment-form input[type=submit]:focus {
+.comment-form input[type=submit]:hover, 
+.comment-form input[type=submit]:focus {
     background: var(--brand-colour);
 }
 
@@ -805,7 +841,8 @@ h2, h3, h4, h5, h6 {
     transition: all .3s;
 }
 
-.comment-author:hover a::before, .comment-author:focus a::before {
+.comment-author:hover a::before, 
+.comment-author:focus a::before {
     width: 100%;
 } 
 
@@ -840,7 +877,8 @@ h2, h3, h4, h5, h6 {
         margin-bottom: 4rem;
     }
 
-    .project-card:hover .project-buttons, .project-card:focus .project-buttons {
+    .project-card:hover .project-buttons, 
+    .project-card:focus .project-buttons {
         transform: translateY(0);
     }
 

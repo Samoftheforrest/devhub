@@ -9,18 +9,18 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from devhub import app, db, mongo
 from devhub.models import User
 
-# pages
-# homepage
+
 @app.route("/")
 def home_page():
     """
     Renders the homepage
     """
     projects = list(mongo.db.projects.find().sort("_id", -1))
-    return render_template("pages/home.html", projects=projects, home_active=True)
+    return render_template("pages/home.html",
+                           projects=projects,
+                           home_active=True)
 
 
-# login
 @app.route("/login", methods=["GET", "POST"])
 def login():
     """
@@ -28,10 +28,13 @@ def login():
     """
     if request.method == "POST":
         # check if username exists in db
-        existing_user = bool(User.query.filter_by(
-            username=func.lower(request.form.get('username'))).first())
-        check_user = User.query.filter_by(username=func.lower(
-            request.form.get('username'))).first()
+        try:
+            existing_user = bool(User.query.filter_by(
+                username=func.lower(request.form.get('username'))).first())
+            check_user = User.query.filter_by(username=func.lower(
+                request.form.get('username'))).first()
+        except Exception:
+            flash('That was unexpected! We\'re working on a solution')
 
         if existing_user:
             # ensure hashed password matches user input
@@ -49,7 +52,9 @@ def login():
             # username doesn't exist
             flash('Incorrect username/password. Please try again.')
             return redirect(url_for("login"))
-    return render_template("pages/auth.html", register=False, login_active=True)
+    return render_template("pages/auth.html",
+                           register=False,
+                           login_active=True)
 
 
 @app.route("/logout")
@@ -63,7 +68,6 @@ def logout():
     return redirect(url_for("login"))
 
 
-# register
 @app.route("/register", methods=["GET", "POST"])
 def register():
     """
@@ -97,7 +101,6 @@ def register():
     return render_template("pages/auth.html", register=True)
 
 
-# add a project page
 @app.route("/new-project", methods=["GET", "POST"])
 def add_project():
     """
@@ -124,13 +127,12 @@ def add_project():
         mongo.db.projects.insert_one(project)
         project_name = request.form.get('projectname')
         flash(f'{project_name} successfully added')
-            
+
     return render_template("pages/add-or-edit-project.html",
-                            add_project=True,
-                            project_active=True)
+                           add_project=True,
+                           project_active=True)
 
 
-# edit project page
 @app.route("/edit-project/<project_id>", methods=["GET", "POST"])
 def edit_project(project_id):
     """
@@ -149,7 +151,7 @@ def edit_project(project_id):
                 "repo_link": f"https://{repo_link}",
                 "project_tags": request.form.getlist('checked')
         }
-        else:  
+        else:
             image = request.files['projectimage']
             upload_result = cloudinary.uploader.upload(image)
             submit = {
@@ -163,14 +165,17 @@ def edit_project(project_id):
                 "project_tags": request.form.getlist('checked')
             }
 
-        mongo.db.projects.update_one({"_id": ObjectId(project_id)}, {"$set": submit})
-        flash(f'Your project has been successfully updated')
+        mongo.db.projects.update_one({"_id": ObjectId(project_id)},
+                                     {"$set": submit})
+        flash('Your project has been successfully updated')
 
     project = mongo.db.projects.find_one({"_id": ObjectId(project_id)})
-    return render_template("pages/add-or-edit-project.html", edit_project=True, project_active=True, project=project)
+    return render_template("pages/add-or-edit-project.html",
+                           edit_project=True,
+                           project_active=True,
+                           project=project)
 
 
-# project deletion warning
 @app.route("/warning/<project_id>")
 def warning(project_id):
     """
@@ -178,10 +183,13 @@ def warning(project_id):
     """
     project=mongo.db.projects.find_one({"_id": ObjectId(project_id)})
     projects = list(mongo.db.projects.find().sort("_id", -1))
-    return render_template("pages/home.html", project=project, projects=projects, delete_project=True, modal=True)
+    return render_template("pages/home.html",
+                           project=project,
+                           projects=projects,
+                           delete_project=True,
+                           modal=True)
 
 
-# delete project
 @app.route("/delete-project/<project_id>")
 def delete_project(project_id):
     """
@@ -192,7 +200,6 @@ def delete_project(project_id):
     return redirect(url_for("home_page"))
 
 
-# individual project page
 @app.route("/project/<project>", methods=["GET", "POST"])
 def go_to_project(project):
     """
@@ -201,29 +208,35 @@ def go_to_project(project):
     if request.method == "POST":
         comment = request.form.get('comment')
         author = str(session['user'])
-        mongo.db.projects.update_one({"project_name": str(project).lower()}, {"$push": {"comments": {"$each": [[comment, author]], "$position": 0}}})
+        mongo.db.projects.update_one({"project_name": str(project).lower()},
+                                     {"$push": {"comments": {"$each": [[comment, author]], "$position": 0}}})
         flash('Comment added')
     project = mongo.db.projects.find_one({"project_name": str(project).lower()})
     return render_template("pages/project.html", project=project, home_active=True)
 
 
-# profile page
 @app.route("/profile/<username>")
 def go_to_profile(username):
     """
     Renders profile pages
     """
     # grab the session user's username from the database
-    username = User.query.filter_by(username=username).first()
     user = mongo.db.users.find_one({"account_name": str(username)})
-    projects = list(mongo.db.projects.find({"created_by": str(username)}).sort("_id", -1))
-    if str(username) == session['user']:
-        return render_template("pages/profile.html", projects=projects, username=username, user=user, profile_active=True)
-    else:
-        return render_template("pages/profile.html", projects=projects, username=username, user=user, home_active=True)
+    acc_name = user.get('account_name')
+    projects = list(mongo.db.projects.find({"created_by": acc_name}).sort("_id", -1))
+    try:
+        username = User.query.filter_by(username=acc_name).first()
+    except Exception:
+        flash('An error occured - we\'re working on a solution')
+        return redirect("home_page")     
+
+    return render_template("pages/profile.html",
+                           projects=projects,
+                           username=username,
+                           user=user,
+                           home_active=True)
 
 
-# edit profile page
 @app.route("/edit-profile/<user>", methods=["GET", "POST"])
 def edit_profile(user):
     """
@@ -239,31 +252,44 @@ def edit_profile(user):
             "user_image_name": request.form.get('filename'),
         }
         mongo.db.users.update_one({"account_name": str(user)}, {"$set": submit})
-        flash(f'Your profile has been successfully updated')
+        flash('Your profile has been successfully updated')
         return redirect(url_for("go_to_profile", username=str(user)))
 
     user = mongo.db.users.find_one({"account_name": str(user)})
-    return render_template("pages/profile-form.html", user=user, profile_active=True)
+    return render_template("pages/profile-form.html",
+                           user=user,
+                           profile_active=True)
 
 
-# profile deletion warning
 @app.route("/warning-profile/<user>")
 def warning_profile(user):
     """
     Renders a warning modal when a user tries to delete a project
     """
-    username = User.query.filter_by(username=user).first()
+    try:
+        username = User.query.filter_by(username=user).first()
+    except Exception:
+        flash('That was unexpected! We\'re looking into a solution.')
     user = mongo.db.users.find_one({"account_name": str(user)})
     projects = list(mongo.db.projects.find({"created_by": str(username)}).sort("_id", -1))
-    return render_template("pages/profile.html", projects=projects, username=username, user=user, profile_active=True, delete_profile=True, modal=True)
+    return render_template("pages/profile.html",
+                           projects=projects,
+                           username=username,
+                           user=user,
+                           profile_active=True,
+                           delete_profile=True,
+                           modal=True)
 
-# delete profile
+
 @app.route("/delete-profile/<user>")
 def delete_profile(user):
     """
     Delete's a user profile - both from MongoDB and Postgres DB
     """
-    User.query.filter_by(username=user).delete()
+    try:
+        User.query.filter_by(username=user).delete()
+    except Exception:
+        flash('Deletion unsuccessful! If the problem persists, please contact us')
     db.session.commit()
     mongo.db.projects.delete_many({"created_by": str(user)})
     mongo.db.users.delete_one({"account_name": str(user)})
@@ -272,10 +298,27 @@ def delete_profile(user):
     return redirect(url_for("login"))
 
 
-# contact page
 @app.route("/contact")
 def contact():
     """
     Renders the contact us form
     """
     return render_template("pages/contact.html", contact_active=True)
+
+
+@app.errorhandler(404)
+def page_not_found(e):
+    """
+    Render 404 page
+    """
+    return render_template('/pages/errors.html',
+                           home_active=True,
+                           page_not_found=True), 404
+
+
+@app.errorhandler(500)
+def internal_error(e):
+    """
+    Render 500 page
+    """
+    return render_template('/pages/errors.html', home_active=True)

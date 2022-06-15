@@ -1,17 +1,74 @@
 # DEVHUB
 
-![Devhub cover image](/devhub/static/docs/readme/cover-image.png)
+![Devhub cover image](/static/docs/readme/cover-image.png)
 
 Welcome to Devhub, the online platform for sharing your web development projects!
 
 The goal of this platform is to make sharing your projects with other devs, or finding inspriation from other devs, as simple as possible.
 
-**User credentials**
-To use the website, you may either create your own account, or use the following test user credentials:
-- Username: testaccount
-- Password: test123
-
 ## Table of Contents
+
+- [DEVHUB](#devhub)
+  * [Table of Contents](#table-of-contents)
+  * [UX/UI](#ux-ui)
+    + [User Goals](#user-goals)
+    + [User Stories](#user-stories)
+    + [Site Owner's Goals](#site-owner-s-goals)
+    + [User Requirements and Expectations](#user-requirements-and-expectations)
+      - [Requirements](#requirements)
+      - [Expectations](#expectations)
+    + [Design Choices](#design-choices)
+      - [Colours](#colours)
+      - [Fonts](#fonts)
+      - [Accessibility](#accessibility)
+    + [Wireframes](#wireframes)
+      - [Desktop](#desktop)
+      - [Tablet](#tablet)
+      - [Mobile](#mobile)
+    + [UX/UI Flowchart](#ux-ui-flowchart)
+  * [Features](#features)
+    + [Site-wide](#site-wide)
+    + [Homepage](#homepage)
+    + [Add/edit project page](#add-edit-project-page)
+    + [Login, Logout, Registration](#login--logout--registration)
+    + [Contact page](#contact-page)
+    + [Profile pages](#profile-pages)
+    + [Features to be Implemented](#features-to-be-implemented)
+  * [Technologies Used](#technologies-used)
+    + [Languages](#languages)
+    + [Libraries + Frameworks](#libraries---frameworks)
+    + [APIs](#apis)
+    + [Design](#design)
+  * [Testing](#testing)
+    + [Test 1 - Site Navigation](#test-1---site-navigation)
+      - [User story: '_As a user, I should be able to navigate around the site simply._'](#user-story----as-a-user--i-should-be-able-to-navigate-around-the-site-simply--)
+    + [Test 2 - Add Projects](#test-2---add-projects)
+      - [User story: '_As a user, I should be able to add my own projects._'](#user-story----as-a-user--i-should-be-able-to-add-my-own-projects--)
+    + [Test 3 - Edit projects](#test-3---edit-projects)
+      - [User story: '_As a user, I should be able to edit my projects._'](#user-story----as-a-user--i-should-be-able-to-edit-my-projects--)
+    + [Test 4 - Log in/out](#test-4---log-in-out)
+      - [User story: '_As a user, I should be able to log in/out._'](#user-story----as-a-user--i-should-be-able-to-log-in-out--)
+    + [Test 5 - Profile customisation](#test-5---profile-customisation)
+      - [User story: '_As a user, I would like to be able to customise my profile._'](#user-story----as-a-user--i-would-like-to-be-able-to-customise-my-profile--)
+    + [Test 6 - Contact](#test-6---contact)
+      - [User story: '_As a user, I would like to be able to contact the site's creator._'](#user-story----as-a-user--i-would-like-to-be-able-to-contact-the-site-s-creator--)
+    + [Test 7 - Responsivity](#test-7---responsivity)
+      - [User story: '_As a user, I should be able to access the website on a range of devices (desktop, tablet, mobile)._'](#user-story----as-a-user--i-should-be-able-to-access-the-website-on-a-range-of-devices--desktop--tablet--mobile---)
+    + [Test 8 - Personal Profile](#test-8---personal-profile)
+      - [User story: '_As a user, I would like to have my own profile, where I can see all of my projects._'](#user-story----as-a-user--i-would-like-to-have-my-own-profile--where-i-can-see-all-of-my-projects--)
+  * [Bugs](#bugs)
+    + [Project cards different sizes depending on length of description](#project-cards-different-sizes-depending-on-length-of-description)
+    + [Contact form not sending emails correctly](#contact-form-not-sending-emails-correctly)
+    + [Input text not sanitised on login/registration](#input-text-not-sanitised-on-login-registration)
+    + [Profile nav link highlighted when on other users' profiles](#profile-nav-link-highlighted-when-on-other-users--profiles)
+    + [Project cards showing static amount of project tags](#project-cards-showing-static-amount-of-project-tags)
+  * [Deployment](#deployment)
+    + [Local Development](#local-development)
+    + [Deployment](#deployment-1)
+  * [Credits](#credits)
+    + [General Thanks](#general-thanks)
+
+<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
 
 ## UX/UI
 
@@ -61,7 +118,7 @@ To use the website, you may either create your own account, or use the following
 #### Colours
 For this project, I used the pre-made ['Enviro'](https://colorhub.vercel.app/select-palette/enviro) colour pallete from [Daniel Cranney](https://twitter.com/danielcranney)'s ['ColorHub'](https://colorhub.vercel.app/). I decided that I wanted green to be the focal brand colour of this project to symbolise growth. Also, I wanted the other colours in the pallete to be more mild shades of black, grey, and white, to make the brand green stand out.
 
-![Devhub's Colour Pallete](/devhub/static/docs/readme/colour-palette.png)
+![Devhub's Colour Pallete](/static/docs/readme/colour-palette.png)
 
 The colours used were:
 - `#3CB35A`: This colour was used as the brand colour, used mostly on call to action buttons/links, or anything else that I wanted to focus the user's attention to.
@@ -115,7 +172,7 @@ I used a pairing of two [Google Fonts](https://fonts.google.com/) - [Montserrat]
 
 On every page on the site, the nav is either fixed to the left-side of the screen (on desktop), or slides in from the left-side of the screen (on mobile and tablet).
 
-![Static nav](/devhub/static/docs/readme/features/fixed-nav.png)
+![Static nav](/static/docs/readme/features/fixed-nav.png)
 
 **Nav displays different links dependent on if user if logged in/out**
 
@@ -124,11 +181,11 @@ Depending on whether the user is logged in/out, the main nav will show different
 
 Logged in version:
 
-![Logged in version of nav](/devhub/static/docs/readme/features/nav-logged-in.png)
+![Logged in version of nav](/static/docs/readme/features/nav-logged-in.png)
 
 Logged out version:
 
-![Logged out version of nav](/devhub/static/docs/readme/features/nav-logged-out.png)
+![Logged out version of nav](/static/docs/readme/features/nav-logged-out.png)
 
 **Current nav link active class**
 
@@ -145,11 +202,11 @@ Depending on which page the user is on, the appropriate nav link will be highlig
 
 Nav with homepage icon active:
 
-![Home page with active class](/devhub/static/docs/readme/features/nav-home-active.png)
+![Home page with active class](/static/docs/readme/features/nav-home-active.png)
 
 Nav with contact page active:
 
-![Contact page with active class](/devhub/static/docs/readme/features/nav-contact-active.png)
+![Contact page with active class](/static/docs/readme/features/nav-contact-active.png)
 
 **Form validation**
 
@@ -157,11 +214,11 @@ Form validation has been added to the following pages: login, registration, and 
 
 Successful validation:
 
-![Successful validation](/devhub/static/docs/readme/features/form-validation-success.png)
+![Successful validation](/static/docs/readme/features/form-validation-success.png)
 
 Unsuccessful validation:
 
-![Unsuccessful validation](/devhub/static/docs/readme/features/form-validation-failed.png)
+![Unsuccessful validation](/static/docs/readme/features/form-validation-failed.png)
 
 ### Homepage
 **Project Cards**
@@ -175,13 +232,13 @@ There is a card containing the following information for each project:
 - Project image
 - Project tags
 
-![Example of two project cards](/devhub/static/docs/readme/features/homepage-project-cards.png)
+![Example of two project cards](/static/docs/readme/features/homepage-project-cards.png)
 
 If a user is logged in, it will also show edit/delete buttons when the user hovers on the project cards they own and a star next to their username to signify that they own it (which also shows a tooltip saying 'You own this project'). This applies to all projects if you are logged in as the admin.
 
-![Example of edit/delete buttons on project cards](/devhub/static/docs/readme/features/project-card-buttons.png)
+![Example of edit/delete buttons on project cards](/static/docs/readme/features/project-card-buttons.png)
 
-![Ownership star on project cards](/devhub/static/docs/readme/features/project-card-star.png)
+![Ownership star on project cards](/static/docs/readme/features/project-card-star.png)
 
 ### Add/edit project page
 **Add project**
@@ -190,11 +247,11 @@ Users are presented with a short form to complete - once the form is submitted, 
 
 Completed add project form:
 
-![Completed add project form](/devhub/static/docs/readme/features/add-project-form.png)
+![Completed add project form](/static/docs/readme/features/add-project-form.png)
 
 Outputted project cards:
 
-![Outputted project card](/devhub/static/docs/readme/features/project-card-bordle.png)
+![Outputted project card](/static/docs/readme/features/project-card-bordle.png)
 
 **Edit project**
 
@@ -202,7 +259,7 @@ If the user owns a project, or is an admin, they have the option to edit the pro
 
 Edit project form
 
-![Edit project form](/devhub/static/docs/readme/features/edit-project-form.png)
+![Edit project form](/static/docs/readme/features/edit-project-form.png)
 
 ### Login, Logout, Registration
 
@@ -210,19 +267,19 @@ Edit project form
 
 Users can fill out a short registration form, consisting of their: first name, last name, username, password and an additional field to confirm that their password
 
-![Registration form](/devhub/static/docs/readme/features/register-form.png)
+![Registration form](/static/docs/readme/features/register-form.png)
 
 **Login form**
 
 Once a user has registered for the site - all they have to do to log in is enter their username and password to this form
 
-![Login form](/devhub/static/docs/readme/features/login-form.png)
+![Login form](/static/docs/readme/features/login-form.png)
 
 **Logout**
 
 Once a user is logged in, to log out all they have to do it click the logout link in the nav (which then turns into the login link while there is noone logged in)
 
-![Login/logout link](/devhub/static/docs/readme/features/login-logout-link.png)
+![Login/logout link](/static/docs/readme/features/login-logout-link.png)
 
 ### Contact page
 
@@ -232,17 +289,17 @@ The contact page has a form, that uses [EmailJS](https://www.emailjs.com/) in or
 
 Contact form:
 
-![Contact form](/devhub/static/docs/readme/features/contact-form.png)
+![Contact form](/static/docs/readme/features/contact-form.png)
 
 Sent email:
 
-![Sent email](/devhub/static/docs/readme/features/email.png)
+![Sent email](/static/docs/readme/features/email.png)
 
 ### Profile pages
 
 Once a user has registered, they will have their own profile page - a page that displays the user's username, bio (once it has been created) and all projects created by that use (sorted by newest to oldest).
 
-![Example profile page](/devhub/static/docs/readme/features/profile-page.png)
+![Example profile page](/static/docs/readme/features/profile-page.png)
 
 ### Features to be Implemented
 - Upvoting/Downvoting: In future iterations of this project, I would like to add up and down arrows to the project cards for (logged in) users to upvote/downvote the projects.
@@ -302,19 +359,19 @@ A demonstration of the site's nav can be found [here](https://www.awesomescreens
 
 Test 1:
 
-![Bordle test project](/devhub/static/docs/readme/tests/add-project-form-one.png)
+![Bordle test project](/static/docs/readme/tests/add-project-form-one.png)
 
 Test 2:
 
-![Minefield memory test project](/devhub/static/docs/readme/tests/add-project-form-two.png)
+![Minefield memory test project](/static/docs/readme/tests/add-project-form-two.png)
 
 Test 3:
 
-![Devhub test project](/devhub/static/docs/readme/tests/add-project-form-three.png)
+![Devhub test project](/static/docs/readme/tests/add-project-form-three.png)
 
 Result:
 
-![Uploaded projects](/devhub/static/docs/readme/tests/add-project-cards.png)
+![Uploaded projects](/static/docs/readme/tests/add-project-cards.png)
 
 ### Test 3 - Edit projects
 
@@ -326,27 +383,27 @@ Result:
 
 Project one before:
 
-![Project one before](/devhub/static/docs/readme/tests/edit-project-one-before.png)
+![Project one before](/static/docs/readme/tests/edit-project-one-before.png)
 
 Project one after:
 
-![Project one before](/devhub/static/docs/readme/tests/edit-project-one-after.png)
+![Project one before](/static/docs/readme/tests/edit-project-one-after.png)
 
 Project two before:
 
-![Project two before](/devhub/static/docs/readme/tests/edit-project-two-before.png)
+![Project two before](/static/docs/readme/tests/edit-project-two-before.png)
 
 Project two after:
 
-![Project two before](/devhub/static/docs/readme/tests/edit-project-two-after.png)
+![Project two before](/static/docs/readme/tests/edit-project-two-after.png)
 
 Project three before:
 
-![Project three before](/devhub/static/docs/readme/tests/edit-project-three-before.png)
+![Project three before](/static/docs/readme/tests/edit-project-three-before.png)
 
 Project three after:
 
-![Project three before](/devhub/static/docs/readme/tests/edit-project-three-after.png)
+![Project three before](/static/docs/readme/tests/edit-project-three-after.png)
 
 
 ### Test 4 - Log in/out
@@ -359,15 +416,15 @@ Project three after:
 
 Successful login:
 
-![Successful login screenshot](/devhub/static/docs/readme/tests/successful-login.png)
+![Successful login screenshot](/static/docs/readme/tests/successful-login.png)
 
 Successful logout:
 
-![Successful logout screenshot](/devhub/static/docs/readme/tests/successful-logout.png)
+![Successful logout screenshot](/static/docs/readme/tests/successful-logout.png)
 
 Unsuccessful login:
 
-![Unsuccessful login](/devhub/static/docs/readme/tests/unsuccessful-login.png)
+![Unsuccessful login](/static/docs/readme/tests/unsuccessful-login.png)
 
 ### Test 5 - Profile customisation
 
@@ -379,19 +436,19 @@ Unsuccessful login:
 
 Testaccount profile before:
 
-![Testaccount profile (before)](/devhub/static/docs/readme/tests/edit-profile-before.png)
+![Testaccount profile (before)](/static/docs/readme/tests/edit-profile-before.png)
 
 Edit one:
 
-![Testaccount profile (before)](/devhub/static/docs/readme/tests/edit-profile-one.png)
+![Testaccount profile (before)](/static/docs/readme/tests/edit-profile-one.png)
 
 Edit two:
 
-![Testaccount profile (before)](/devhub/static/docs/readme/tests/edit-profile-two.png)
+![Testaccount profile (before)](/static/docs/readme/tests/edit-profile-two.png)
 
 Edit three:
 
-![Testaccount profile (before)](/devhub/static/docs/readme/tests/edit-profile-three.png)
+![Testaccount profile (before)](/static/docs/readme/tests/edit-profile-three.png)
 
 ### Test 6 - Contact
 
@@ -403,21 +460,21 @@ Edit three:
 
 Test email one:
 
-![Contact form for test email one](/devhub/static/docs/readme/tests/test-email-one.png)
+![Contact form for test email one](/static/docs/readme/tests/test-email-one.png)
 
-![Test email one received](/devhub/static/docs/readme/tests/test-email-one-received.png)
+![Test email one received](/static/docs/readme/tests/test-email-one-received.png)
 
 Test email two:
 
-![Contact form for test email two](/devhub/static/docs/readme/tests/test-email-two.png)
+![Contact form for test email two](/static/docs/readme/tests/test-email-two.png)
 
-![Test email two received](/devhub/static/docs/readme/tests/test-email-two-received.png)
+![Test email two received](/static/docs/readme/tests/test-email-two-received.png)
 
 Test email three:
 
-![Contact form for test email three](/devhub/static/docs/readme/tests/test-email-three.png)
+![Contact form for test email three](/static/docs/readme/tests/test-email-three.png)
 
-![Test email three received](/devhub/static/docs/readme/tests/test-email-three-received.png)
+![Test email three received](/static/docs/readme/tests/test-email-three-received.png)
 
 ### Test 7 - Responsivity
 
@@ -431,15 +488,15 @@ Test description
 
 Homepage (desktop view):
 
-![Homepage (desktop view)](/devhub/static/docs/readme/tests/homepage-desktop.png)
+![Homepage (desktop view)](/static/docs/readme/tests/homepage-desktop.png)
 
 Homepage (tablet view):
 
-![Homepage (desktop view)](/devhub/static/docs/readme/tests/homepage-tablet.png)
+![Homepage (desktop view)](/static/docs/readme/tests/homepage-tablet.png)
 
 Homepage (mobile view):
 
-![Homepage (desktop view)](/devhub/static/docs/readme/tests/homepage-mobile.png)
+![Homepage (desktop view)](/static/docs/readme/tests/homepage-mobile.png)
 
 ### Test 8 - Personal Profile
 
@@ -453,33 +510,33 @@ Test description
 
 Profile one:
 
-![Profile one](/devhub/static/docs/readme/tests/profile-page-one.png)
+![Profile one](/static/docs/readme/tests/profile-page-one.png)
 
 Profile two:
 
-![Profile two](/devhub/static/docs/readme/tests/profile-page-two.png)
+![Profile two](/static/docs/readme/tests/profile-page-two.png)
 
 Profile three:
 
-![Profile three](/devhub/static/docs/readme/tests/profile-page-three.png)
+![Profile three](/static/docs/readme/tests/profile-page-three.png)
 
 ## Bugs
 
 ### Project cards different sizes depending on length of description
 - **Bug**: If the length of the project description was too long (approximately > 450 characters), it would cause the project card to expand, thus no longer aligning with its neighbouring cards (as seen in the picture below).
-![Project card bug](/devhub/static/docs/readme/bugs/bug-one.png)
+![Project card bug](/static/docs/readme/bugs/bug-one.png)
 - **Fix**: I had two potential fixes in mind for this bug: either make all cards stretch to the same height using `align-items: stretch`. However, after some research, I found that you can limit the amount of characters via Jinja's `truncate` filter - which I set to 450 characters.
 - **Verdict**: If the project's description exceeds 450 characters, it is successfully truncated, stopping the project card from expanding. I have deemed this fix a success.
 
 ### Contact form not sending emails correctly
 - **Bug**: After refactoring the 'base.html' template, the contact page would return an error when the form was submitted.
-![EmailJS bug](/devhub/static/docs/readme/bugs/bug-two.png)
+![EmailJS bug](/static/docs/readme/bugs/bug-two.png)
 - **Fix**: I found the issue to be that, after the base tempalte refactor, that the email.js script was no longer included on the contact page. I added `{% block scripts %}` back into the base template and the contact form began working again.
 - **Verdict**: I have determined this fix to be successful.
 
 ### Input text not sanitised on login/registration
 - **Bug**: On the login/registration form, the username input was being converted to lowercase - this meant that you could have many usernames that look identical, but with different capitalisation. Additionally, when trying to log in, if a user types their username, but with incorrect capitalisation, they will be denied access.
-![Login bug](/devhub/static/docs/readme/bugs/bug-three.png)
+![Login bug](/static/docs/readme/bugs/bug-three.png)
 - **Fix**: To fix this, I used the sqlalchemy function `func.lower()` to force all text inputs to be converted to lowercase when submitted.
 - **Verdict**: After testing five different capitalisations of 'testaccount', and all of them successfully logging in, I have deemed this fix to be successful.
 
@@ -490,15 +547,15 @@ Profile three:
 
 Profile nav link for logged in user:
 
-![Nav link when visiting your own profile](/devhub/static/docs/readme/bugs/nav-link-user.png)
+![Nav link when visiting your own profile](/static/docs/readme/bugs/nav-link-user.png)
 
 Nav link when visiting other user's profiles:
 
-![Nav link when visiting another user's profile](/devhub/static/docs/readme/bugs/nav-link-user-2.png)
+![Nav link when visiting another user's profile](/static/docs/readme/bugs/nav-link-user-2.png)
 
 ### Project cards showing static amount of project tags
 - **Bug**: The project card, initially, was set to always show 3 project tags. However, after changing the functionality of the add/edit project form, the user was allowed to choose as many tags as they wanted; this would cause a problem if the user chose more - or less - than 3 tags, as it would either display tags with no text content, or so many tabs that they would overflow off the card.
-    ![Project tags bug](/devhub/static/docs/readme/bugs/project-tags-bug.png)
+    ![Project tags bug](/static/docs/readme/bugs/project-tags-bug.png)
 - **Fix**: To fix this, I added in the following jinja logic to first check if there were more than three tags for the project. If there were more than three tags, I chose to limit it to three, and if there were less than 3 - or exactly 3 - it would only show the project tags that were there.
     ```
     {% if project.project_tags | length > 3 %}
@@ -517,22 +574,40 @@ Nav link when visiting other user's profiles:
 
 ### Local Development
 
-I created this project using [Github]() to store the code and [Gitpod]() as my code editor.
-
 The project can be run locally by completing the following:
 
 1. Clone the project
     - Navigate to the [project repo](https://github.com/Samoftheforrest/devhub)
-    - Click the 'code' button (highlighted on the image below) - from here you have two options:
-    ![Project repo homepage](/devhub/static/docs/readme/deployment/github-repo.png)
-    1. Open a terminal and run the following command: `git clone https://www.github.com/samoftheforrest/devhub.git`
-    2. Select 'download ZIP' to download the files
-    ![The repository's 'code' panel](/devhub/static/docs/readme/deployment/github-code-window.png)
-2. Navigate to, and open, the cloned/downloaded folder in your code editor, through the following steps:
+    - Click the 'code' button (highlighted on the image below) and copy the clone link:
+    ![Project repo homepage](/static/docs/readme/deployment/github-repo.png)
+2. Open a terminal and run the following command: `git clone https://www.github.com/samoftheforrest/devhub.git`
+![The repository's 'code' panel](/static/docs/readme/deployment/github-code-window.png)
+3. Navigate to, and open, the cloned/downloaded folder in your code editor, through the following steps:
     - File -> open folder
     - Navigate through your file directory to the place where the repo is cloned/downloaded
     - Select 'open folder'
-3. Run a live server using the following command:
+4. Create config variables in the `.env` file (**Important:** make sure you add this file to your `.gitignore`)
+  ```
+  # flask
+  os.environ.setdefault('IP', '0.0.0.0')
+  os.environ.setdefault('PORT', '5000')
+  os.environ.setdefault('SECRET_KEY', 'Your secret key here**')
+  os.environ.setdefault("DEVELOPMENT", "True")
+
+  # mongodb
+  os.environ.setdefault('MONGO_URI', '**Your MongoDB uri here**')
+  os.environ.setdefault('MONGO_DBNAME', '**Your Mongo Database name**')
+
+  # postgresql - THIS ONE IS REQUIRED FOR THE NEXT STEP
+  os.environ.setdefault("DB_URL", "postgresql:///**Your database name**")
+  ```
+5. Set up your database
+  1. run `psql` from the command line
+  2. run the command `CREATE DATABASE **Your database name from the previous step**`
+  3. run `\c **Your database name**`
+  4. finally, run `db.create_all()` - this will create the follow `user` database schema
+    ![Database schema](/docs/readme/deployment/database-schema.png)
+6. Run a live server using the following command:
     `python3 run.py`
 
 ### Deployment
@@ -541,14 +616,15 @@ This page is deployed using [Heroku](). Here I will explain how to deploy a proj
 
 1. Create a Heroku account.
 2. Under 'new' select 'create new app'
-    ![New Heroku project](/devhub/static/docs/readme/deployment/new-heroku-project.png)
+    ![New Heroku project](/static/docs/readme/deployment/new-heroku-project.png)
 3. Choose a name and region
-    ![Heroku name and region screen](/devhub/static/docs/readme/deployment/heroku-name-and-region.png)
+    ![Heroku name and region screen](/static/docs/readme/deployment/heroku-name-and-region.png)
     - **Note:** the name must be unique, and the it is a good idea to set the region to the one closest to you geographically
 4. Next, navigate to the 'settings' tab and add all the necessary environment and configuration variables under 'config vars'
-    ![Config Variables](/devhub/static/docs/readme/deployment/heroku-config-vars.png)
+    - Note: These config variables will be the ones you set up for flask and mongodb (which can be seen in 'development' above)
+    ![Config Variables](/static/docs/readme/deployment/heroku-config-vars.png)
 5. Then, navigate to the 'deploy' tab, this will give you a list of the deployment methods. For this project I decided to use the Heroku CLI - as there was issues with GitHub integration - to do this:
-    ![Heroku deployment methods](/devhub/static/docs/readme/deployment/heroku-deployment-methods.png)
+    ![Heroku deployment methods](/static/docs/readme/deployment/heroku-deployment-methods.png)
     1. Navigate back to your project and open a terminal
     2. Use the command `heroku login -i` to login via the terminal
     3. Enter your email and password
