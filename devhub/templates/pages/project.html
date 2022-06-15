@@ -48,8 +48,8 @@
                 <div class="comments">
                     {% for comment in project.comments %}
                         <div class="comment d-flex flex-column">
-                            <p class="comment-text">{{ comment }}</p>
-                            <span class="comment-author">By: <span class="highlight">{{ session['user'] }}</span></span>
+                            <p class="comment-text">{{ comment[0] }}</p>
+                            <span class="comment-author">By: <span class="highlight">{{ comment[1] }}</span></span>
                         </div>
                     {% endfor %}
                 </div>

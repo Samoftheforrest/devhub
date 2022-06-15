@@ -188,7 +188,8 @@ def go_to_project(project):
     """
     if request.method == "POST":
         comment = request.form.get('comment')
-        mongo.db.projects.update_one({"project_name": str(project).lower()}, {"$push": {"comments": {"$each": [comment], "$position": 0}}})
+        author = str(session['user'])
+        mongo.db.projects.update_one({"project_name": str(project).lower()}, {"$push": {"comments": {"$each": [[comment, author]], "$position": 0}}})
         flash('Comment added')
     project = mongo.db.projects.find_one({"project_name": str(project).lower()})
     return render_template("pages/project.html", project=project, home_active=True)
