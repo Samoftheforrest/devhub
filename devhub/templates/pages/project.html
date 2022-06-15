@@ -15,10 +15,10 @@
                         <div class="col-lg-10">
                             <p class="mb-4"> Posted by <a href="{{ url_for('go_to_profile', username=project.created_by) }}" class="project-creator">{{ project.created_by }}</a> on {{ project.date_posted }}</p>
                             <div class="project-description mb-4">
-                                <h2>Description:</h2>
+                                <h2 class="mb-2">Description:</h2>
                                 <p>{{ project.project_description }}</p>
                             </div>
-                            <h2>Find this project here:</h2>
+                            <h2 class="mb-2">Find this project here:</h2>
                             <div class="project-links d-flex mb-4">
                                 <a href="{{ project.live_link }}" target="_blank" rel="noopener" aria-label="Go to {{ project.live_link }}"><i class="fa-solid fa-square-arrow-up-right"></i></a>
                                 <a href="{{ project.repo_link }}" target="_blank" rel="noopener" class="ms-3" aria-label="Go to {{ project.repo_link }}"><i class="fa-brands fa-github-square"></i></a>
