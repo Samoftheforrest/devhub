@@ -49,7 +49,7 @@
                     {% for comment in project.comments %}
                         <div class="comment d-flex flex-column">
                             <p class="comment-text">{{ comment[0] }}</p>
-                            <span class="comment-author">By: <span class="highlight">{{ comment[1] }}</span></span>
+                            <span class="comment-author">By: <a href="{{ url_for('go_to_profile', username=comment[1]) }}">{{ comment[1] }}</a></span>
                         </div>
                     {% endfor %}
                 </div>

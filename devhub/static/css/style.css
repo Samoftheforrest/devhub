@@ -786,6 +786,28 @@ h2, h3, h4, h5, h6 {
     align-self: flex-end;
 }
 
+.comment-author a {
+    color: var(--brand-colour);
+    font-weight: 700;
+    text-decoration: none;
+    position: relative;
+}
+
+.comment-author a::before {
+    content: '';
+    width: 0;
+    height: 2px;
+    background: var(--brand-colour);
+    display: inline-block;
+    position: absolute;
+    bottom: 0;
+    transition: all .3s;
+}
+
+.comment-author:hover a::before, .comment-author:focus a::before {
+    width: 100%;
+} 
+
 /* media queries */
 
 @media screen and (min-width: 992px) {
